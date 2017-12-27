@@ -1,6 +1,10 @@
-## Git flow
+Git
+=====
 
-## Apply patches
+- [Git](#git)
+  - [Patches](#patches)
+
+## Patches
 
 ```bash
 # Move the changes from the current branch to a new branch and delete the branch
