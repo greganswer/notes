@@ -8,9 +8,12 @@ Go Language
   - [Terminal commands](#terminal-commands)
   - [General](#general)
   - [Variables](#variables)
+    - [Scalar](#scalar)
+    - [Reference](#reference)
   - [Constants](#constants)
   - [Functions](#functions)
   - [Scopes](#scopes)
+  - [Conditional logic](#conditional-logic)
 
 ## Installation
 
@@ -73,6 +76,8 @@ go install # The file will be placed in $HOME/<workspace_name>/bin
 
 ## Variables
 
+### Scalar
+
 - Shorthand syntax can only be used inside `func`
 - Declared variables get set to their "zero" value
 
@@ -88,6 +93,11 @@ b:= "golang"
 // Exported variable
 var MyString = "hello" // Note the capitalization of the first letter
 ```
+
+### Reference
+
+- Slices hold references to an underlying array, and if you assign one slice to another, both refer to the same array. 
+- If a function takes a slice argument, changes it makes to the elements of the slice will be visible to the caller, analogous to passing a pointer to the underlying array.
 
 ## Constants
 
@@ -110,8 +120,87 @@ func myFunc() string  { return "hello" }
 
 // Declare an exported function of type string
 func MyFunc() string  { return "hello" } // Note the capitalization of the first letter
+
+// Accept to string arguments and return multiple values
+func fullName(first_name, last_name string) string {
+  return fmt.Sprint(first_name, last_name), fmt.Sprint(last_name, first_name)
+}
+```
+
+**Create a variadic function:**
+
+```go
+/*
+Note the ellipsis prefix for the float64 type, denoting that this function
+  accepts 0 or more arguments
+*/
+func average(sf ...float64) float64 {
+  total := 0.0
+  for _, v := range sf {
+    total += v
+  }
+  return total / float64(len(sf))
+}
+
+/*
+Note the ellipsis postfix for the float64 slice, denoting that the values
+  will be split into a comma separated list
+*/
+data := []float64{43, 56, 12}
+n := average(data...)
+```
+
+**Callbacks:**
+
+```go
+// The first parameter is a slice of integers
+// The second parameter is a function that takes an int parameter
+func visit(numbers []int, callback func(int)) {
+  for _, v := range numbers {
+    callback(v)
+  }
+}
+
+func main() {
+  // The first argument is a slice of integers
+  // The second argument is an anonymous function that has an int argument
+  visit([]int{1, 2, 3, 4}, func(n int) {
+    fmt.Println(n)
+  })
+}
 ```
 
 ## Scopes
 
 Levels: universe, package, file, block (curly braces)
+
+## Conditional logic
+
+```go
+// Initialization statement in an if statement
+b := true
+if food := "Chocolate"; b {
+  fmt.PrintLn(food)
+}
+// the food variable is not available outside the if block
+```
+
+```go
+// Switch based on type
+type Contact struct {
+  greeting string
+  name string
+}
+x := 42
+
+switch x.(type) {
+case int:
+  fmt.Println("int")
+case string:
+  fmt.Println("string")
+case Contact:
+  fmt.Println("contact")
+default:
+  fmt.Println("unknown")
+}
+```
