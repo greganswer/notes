@@ -10,10 +10,16 @@ Go Language
   - [Variables](#variables)
     - [Scalar](#scalar)
     - [Reference](#reference)
+    - [Slice](#slice)
+    - [Map](#map)
   - [Constants](#constants)
   - [Functions](#functions)
   - [Scopes](#scopes)
   - [Conditional logic](#conditional-logic)
+  - [Structs](#structs)
+  - [JSON](#json)
+    - [Marshalling](#marshalling)
+    - [Encoding](#encoding)
 
 ## Installation
 
@@ -79,12 +85,15 @@ go install # The file will be placed in $HOME/<workspace_name>/bin
 ### Scalar
 
 - Shorthand syntax can only be used inside `func`
-- Declared variables get set to their "zero" value
+- Declared variables get set to their *"zero"* value
 
 ```go
 // Declare a variable, then assign it a value
-var x string // x is currently ''
-x = "hello" // x is now hello
+var n int    //=> 0
+var x string //=> ''
+x = "hello"  //=> hello
+x[1]         //=> e
+"hello"[1]   //=> e
 
 // Declared with shorthand
 a:= 10
@@ -98,6 +107,111 @@ var MyString = "hello" // Note the capitalization of the first letter
 
 - Slices hold references to an underlying array, and if you assign one slice to another, both refer to the same array. 
 - If a function takes a slice argument, changes it makes to the elements of the slice will be visible to the caller, analogous to passing a pointer to the underlying array.
+- To get the address of a variable named `person` call `&person`
+
+### Slice
+
+```go
+// Declare an empty slice of int with 17 slots
+emptySlice := make([]int, 17)
+
+// Declare a slice of string
+mySlice := []string{"a", "b", "c", "d", "e"}
+
+// Access an element of a slice
+mySlice[1]  //=> "b"
+
+// Get a slice of a slice 
+newSlice := mySlice[:1] //=> [a]
+newSlice := mySlice[2:4] //=> [c d]
+newSlice := mySlice[3:] //=> [d e]
+
+// Append a slice to a slice
+doubleSlice := append(mySlice, newSlice...)
+
+// Delete from a slice
+a = append(a[:i], a[j:]...)
+a = append(a[:i], a[i+1:]...)
+
+```
+
+Additional tricks: https://github.com/golang/go/wiki/SliceTricks
+
+### Map
+
+```go
+// Declare a map of integers
+ages := make(map[string]int)
+ages["Kevin"] = 32
+ages["Kim"] = 27
+
+// Declare and initialize a new map
+newMap := map[string]int{"foo": 1, "bar": 2}
+
+// Check if the value is present
+age, exists := ages["Kevin"]
+age //=> 32
+exists //=> true
+
+// Delete the value and check if it's present
+delete(ages, "Kevin")
+_, exists := ages["Kevin"]
+exists //=> false
+```
+
+**Loop over maps**
+
+```go
+for key, val := range myMap {
+  fmt.Println(key, " - ", value)
+}
+```
+
+**Additional maps**
+
+```go
+myGreeting := make(map[string]string)
+myGreeting["Tim"] = "Good morning."
+myGreeting["Jenny"] = "Bonjour."
+
+// OR
+
+myGreeting := map[string]string{
+  "Tim": "Good morning."
+  "Jenny": "Bonjour."
+}
+
+// OR
+
+myGreeting := map[int]string{
+  0: "Good morning."
+  1: "Bonjour."
+}
+
+if val, ok := myGreeting[2]; ok {
+  fmt.Println("The value exists")
+} else {
+  fmt.Println("The value does NOT exist")
+}
+
+elements := map[string]string{
+  "H":  "Hydrogen",
+  "He": "Helium",
+}
+
+// A map of maps
+
+elements := map[string]map[string]string{
+  "H": map[string]string{
+    "name":"Hydrogen",
+    "state":"gas",
+  },
+  "He": map[string]string{
+    "name":"Helium",
+    "state":"gas",
+  },
+}
+```
 
 ## Constants
 
@@ -134,12 +248,12 @@ func fullName(first_name, last_name string) string {
 Note the ellipsis prefix for the float64 type, denoting that this function
   accepts 0 or more arguments
 */
-func average(sf ...float64) float64 {
+func average(numbers**** ...float64) float64 {
   total := 0.0
-  for _, v := range sf {
+  for _, v := range numbers {
     total += v
   }
-  return total / float64(len(sf))
+  return total / float64(len(numbers))
 }
 
 /*
@@ -189,7 +303,7 @@ if food := "Chocolate"; b {
 // Switch based on type
 type Contact struct {
   greeting string
-  name string
+  name     string
 }
 x := 42
 
@@ -202,5 +316,112 @@ case Contact:
   fmt.Println("contact")
 default:
   fmt.Println("unknown")
+}
+```
+
+## Structs
+
+```go
+type Person struct {
+  First string // A person has a first name of type string
+  Last  string
+  Age   int
+}
+
+type DoubleZero struct {
+  Person // A Double Zero is a type of person
+  First         string
+  Last          string
+  licenseToKill bool // This will not be exported
+}
+
+func (p Person) fullName() string {
+  return p.First + " " + p.Last
+}
+
+func (p DoubleZero) fullName() string {
+  return p.Person.Last + ", " + p.Person.First + " " + p.Person.Last
+}
+
+person1 := DoubleZero{
+  Person: Person{
+    First: "James", 
+    Last: "Bond", 
+    Age: 20
+  },
+  First: "Bond",
+  Last: "James Bond",
+  licenseToKill: true,
+}
+
+person2 := Person{"Miss", "MoneyPenny", 18}
+
+fmt.Println(person1.First)             //=> Bond
+fmt.Println(person1.Person.First)      //=> James
+fmt.Println(person1.fullName())        //=> Bond, James Bond
+fmt.Println(person1.Person.fullName()) //=> James Bond
+```
+
+## JSON
+
+### Marshalling
+
+- Marshalling/unmarshalling is when you convert bytes from one format to another
+
+```go
+import (
+  "encoding/json"
+  "fmt"
+)
+
+type Person struct {
+  First string
+  Last  string `json:"-"` // This will not be part of JSON response
+  Age   int    `json:"wisdom score"`
+}
+
+func main() {
+  // Convert to JSON
+	p1 := Person{"James", "Bond", 20}
+	byteSlice, _ := json.Marshal(p1)
+	fmt.Println(string(byteSlice)) //=> {"First":"James","wisdom score":20}
+
+	// Convert from JSON
+	var person1 Person
+	byteSlice = []byte(`{"First":"James","wisdom score":20}`)
+	json.Unmarshal(byteSlice, &person1)
+	fmt.Println(person1.First) //=> James
+	fmt.Println(person1.Last)  //=>
+}
+```
+
+### Encoding
+
+- Encoding/decoding is when you convert a stream of data (usually from an external source) from one format to another
+
+```go
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
+)
+
+type Person struct {
+	First string
+	Last  string 
+	Age   int    
+}
+
+func main() {
+	// Convert to JSON
+	p1 := Person{"James", "Bond", 20}
+	json.NewEncoder(os.Stdout).Encode(p1) //=> {"First":"James", "Last": "Bond", "Age":20}
+
+	// Convert from JSON
+	var person1 Person
+	reader := strings.NewReader(`{"First":"James", "Last": "Bond", "Age":20}`)
+	json.NewDecoder(reader).Decode(&person1)
+	fmt.Println(person1.Last) //=> Bond
 }
 ```
