@@ -20,6 +20,8 @@ Go Language
   - [JSON](#json)
     - [Marshalling](#marshalling)
     - [Encoding](#encoding)
+  - [Interfaces](#interfaces)
+  - [Concurrency & parallelism](#concurrency-parallelism)
 
 ## Installation
 
@@ -105,7 +107,7 @@ var MyString = "hello" // Note the capitalization of the first letter
 
 ### Reference
 
-- Slices hold references to an underlying array, and if you assign one slice to another, both refer to the same array. 
+- **Slices** hold references to an underlying array, and if you assign one slice to another, both refer to the same array. 
 - If a function takes a slice argument, changes it makes to the elements of the slice will be visible to the caller, analogous to passing a pointer to the underlying array.
 - To get the address of a variable named `person` call `&person`
 
@@ -113,7 +115,7 @@ var MyString = "hello" // Note the capitalization of the first letter
 
 ```go
 // Declare an empty slice of int with 17 slots
-emptySlice := make([]int, 17)
+a := make([]int, 17)
 
 // Declare a slice of string
 mySlice := []string{"a", "b", "c", "d", "e"}
@@ -127,7 +129,7 @@ newSlice := mySlice[2:4] //=> [c d]
 newSlice := mySlice[3:] //=> [d e]
 
 // Append a slice to a slice
-doubleSlice := append(mySlice, newSlice...)
+b := append(mySlice, newSlice...)
 
 // Delete from a slice
 a = append(a[:i], a[j:]...)
@@ -146,7 +148,7 @@ ages["Kevin"] = 32
 ages["Kim"] = 27
 
 // Declare and initialize a new map
-newMap := map[string]int{"foo": 1, "bar": 2}
+b := map[string]int{"foo": 1, "bar": 2}
 
 // Check if the value is present
 age, exists := ages["Kevin"]
@@ -343,7 +345,7 @@ func (p DoubleZero) fullName() string {
   return p.Person.Last + ", " + p.Person.First + " " + p.Person.Last
 }
 
-person1 := DoubleZero{
+p1 := DoubleZero{
   Person: Person{
     First: "James", 
     Last: "Bond", 
@@ -354,19 +356,19 @@ person1 := DoubleZero{
   licenseToKill: true,
 }
 
-person2 := Person{"Miss", "MoneyPenny", 18}
+p2 := Person{"Miss", "MoneyPenny", 18}
 
-fmt.Println(person1.First)             //=> Bond
-fmt.Println(person1.Person.First)      //=> James
-fmt.Println(person1.fullName())        //=> Bond, James Bond
-fmt.Println(person1.Person.fullName()) //=> James Bond
+fmt.Println(p1.First)             //=> Bond
+fmt.Println(p1.Person.First)      //=> James
+fmt.Println(p1.fullName())        //=> Bond, James Bond
+fmt.Println(p1.Person.fullName()) //=> James Bond
 ```
 
 ## JSON
 
 ### Marshalling
 
-- Marshalling/unmarshalling is when you convert bytes from one format to another
+- **Marshalling/unmarshalling** is when you convert bytes from one format to another
 
 ```go
 import (
@@ -387,17 +389,17 @@ func main() {
 	fmt.Println(string(byteSlice)) //=> {"First":"James","wisdom score":20}
 
 	// Convert from JSON
-	var person1 Person
+	var p2 Person
 	byteSlice = []byte(`{"First":"James","wisdom score":20}`)
-	json.Unmarshal(byteSlice, &person1)
-	fmt.Println(person1.First) //=> James
-	fmt.Println(person1.Last)  //=>
+	json.Unmarshal(byteSlice, &p2)
+	fmt.Println(p2.First) //=> James
+	fmt.Println(p2.Last)  //=>
 }
 ```
 
 ### Encoding
 
-- Encoding/decoding is when you convert a stream of data (usually from an external source) from one format to another
+- **Encoding/decoding** is when you convert a stream of data (usually from an external source) from one format to another
 
 ```go
 import (
@@ -419,9 +421,68 @@ func main() {
 	json.NewEncoder(os.Stdout).Encode(p1) //=> {"First":"James", "Last": "Bond", "Age":20}
 
 	// Convert from JSON
-	var person1 Person
+	var p2 Person
 	reader := strings.NewReader(`{"First":"James", "Last": "Bond", "Age":20}`)
-	json.NewDecoder(reader).Decode(&person1)
-	fmt.Println(person1.Last) //=> Bond
+	json.NewDecoder(reader).Decode(&p2)
+	fmt.Println(p2.Last) //=> Bond
 }
 ```
+
+## Interfaces
+
+```go
+import (
+	"fmt"
+	"math"
+)
+
+type Square struct {
+	side float64
+}
+
+type Rectangle struct {
+	xSide, ySide float64
+}
+
+type Circle struct {
+	radius float64
+}
+
+type Shape interface {
+	area() float64
+}
+
+func (s Square) area() float64 {
+	return s.side * s.side
+}
+
+func (r Rectangle) area() float64 {
+	return r.xSide * r.ySide
+}
+
+func (c Circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func info(s Shape) {
+	fmt.Printf("%T \n", s)
+	fmt.Println(s.area())
+}
+
+func main() {
+	square := Square{10}
+	rectangle := Rectangle{5, 10}
+	circle := Circle{5}
+
+	info(square)    //=> main.Square
+	info(rectangle) //=> main.Rectangle
+	info(circle)    //=> main.Circle
+}
+
+```
+
+## Concurrency & parallelism
+
+- **Concurrency:** Doing many things, but only one at a time "multitasking"
+- **Parallelism:** Doing many things at the same time
+
