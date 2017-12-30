@@ -21,7 +21,7 @@ Go Language
     - [Marshalling](#marshalling)
     - [Encoding](#encoding)
   - [Interfaces](#interfaces)
-  - [Concurrency & parallelism](#concurrency-parallelism)
+  - [Concurrency and parallelism](#concurrency-and-parallelism)
 
 ## Installation
 
@@ -481,9 +481,9 @@ func main() {
 
 ```
 
-## Concurrency & parallelism
+## Concurrency and parallelism
 
-![Concurrency vs Parallellism][Golang/concurrency-vs-parallelism.png]
+![Concurrency vs Parallellism](Golang/concurrency-vs-parallelism.png)
 
 - **Concurrency:** Doing many things, but only one at a time "multitasking"
 - **Parallelism:** Doing many things at the same time
