@@ -483,6 +483,64 @@ func main() {
 
 ## Concurrency & parallelism
 
+![Concurrency vs Parallellism][Golang/concurrency-vs-parallelism.png]
+
 - **Concurrency:** Doing many things, but only one at a time "multitasking"
 - **Parallelism:** Doing many things at the same time
 
+A goroutine is a function that is capable of running concurrently with other functions. To create a goroutine we use the keyword go followed by a function invocation:
+
+```go
+import "fmt"
+
+func f(n int) {
+  for i := 0; i < 10; i++ {
+    fmt.Println(n, ":", i)
+  }
+}
+
+func main() {
+  go f(0)
+  var input string
+  fmt.Scanln(&input)
+}
+```
+
+This program consists of two go routines. The first goroutine is implicit and is the main function itself. The second goroutine is created when we call go f(0). Normally when we invoke a function our program will execute all the statements in a function and then return to the next line following the invocation. With a goroutine we return immediately to the next line and don't wait for the function to complete. This is why the call to the Scanln function has been included; without it the program would exit before being given the opportunity to print all the numbers.
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+var wg sync.WaitGroup
+
+// Main is a go routine
+func main() {
+  wg.Add(2)  // Add 2 items to the wait group
+	go foo()   // This is the second go routine
+	go bar()
+	wg.Wait()  // This will wait till all the items are removed from the wait group
+}
+
+func foo() {
+	for i := 0; i < 45; i++ {
+		fmt.Println("Foo:", i)
+		time.Sleep(3 * time.Millisecond) // Wait 3 milliseconds
+	}
+	wg.Done() // This removes one item from the wait group
+}
+
+func bar() {
+	for i := 0; i < 45; i++ {
+		fmt.Println("Bar:", i)
+		time.Sleep(20 * time.Millisecond)
+	}
+	wg.Done()
+}
+
+```
