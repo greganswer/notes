@@ -165,7 +165,7 @@ exists //=> false
 
 ```go
 for key, val := range myMap {
-  fmt.Println(key, " - ", value)
+  fmt.Println(key, " - ", val)
 }
 ```
 
@@ -250,7 +250,7 @@ func fullName(first_name, last_name string) string {
 Note the ellipsis prefix for the float64 type, denoting that this function
   accepts 0 or more arguments
 */
-func average(numbers**** ...float64) float64 {
+func average(numbers ...float64) float64 {
   total := 0.0
   for _, v := range numbers {
     total += v
@@ -331,10 +331,10 @@ type Person struct {
 }
 
 type DoubleZero struct {
-  Person // A Double Zero is a type of person
+  Person                // A Double Zero is a type of person
   First         string
   Last          string
-  licenseToKill bool // This will not be exported
+  licenseToKill bool   // This will not be exported
 }
 
 func (p Person) fullName() string {
@@ -383,7 +383,7 @@ type Person struct {
 }
 
 func main() {
-  // Convert to JSON
+	// Convert to JSON
 	p1 := Person{"James", "Bond", 20}
 	byteSlice, _ := json.Marshal(p1)
 	fmt.Println(string(byteSlice)) //=> {"First":"James","wisdom score":20}
