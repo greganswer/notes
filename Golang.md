@@ -22,6 +22,8 @@ Go Language
     - [Encoding](#encoding)
   - [Interfaces](#interfaces)
   - [Concurrency and parallelism](#concurrency-and-parallelism)
+    - [Race conditions](#race-conditions)
+  - [Channels](#channels)
 
 ## Installation
 
@@ -506,41 +508,58 @@ func main() {
 }
 ```
 
-This program consists of two go routines. The first goroutine is implicit and is the main function itself. The second goroutine is created when we call go f(0). Normally when we invoke a function our program will execute all the statements in a function and then return to the next line following the invocation. With a goroutine we return immediately to the next line and don't wait for the function to complete. This is why the call to the Scanln function has been included; without it the program would exit before being given the opportunity to print all the numbers.
+This program consists of two goroutines. The first goroutine is implicit and is the main function itself. The second goroutine is created when we call go f(0). Normally when we invoke a function our program will execute all the statements in a function and then return to the next line following the invocation. With a goroutine we return immediately to the next line and don't wait for the function to complete. This is why the call to the Scanln function has been included; without it the program would exit before being given the opportunity to print all the numbers.
 
 ```go
 package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sync"
 	"time"
 )
 
 var wg sync.WaitGroup
+var counter int
+
+// Mutual exclusion object (Mutex) is created so that multiple threads can take
+// turns sharing the same resource.
+var mutex sync.Mutex
 
 // Main is a go routine
 func main() {
-  wg.Add(2)  // Add 2 items to the wait group
-	go foo()   // This is the second go routine
-	go bar()
-	wg.Wait()  // This will wait till all the items are removed from the wait group
+	wg.Add(2)              // Add 2 items to the wait group
+	go incrementor("Foo:") // This is the second go routine
+	go incrementor("Bar:") // This is the third go routine
+	wg.Wait()              // This will wait till all the items are removed from the wait group
+	fmt.Println("Final Counter:", counter)
 }
 
-func foo() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Foo:", i)
-		time.Sleep(3 * time.Millisecond) // Wait 3 milliseconds
+func incrementor(s string) {
+	for i := 0; i < 20; i++ {
+		// Wait a random amount of milliseconds
+		time.Sleep(time.Duration(rand.Intn(20)) * time.Millisecond)
+		{
+			mutex.Lock()
+			counter++
+			fmt.Println(s, i, "Counter:", counter)
+			mutex.Unlock()
+		}
 	}
 	wg.Done() // This removes one item from the wait group
 }
 
-func bar() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Bar:", i)
-		time.Sleep(20 * time.Millisecond)
-	}
-	wg.Done()
-}
-
 ```
+
+**NOTE: Adding `Mutex` or `atomicity` to your program can create a bottle neck for performance**
+
+### Race conditions
+
+To check for a race condition in your code run:
+
+```go
+go run -race main.go
+```
+
+## Channels
