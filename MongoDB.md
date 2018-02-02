@@ -1,3 +1,17 @@
+## Create
+
+```sh
+# Create a new user
+db.users.insert({"email": "a", "password": "asdfasdf"})
+```
+
+## Read
+
+```sh
+# Find all users
+db.users.find()
+```
+
 ## Update
 
 ```sh
