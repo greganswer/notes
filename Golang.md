@@ -24,6 +24,7 @@ Go Language
   - [Concurrency and parallelism](#concurrency-and-parallelism)
     - [Race conditions](#race-conditions)
   - [Channels](#channels)
+  - [Additional resources](#additional-resources)
 
 ## Installation
 
@@ -563,3 +564,7 @@ go run -race main.go
 ```
 
 ## Channels
+
+## Additional resources
+
+1. https://github.com/alco/gostart
