@@ -1,3 +1,12 @@
+## Database
+
+```sh
+# View current database
+db
+# Use database named "test"
+use test
+```
+
 ## Create
 
 ```sh
