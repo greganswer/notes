@@ -125,11 +125,14 @@ mySlice := []string{"a", "b", "c", "d", "e"}
 
 // Access an element of a slice
 mySlice[1]  //=> "b"
+mySlice[len(mySlice)-1] // last element of slice
 
 // Get a slice of a slice 
 newSlice := mySlice[:1] //=> [a]
 newSlice := mySlice[2:4] //=> [c d]
 newSlice := mySlice[3:] //=> [d e]
+
+
 
 // Append a slice to a slice
 b := append(mySlice, newSlice...)
