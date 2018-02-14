@@ -20,6 +20,9 @@ db.users.insert({"email": "a", "password": "asdfasdf"})
 ```sh
 # Find all users
 db.users.find()
+
+# Pretty print the results of a read query
+db.users.find().pretty()
 ```
 
 ## Update
