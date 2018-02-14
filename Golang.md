@@ -6,6 +6,7 @@ Go Language
   - [Folder Structure](#folder-structure)
   - [Hello world](#hello-world)
   - [Terminal commands](#terminal-commands)
+    - [Testing](#testing)
   - [General](#general)
   - [Variables](#variables)
     - [Scalar](#scalar)
@@ -76,6 +77,25 @@ go build
 
 # Create a globally accessible executable
 go install # The file will be placed in $HOME/<workspace_name>/bin
+```
+
+### Testing
+
+```sh
+# Run all tests in current directory
+go test
+
+# Run all tests in current directory and all of its subdirectories:
+go test ./...
+
+# Run all tests with import path prefixed with foo/:
+go test foo/...
+
+# This should run all tests import path prefixed with foo:
+go test foo...
+
+# This should run all tests in your $GOPATH:
+go test ...
 ```
 
 ## General
