@@ -96,6 +96,9 @@ go test foo...
 
 # This should run all tests in your $GOPATH:
 go test ...
+
+# Check test coverage for each package
+go test -cover
 ```
 
 ## General
