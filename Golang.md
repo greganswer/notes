@@ -2,6 +2,7 @@ Go Language
 =====
 
 - [Go Language](#go-language)
+  - [References](#references)
   - [Installation](#installation)
   - [Folder Structure](#folder-structure)
   - [Hello world](#hello-world)
@@ -26,6 +27,11 @@ Go Language
     - [Race conditions](#race-conditions)
   - [Channels](#channels)
   - [Additional resources](#additional-resources)
+
+## References
+
+- https://www.udemy.com/learn-how-to-code/
+- https://www.udemy.com/go-programming-language/
 
 ## Installation
 
