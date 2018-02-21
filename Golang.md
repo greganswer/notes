@@ -32,6 +32,7 @@ Go Language
 
 - https://www.udemy.com/learn-how-to-code/
 - https://www.udemy.com/go-programming-language/
+- https://golang.org/doc/effective_go.html
 
 ## Installation
 
