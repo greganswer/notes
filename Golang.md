@@ -103,9 +103,25 @@ go test foo...
 
 # This should run all tests in your $GOPATH:
 go test ...
+```
 
+Go has additional 
+
+```sh
 # Check test coverage for each package
 go test -cover
+# Output #=>
+# PASS
+# coverage: 87.3% of statements
+
+# set the coverage mode and output file
+go test -covermode=count -coverprofile=count.out
+
+# Output the coverage report to a file
+go tool cover -func=count.out 
+
+# Output the coverage report as HTML
+go tool cover -html=count.out
 ```
 
 ## General
