@@ -4,15 +4,15 @@
 
 Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob/2015/11/18/TheProgrammersOath.html)
 
-1. Don't produce harmful code
-1. Avoid bugs
-1. Write tests (preferably first)
-1. Make small frequent releases
-1. Refactor and improve frequently
-1. Improve productivity for you and your team
-1. Continuously transfer knowledge to reduce the bus factor
-1. Always give a ranged estimate (Ex: This will take 2-4 days)
-1. Continuously learn and improve
+1. **Don't produce harmful code**
+1. **Avoid bugs**
+1. **Write tests** (preferably first)
+1. **Make small frequent releases**
+1. **Refactor and improve frequently**
+1. **Improve productivity for you and your team**
+1. **Continuously transfer knowledge** to reduce the bus factor
+1. **Always give a ranged estimate** (Ex: This will take 2-4 days)
+1. **Continuously learn and improve**
 
 ## Personal workflow
 
