@@ -16,31 +16,31 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 
 ## Personal workflow
 
-1. QA the current application (end-to-end)
+1. **QA the current application (end-to-end)**
    1. Check if fix/feature already exists 
    1. Check if there is a workaround
-1. Commit Driven Development - write the Git commit message before coding
-1. Changelog Driven Development - update the Changelog before coding
-1. Document Driven Development - create/update documentation before coding
-1. Write integration tests as pseudo-code comments for these scenarios
+1. **Commit Driven Development** - write the Git commit message before coding
+1. **Changelog Driven Development** - update the Changelog before coding
+1. **Document Driven Development** - create/update documentation before coding
+1. **Write integration tests as pseudo-code comments**
    1. Write Given When Then scenarios
    1. Write acceptance tests as pending tests
    1. TDD the functions you plan to create/update 
-1. Write the code
+1. **Write the code**
    1. Write console logs instead of comments
    1. Console log inputs and outputs for each function as necessary
-1. Refactor tests 
+1. **Refactor tests**
    1. DRY it up
    1. Remove comments
    1. Consider edge cases
-1. Refactor code 
+1. **Refactor code**
    1. DRY it up
    1. Remove comments
-1. QA the application (end-to-end) 
+1. **QA the application (end-to-end)**
    1. Ensure that the fix/feature works 
    1. Check if anything related broke (regressions)
    1. Make sure performance is acceptable
-1. Update documentation
+1. **Update documentation**
    1. Commit message
    1. Changelog 
    1. README files, Confluence docs, etc.
@@ -50,7 +50,7 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 - **Single Responsibility Principle (SRP):** every function, module, and class should have responsibility over a single part of the functionality.
 
 ```ruby
-# bad
+# Bad
 def deal_processor(deal)
   commission_amount = deal.price * 0.15
   if Commission.create(deal: deal, amount: commission_amount)
@@ -59,7 +59,7 @@ def deal_processor(deal)
   end
 end
 
-# good
+# Good
 COMMISSION_PERCENTAGE = 0.15
 
 def deal_processor(deal)
@@ -77,22 +77,22 @@ def commission_amount(price)
 end
 ```
 
-- **Open-closed Principle:** 
+- **Open-closed Principle:** Classes and functions should be open for extension but closed for modification
 
 ```ruby
-# bad - the login function has to change when the Gun or Web login functionality changes.
+# Bad - the login function has to change when the Gun or Web login functionality changes.
 def login(username, password, source)
   case source
   when :gun
-    # 20 lines of code...
+    # some code...
   when :web
-    # 10 lines of code...
+    # some code...
   else
     invalid_source_error
   end
 end
 
-# better - the login function only changes when a new login source is added.
+# Better - the login function only changes when a new login source is added.
 def login(username, password, source)
   case source
   when :gun
@@ -105,12 +105,23 @@ def login(username, password, source)
 end
 
 def gun_login(username, password)
-  # 20 lines of code...
+  # some code...
 end
 
 def web_login(username, password)
-  # 10 lines of code...
+  # some code...
 end
+
+# Best - but it depends on your use case.
+def login(username, password, login_function)
+  login_function.call(username, password)
+end
+
+gun_login = lambda do |username, password|
+  # some code...
+end
+
+login('jim', 'asdfasdf', gun_login)
 ```
 
 - **Liskov's Substitution Principle:** Subclasses should add to a parent classes behaviour, without needing to replace it
@@ -123,7 +134,7 @@ class Bird
   end
 
   def fly
-    # Flying logic...
+    # some code...
   end
 end
 
@@ -144,7 +155,7 @@ end
 
 module FlyingBird
   def fly
-    # Flying logic...
+    # some code...
   end
 end
 
@@ -155,21 +166,18 @@ end
 class Penguin < Bird; end
 ```
 
-- **Inversion of Control Principle (IoC):** No client should be forced to depend upon methods it does not use
-
-```ruby
-```
+- **Interface Segregation Principle:** No client should be forced to depend upon methods it does not use
 
 - **Dependency Inversion Principle (DIP):** everything inside of a function should come from outside of it
 
 ```ruby
-# bad
+# Bad
 def some_method
   x = some_object
   x.do_something
 end
 
-# good
+# Good
 def some_method(x=nil)
   x ||= some_default_object
   x.do_something
