@@ -1,5 +1,9 @@
 # Micro Services
 
+## References
+
+1. [How to scale distributed systems](https://medium.freecodecamp.org/distributed-systems-when-you-should-build-them-and-how-to-scale-a-step-by-step-guide-37e76a177218)
+
 ## Definitions
 
 | Term             | Definition 

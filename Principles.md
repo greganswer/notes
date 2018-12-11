@@ -1,5 +1,10 @@
 # Programming Principles 
 
+- [Programming Principles](#programming-principles)
+  - [Programmer's oath](#programmers-oath)
+  - [Personal workflow](#personal-workflow)
+  - [SOLID principles](#solid-principles)
+
 ## Programmer's oath
 
 Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob/2015/11/18/TheProgrammersOath.html)
