@@ -1,5 +1,10 @@
 # RSpec
 
+- Tests are the first client of your code.
+- Your tests provide evidence that the application works, but they certainly don’t provide proof
+
+## Examples
+
 ```ruby
 class Coffee
   def ingredients
