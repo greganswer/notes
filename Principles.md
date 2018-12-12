@@ -173,7 +173,7 @@ class Penguin < Bird; end
 
 - **Interface Segregation Principle:** No client should be forced to depend upon methods it does not use
 
-- **Dependency Inversion Principle (DIP):** everything inside of a function should come from outside of it
+- **Dependency Inversion Principle (DI):** everything inside of a function should come from outside of it
 
 ```ruby
 # Bad

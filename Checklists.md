@@ -16,6 +16,7 @@
 - [ ] Use [Auth0](https://auth0.com/) for authentication
 - [ ] Use [Stripe](https://stripe.com/fr) for online payments
 - [ ] Decide on a caching strategy
+- [ ] Automated acceptance and unit tests
 
 ## Devops
 
