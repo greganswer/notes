@@ -40,4 +40,4 @@
 
 ## References
 
-1. [Distributed Systems (Medium article)](https://medium.freecodecamp.org/distributed-systems-when-you-should-build-them-and-how-to-scale-a-step-by-step-guide-37e76a177218)
+1. [Distributed Systems (Medium article)](https://bit.ly/2Ep8DAe)
