@@ -8,16 +8,16 @@
 
 ## Backend
 
-- [ ] Make the API as stateless and as RESTful as possible
-- [ ] Request Throttling
-- [ ] Require Access Token for all routes
+- [ ] Automated acceptance and unit tests
 - [ ] Error and info logging to `stdout`
 - [ ] Error notifications (email, Slack, etc.)
+- [ ] Health checks endpoint
+- [ ] Require Access Token for all routes
+- [ ] Request Throttling
 - [ ] Use [Auth0](https://auth0.com/) for authentication
 - [ ] Use [Stripe](https://stripe.com/fr) for online payments
-- [ ] Decide on a caching strategy
-- [ ] Automated acceptance and unit tests
 - [ ] Maintain internal and external API documentation
+- [ ] Decide on a caching strategy
 - [ ] Continuous Integration
 
 ## Devops
