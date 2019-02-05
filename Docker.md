@@ -37,3 +37,4 @@ sudo rm -Rf $HOME/Library/Containers/com.docker.*
 1. [Docker ps formatting](https://docs.docker.com/engine/reference/commandline/ps/)
 1. [Docker config formatting](https://container42.com/2016/03/27/docker-quicktip-7-psformat/)
 1. [Docker ps formatting](https://docs.docker.com/engine/reference/commandline/ps/#formatting)
+1. [Best practices for writing Dockerfiles](https://dockr.ly/2QqP9OU)

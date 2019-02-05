@@ -11,15 +11,16 @@
 - [ ] Automated acceptance and unit tests
 - [ ] Error and info logging to `stdout`
 - [ ] Health checks endpoint
+- [ ] Request Throttling
 - [ ] Internationalize the API
 - [ ] Error notifications (email, Slack, etc.)
 - [ ] Require Access Token for all routes
 - [ ] Use [Auth0](https://auth0.com/) for authentication
 - [ ] Use [Stripe](https://stripe.com/fr) for online payments
 - [ ] Maintain internal and external API documentation
-- [ ] Request Throttling
 - [ ] Decide on a caching strategy
 - [ ] Continuous Integration
+- [ ] Review [REST Security Cheat Sheet](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)
 
 ## Devops
 
@@ -41,3 +42,4 @@
 ## References
 
 1. [Distributed Systems (Medium article)](https://bit.ly/2Ep8DAe)
+1. [REST Security Cheat Sheet](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)
