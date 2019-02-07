@@ -1,3 +1,36 @@
+## Basics
+
+Apparently, every shell script should have some elements of the following:
+
+```bash
+#!/usr/bin/env bash
+
+set -o errexit # Stop the script when an error occurs.
+set -o pipefail # `error here | true` will fail if this is enabled.
+set -o nounset # Detect uninitialized variables and exit with an error.
+[[ "${DEBUG}" == 'true' ]] && set -o xtrace # Print expressions before execution if `DEBUG=true`.
+```
+
+## Modules
+
+In a file called `shared_functions.sh` you might have the following:
+
+```bash
+container() {
+  eval "docker-compose exec app $@"
+}
+```
+
+Then in your `bin/setup` script file you could do the following:
+
+```bash
+# The non standard functions in this script can be found in the local source file below.
+readonly BINPATH="$(dirname "$0")"
+source "${BINPATH}/shared_functions.sh"
+
+container "rails restart"
+```
+
 ## Loop
 
 ```bash
@@ -12,4 +45,22 @@ done
 for run in {1..10}; do command; done
 ```
 
-**Reference:** https://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash
+## Exit Traps
+
+Similar to Golang defer keyword.
+
+```bash
+function finish {
+    # re-start service
+    sudo service mongdb start
+}
+trap finish EXIT
+# Stop the mongod instance
+sudo service mongdb stop
+```
+
+**Reference:** 
+
+- [Run a script n times](https://bit.ly/2HU6dgd)
+- [Bash scripting best practices](https://bit.ly/2DcGHNI)
+- [Bash exit traps](http://redsymbol.net/articles/bash-exit-traps/)
