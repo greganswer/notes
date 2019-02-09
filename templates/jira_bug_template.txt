@@ -1,0 +1,13 @@
++*Environment*+
+* *App Version:* {{master}} branch
+* *OS:* Mac OS 10.14.2
+* *Reproducibility Rate:* 3/3
+
++*Steps to Reproduce*+
+# 
+
++*Expected Results:*+ 
+
++*Actual Results:*+ 
+
++*Possible Solutions*+
