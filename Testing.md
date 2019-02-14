@@ -9,8 +9,8 @@
 
 **Environment**
 
-App Version: master branch
-OS: Mac OS 10.14.2
+App Version: master branch  
+OS: Mac OS 10.14.2  
 Reproducibility Rate: 4/5
 
 **Steps to Reproduce**
