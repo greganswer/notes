@@ -11,7 +11,8 @@
 - [ ] Automated acceptance and unit tests
 - [ ] Error and info logging to `stdout`
 - [ ] Health checks endpoint
-- [ ] Request Throttling
+- [ ] Request Throttling (Ex: 2 requests per IP per 5 aeconds)
+- [ ] Request Timeout (Ex: Timeout after 60 seconds)
 - [ ] Internationalize the API
 - [ ] Error notifications (email, Slack, etc.)
 - [ ] Require Access Token for all routes
@@ -21,6 +22,8 @@
 - [ ] Decide on a caching strategy
 - [ ] Continuous Integration
 - [ ] Review [REST Security Cheat Sheet](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)
+- [ ] Stress tests critical endpoints using https://github.com/artilleryio/artillery
+- [ ] Performance test critical database transactions
 
 ## Devops
 

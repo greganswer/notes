@@ -1,13 +1,36 @@
 # Shell Scripting (Bash)
 
+Shells are command interpreters. They are applications that provide users with the ability to give commands to their operating system interactively, or to execute batches of commands quickly. In no way are they required for the execution of programs; they are merely a layer between system function calls and the user.
+
+Think of a shell as a way for you to speak to your system. Your system doesn't need it for most of its work, but it is an excellent interface between you and what your system can offer.
+
+BASH is not your operating system. It is not your window manager. It is not your terminal (but it often runs inside your terminal). It does not control your mouse or keyboard. It does not configure your system, activate your screensaver, or open your files when you double-click them. It is generally not involved in launching applications from your window manager or desktop environment. It's important to understand that BASH is only an interface for you to execute statements (using BASH syntax), either at the interactive BASH prompt or via BASH scripts.
+
+The header is called an interpreter directive (it is also called a hashbang or shebang). It specifies that /bin/bash is to be used as the interpreter when the file is used as the executable in a command. When the kernel executes a non-binary file, it reads the first line of the file. If the line begins with #!, the kernel uses the line to determine the interpreter to relay the file to. (There are other valid ways to do this as well, see below.) The #! must be at the very start of the file, with no spaces or blank lines before it. Our script's commands will appear on separate lines below this.
+
+## Definitions
+
+| Term | Definition |
+|:-----|:-----------|
+| **Shell** | A (possibly interactive) command interpreter, acting as a layer between the user and the system  |
+| **Bash** | The Bourne Again Shell, a Bourne compatible shell |
+| **Script** | A sequence of commands in a file |
+| **Alias** | A word that is mapped to a string. Whenever that word is used as a command, it is replaced by the string it has mapped.
+| **Function** | A name that is mapped to a set of commands. Whenever the function is used as a command, it is called with the arguments following it. Functions are the basic method of making new commands.
+| **Builtin** | Certain commands have been built into Bash. These are handled directly by the Bash executable and do not create a new process.
+| **Executable** | A program that can be executed by referring to its file path (e.g. /bin/ls), or simply by its name if its location is in the PATH variable. |
+
 ## Special characters
 
 | Character | Description |
 |--------:|:------------|
 | **#**  | A comment. |
-| **\*** | Wildcard. |
+| **\*** | Wildcard or Glob. |
 | **\\** | Escape character. |
 | **.**  | The current directory. |
+| **?**  | Test operator (ternary operator). |
+| **[**  | A Bash builtin that tests a condition. |
+| **[[**  | A Bash keyword that tests a condition. |
 | **..** | The parent directory. |
 | **:**  | The null command [colon]. This is the shell equivalent of a "NOP" *(no op, a do-nothing operation)*. It may be considered a synonym for the shell builtin true. The ":" command is itself a Bash builtin, and its exit status is true (0). |
 | **$?** | The exit status of a command, a function, or of the script itself |
@@ -133,3 +156,5 @@ Use `shellcheck` utility. Intallation: `brew install shellcheck`. Given a script
 - [progrium/bashstyle](https://github.com/progrium/bashstyle)
 - [Defensive Bash Programming](https://jonlabelle.com/snippets/view/markdown/defensive-bash-programming)
 - [alexanderepstein/Bash-Snippets](https://github.com/alexanderepstein/Bash-Snippets)
+- [BashGuide](https://mywiki.wooledge.org/BashGuide)
+- [Good Coding Practices for Bash](https://bit.ly/2DKOUc9)
