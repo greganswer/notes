@@ -55,6 +55,11 @@ set -o errexit # Stop the script when an error occurs.
 set -o pipefail # `error here | true` will fail if this is enabled.
 set -o nounset # Detect uninitialized variables and exit with an error.
 [[ "${DEBUG}" == 'true' ]] && set -o xtrace # Print expressions before execution if `DEBUG=true`.
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename "${__file}")"
 ```
 
 ## Modules
