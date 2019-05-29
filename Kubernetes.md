@@ -24,7 +24,8 @@ You can scale pod up or down by running
 Term                | Definition
 --------------------|--------------------------
 **Pod**             | <li>Describes an application running on Kubernetes</li><li>Contains one or more tightly coupled containers</li><li>Apps communicate using local port numbers</li>
-**Node**            | A group of pods
+**Node**            | A group of pods on a single machine
+**Cluster**         | A group of nodes overseen by a matter node
 **Cluster IP**      | A virtual IP that is only visible within the cluster
 **NodePort**        | A port that is the same on each node and is visible outside the cluster
 **livelinessProbe** | Checks if the container is running and restarts it if needed
