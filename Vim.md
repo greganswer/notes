@@ -3,62 +3,135 @@
 Vim has two modes:
 
 1. Insert mode (Where you can just type like normal text editor. Press i for insert mode)
-2. Command mode (Where you give commands to the editor to get things done. Press ESC for command mode)
+2. Command mode (Where you give commands to the editor to get things done. Press` ESC` for command mode)
+
+You can combine the Verbs (commands) and Nouns (motions & text objects) in any way you need.
+
+## Definitions
+
+**Operators** let you operate in a range of text (defined by motion). These are performed in normal mode.
+Example:
+
+    dw # d is the Operator, w is the Motion
+
+**Text** objects let you operate (with an operator) in or around text blocks (objects). Example:
+
+    vip # v is the Operator, [i]nside or [a]round, p is the Text Object
+
+## Save & quit
+
+Operation                                       | Mapping
+------------------------------------------------|--------------------------------
+Write (save) the file, but don't exit           | `:w`
+Write out the current file using sudo           | `:w !sudo tee %`
+Write (save) and quit                           | `:wq` or `:x` or `Shift + ZZ`
+Quit (fails if there are unsaved changes)       | `:q`
+Quit and discard unsaved changes                | `:q!` or `Shift + ZQ`
+Write (save) and quit on all tabs               | `wqa`
+
+## Navigation
+
+Operation                                       | Mapping
+------------------------------------------------|--------------------------------
+Arrow keys                                      | `h`, `j`, `k`, `l`
+Go to line                                      | `:n` where `n` is the line number
+Go to file                                      | `gf`
+Open file at line number                        | `vim path/to/file +n` where `n` is the line number
+Go to top of file                               | `gg`
+Go to bottom of file                            | `Shift + G`
+Scroll the screen half way up                   | `CTRL + u`
+Scroll the screen half way down                 | `CTRL + d`
+Move to next or previous brackets, do/end, etc. | `%`
+Toggle between last 2 positions                 | **``** _(double backticks)_
+Go to previous cursor position                  | `CTRL + Shift + O`
+Go to next cursor position                      | `CTRL + Shift + I`
+Go between paragraphs                           | `{` to go back, `}` to go forward
+Go between words                                | `w` to move forward a word, `b` to move back a word
+Go between words with punctuation               | `Shift + W` to move forward, `Shift + B` to move back
+Go to end of word                               | `e`
+Go to end of word with punctuation              | `Shift + E`
+Go to character on current line                 | `f<char>`. Press `;` to repeat last jump. `,` for reverse
+Go until (before) a character on current line   | `t<char>`. Press `;` to repeat last jump. `,` for reverse
+Go to line's beginning                           | `0`
+Go to line's end                                | `$`
+Go to line's first non-blank character          | `^`
+Center current line                             | `zz`
+
+## Clipboard
+
+Operation                                       | Mapping
+------------------------------------------------|--------------------------------
+Select current paragraph                        | `vip`. Keep pressing `ip` to increase selection
+Cut (delete) a character                        | `x`
+Cut (delete) a line                             | `dd`
+Cut (delete) 2 lines                            | `2dd`
+Copy (yank) a line                              | `yy`
+Copy (yank) current word                        | `yiw`
+Copy (yank) current paragraph                   | `yip`
+Copy (yank) line down                           | `yyp`
+Paste after the cursor                          | `p`
+Paste before the cursor                         | `Shift + P`
 
 ## Insert mode
 
-Task                                   | Command
----------------------------------------|--------------------------------
-Insert text after the cursor           | `a` for Append
-Insert text after the end of the line  | `A`
-Insert a line below the cursor         | `o` for Open a line
-Insert a line above the cursor         | `O`
-
-## Navigating
-
-Task                                            | Command
+Operation                                       | Mapping
 ------------------------------------------------|--------------------------------
-Go to line                                      | `:n` where n is the line number
-Go to file                                      | `gf` for Go to File
-Open file at line number                        | `vim path/to/file +n` where n is the line number
-Go to top of file                               | `gg`
-Go to bottom of file                            | `G`
-Scroll the screen half way up                   | `CTRL + u` for Up
-Scroll the screen half way down                 | `CTRL + d` for Down
-Move to next or previous related item           | `%` (Brackets, do/end, etc.)
-Toggle between last 2 positions                 | **``** (double backticks)
-Jump to previous cursor position                | `CTRL + O`
-Jump to next cursor position (after `CTRL + O)  | `CTRL + O`
+Insert before the cursor                        | `i`
+Insert at the beginning of the line             | `Shift + I`
+Insert (append) after the cursor                | `a`
+Insert (append) at the end of the line          | `Shift + A`
+Insert (append) at the end of the word          | `ea`
+Insert (open) a new line below the current line | `o`
+Insert (open) a new line above the current line | `Shift + O`
+Exit insert mode                                | `Esc`
 
 ## Editing
 
-Task                              | Command
+Operation                         | Mapping
 ----------------------------------|--------------------------------
-Delete a character                | `x`
-Undo the last command             | `u` 
+Undo the last command             | `u`
 Redo the last command             | `CTRL + r`
-Save                              | `w` for Write
-Save and Quit                     | `:wq` or `ZZ`
-Trash all changes                 | `:q!`
-Quit all                          | `:qa`
-Cut                               | `d` for Delete
-Cut line                          | `dd`
-Copy                              | `y` for Yank
-Copy current word                 | `yiw`
-Copy line down                    | `yyp`
-Paste                             | `p` to paste after the cursor and `P` for before the cursor
-Join next line with current line  | `J`
-Repeat last command               | `.`
+Join next line with current line  | `Shift + J`
+Repeat last command               | `.` _(period)_
+Sort lines (alphabetically)       | `Shift + V` to visually select lines, `:sort`
+Sort lines (numerically)          | `Shift + V` to visually select lines, `:sort n`
+Indent text right                 | `Shift + >`
+Indent text left                  | `Shift + <`
+Character case toggle             | `~`
+Character case to upper           | `gU`
+Character case to lower           | `gu`
 
-## Tabs
+## Search & replace
 
-Task                                 | Command
+Operation                                       | Mapping
+------------------------------------------------|--------------------------------
+Search                                                  | `/<pattern>`
+Search case insensitive                                 | `/<pattern>\C`
+Repeat last search                                      | `n`
+Repeat last search in opposite direction                | `Shift + N`
+Remove highlighting of search matches                   | `:noh`
+Replace old with new throughout file                    | `:%s/old/new/g`
+Replace old with new throughout file with confirmations | `:%s/old/new/gc`
+
+## Spell check
+
+Operation                                               | Mapping
+--------------------------------------------------------|--------------------------------
+Move to next misspelled word after the cursor           | `]s`
+Move to previous misspelled word before the cursor      | `[s`
+z=Suggest spellings for the word under/after the cursor | `z=`
+Add word to spell list                                  | `zg`
+
+## Tabs & splits
+
+Operation                            | Mapping
 -------------------------------------|--------------------------------
 Open multiple files in separate tabs | `vim -p /path/to/file1 /path/file2 file3`
 Jump to the next tab                 | `gt` or `:tabn[ext]`
 Jump to the previous tab             | `gT` or `:tabp[revious]`
 Jump to a specific tab               | `ngt` where n is the tab index starting at 1
 Close the current tab                | `:tabc[lose]`
+Move between splits                  | `Ctrl +` one of the movement keys (`h`, `j`, `k`, `l`)
 
 ## Later implementations
 
@@ -71,3 +144,8 @@ Close the current tab                | `:tabc[lose]`
 - https://blog.confirm.ch/mastering-vim-working-with-multiple-files
 - https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started
 - https://medium.com/usevim/vim-101-quick-movement-c12889e759e0
+- https://items.sjbach.com/319/configuring-vim-right
+- https://thoughtbot.com/blog/thoughtbot-is-filled-with-vim-and-vigor
+- https://vim.rtorr.com/
+- https://vim.fandom.com/wiki/Searching
+- https://vim.fandom.com/wiki/Search_and_replace
