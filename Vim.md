@@ -14,15 +14,37 @@ Example:
 
     dw # d is the Operator, w is the Motion
 
-**Text** objects let you operate (with an operator) in or around text blocks (objects). Example:
+## Text objects
+
+**Text objects** let you operate (with an operator) in or around text blocks (objects). Example:
 
     vip # v is the Operator, [i]nside or [a]round, p is the Text Object
+
+Type             | Command
+-----------------|--------
+Paragraph        | `p`
+Word             | `w`
+Sentence         | `s`
+Blocks           | `[`, `(`, `{`, `<`
+A quoted string  | `'`, `"`, `` ` ``
+A block [(       | `b`
+A block in [{    | `Shift + B`
+An XML tag block | `t`
+Pattern search   | `/<PATTERN>`
+
+## Visual mode
+
+Visual block mode allows for selecting a column of text. To do this:
+
+1. Press `Ctrl + V` to  start selection
+1. Press `Shift and I` then type in any text
+1. Press `Esc` twice
 
 ## Save & quit
 
 Operation                                       | Mapping
 ------------------------------------------------|--------------------------------
-Write (save) the file, but don't exit           | `:w`
+Write (save) the file, but don't exit           | `:w[rite]`
 Write out the current file using sudo           | `:w !sudo tee %`
 Write (save) and quit                           | `:wq` or `:x` or `Shift + ZZ`
 Quit (fails if there are unsaved changes)       | `:q`
@@ -41,8 +63,11 @@ Go to top of file                               | `gg`
 Go to bottom of file                            | `Shift + G`
 Scroll the screen half way up                   | `CTRL + u`
 Scroll the screen half way down                 | `CTRL + d`
+Scroll line to top                              | `zt`
+Scroll line to center                           | `zz`
+Scroll line to bottom                           | `zb`
 Move to next or previous brackets, do/end, etc. | `%`
-Toggle between last 2 positions                 | **``** _(double backticks)_
+Toggle between last 2 positions                 | `` ` ``
 Go to previous cursor position                  | `CTRL + Shift + O`
 Go to next cursor position                      | `CTRL + Shift + I`
 Go between paragraphs                           | `{` to go back, `}` to go forward
@@ -52,7 +77,7 @@ Go to end of word                               | `e`
 Go to end of word with punctuation              | `Shift + E`
 Go to character on current line                 | `f<char>`. Press `;` to repeat last jump. `,` for reverse
 Go until (before) a character on current line   | `t<char>`. Press `;` to repeat last jump. `,` for reverse
-Go to line's beginning                           | `0`
+Go to line's beginning                          | `0`
 Go to line's end                                | `$`
 Go to line's first non-blank character          | `^`
 Center current line                             | `zz`
@@ -97,6 +122,9 @@ Sort lines (alphabetically)       | `Shift + V` to visually select lines, `:sort
 Sort lines (numerically)          | `Shift + V` to visually select lines, `:sort n`
 Indent text right                 | `Shift + >`
 Indent text left                  | `Shift + <`
+Reformat line                     | `==`
+Reformat selection                | `=`
+Reformat entire file              | `gg=G`
 Character case toggle             | `~`
 Character case to upper           | `gU`
 Character case to lower           | `gu`
@@ -121,6 +149,8 @@ Move to next misspelled word after the cursor           | `]s`
 Move to previous misspelled word before the cursor      | `[s`
 z=Suggest spellings for the word under/after the cursor | `z=`
 Add word to spell list                                  | `zg`
+Enable spell check                                      | `:set spell`
+Disable spell check                                     | `:set nospell`
 
 ## Tabs & splits
 
@@ -133,10 +163,13 @@ Jump to a specific tab               | `ngt` where n is the tab index starting a
 Close the current tab                | `:tabc[lose]`
 Move between splits                  | `Ctrl +` one of the movement keys (`h`, `j`, `k`, `l`)
 
-## Later implementations
+## Later tutorials and implementations
 
+- https://thoughtbot.com/upcase/the-art-of-vim
 - https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en
 - https://thoughtbot.com/blog/running-specs-from-vim
+- https://github.com/tpope/vim-rails
+- https://github.com/thoughtbot/vim-rspec
 
 ## References
 
