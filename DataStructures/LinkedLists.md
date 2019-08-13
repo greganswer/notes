@@ -33,3 +33,94 @@ Doubly linked list diagram. Each element also knows about it's previous element.
 - Arrays use indexes which have an O(1) constant time complexity
 - Singly Linked Lists are difficult to traverse in reverse
 - Doubly Linked Lists waste additional memory
+
+## Example
+```python
+class LinkedList(object):
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    # O(1) time complexity: size is calculated on insert/delete and is cached.
+    def __len__(self):
+        return self.size
+
+# Create
+    # O(1) time complexity.
+    def prepend(self, data):
+        """Add a Node to the beginning of the LinkedList"""
+        node = Node(data)
+        if self.head:
+            node.next = self.head
+        self.head = node
+        self.size += 1
+
+    # O(n) time complexity.
+    def append(self, data):
+        """Add a Node to the end of the LinkedList"""
+        node = Node(data)
+        current = self.head
+
+        if self.head is None:
+            self.prepend(data)
+            return
+
+        while current.next is not None:
+            current = current.next
+        current.next = node
+        self.size += 1
+
+# Read
+    # O(n) time complexity.
+    def display_nodes(self):
+        output = ''
+        current = self.head
+        if current is None:
+            return
+        while current is not None:
+            output += f'Node: {current.data}\n'
+            current = current.next
+        return output
+
+# Delete
+    # O(1) time complexity if the node is head. Otherwise O(n).
+    def remove(self, data):
+        """Remove a Node from the LinkedList"""
+        current = self.head
+        if current is None:
+            return
+
+        self.size -= 1
+
+        if current.data == data:
+            current = self.head.next
+            return
+        
+        while current.next is not None:
+            previous = current
+            current = current.next
+            if current.data == data:
+                previous.next = current.next
+        
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Instantiate
+list = LinkedList()
+print(f'Size: {len(list)}')  #=> 0
+
+# Add
+list.append(2)
+list.append(3)
+list.prepend(1)
+print(f'Size: {len(list)}')  #=> 3
+print()
+print(list.display_nodes())  #=> Node: 1\n Node: 2\n Node: 3\n
+
+# Remove
+list.remove(2)
+print(list.display_nodes())  #=> Node: 1\n Node: 3\n
+print(f'Size: {len(list)}')  #=> 2
+```
