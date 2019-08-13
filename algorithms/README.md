@@ -1,7 +1,5 @@
 # Algorithms
 
-## Overview
-
 ### Characteristics
 
 Algorithm complexity
