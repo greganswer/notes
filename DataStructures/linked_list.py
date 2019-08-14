@@ -1,18 +1,26 @@
 import unittest
 
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+    def __str__(self):
+        return f'Node: {self.data}'
+
 class LinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
         self.size = 0
 
-
-    # O(1) time complexity: size is calculated on insert/delete and is cached.
     def __len__(self):
+        """O(1) time complexity: size is calculated on insert/delete and is cached."""
         return self.size
 
-    # O(n) time complexity.
     def __str__(self):
+        """O(n) time complexity."""
         current = self.head
         output = ""
         while current:
@@ -20,36 +28,48 @@ class LinkedList(object):
             current = current.next
         return output
 
-# Create
-    # O(1) time complexity.
+    # Create
+
     def prepend(self, data):
-        """Add a Node to the beginning of the LinkedList"""
-        node = Node(data)
-        node.next = self.head
-        self.head = node
+        """Add a Node to the beginning of the LinkedList.
+        O(1) time complexity.
+        """
+        new_node = Node(data)
+        current = self.head
+        if current:
+            new_node.next = current
+            current.prev = new_node
+        if not self.tail:
+          self.tail = current if current else new_node
+
+        self.head = new_node
         self.size += 1
 
-    # O(n) time complexity.
     def append(self, data):
-        """Add a Node to the end of the LinkedList"""
-        node = Node(data)
+        """Add a Node to the end of the LinkedList.
+        O(n) time complexity.
+        """
         current = self.head
+        new_node = Node(data)
 
         if not current:
             self.prepend(data)
             return
 
-        while current.next is not None:
+        while current.next:
             current = current.next
 
-        node.prev = current
-        current.next = node
+        new_node.prev = current
+        current.next = new_node
+        self.tail = new_node
         self.size += 1
 
-# Find
-    # O(n) time complexity.
+    # Find
+
     def find(self, data):
-        """Find a Node in the LinkedList"""
+        """Find a Node in the LinkedList.
+        O(n) time complexity.
+        """
         current = self.head
         while current:
             if current.data == data:
@@ -58,10 +78,12 @@ class LinkedList(object):
 
         return None
 
-# Delete
-    # O(1) time complexity if the node is head. Otherwise O(n).
+    # Delete
+
     def remove(self, data):
-        """Remove a Node from the LinkedList"""
+        """Remove a Node from the LinkedList.
+        O(1) time complexity if the node is head. Otherwise O(n).
+        """
         current = self.head
         previous = None
 
@@ -75,15 +97,6 @@ class LinkedList(object):
 
             previous = current
             current = current.next
-        
-class Node(object):
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
-
-    def __str__(self):
-        return f'Node: {self.data}'
 
 class TestLinkedList(unittest.TestCase):
     def setUp(self):
@@ -123,7 +136,6 @@ class TestLinkedList(unittest.TestCase):
         self.list.remove(2)
         self.assertEqual(None, self.list.find(2))
         self.assertEqual(0, len(self.list))
-
 
 if __name__ == '__main__':
     unittest.main()
