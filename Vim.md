@@ -53,34 +53,42 @@ Write (save) and quit on all tabs               | `wqa`
 
 ## Navigation
 
-Operation                                       | Mapping
-------------------------------------------------|--------------------------------
-Arrow keys                                      | `h`, `j`, `k`, `l`
-Go to line                                      | `:n` where `n` is the line number
-Go to file                                      | `gf`
-Open file at line number                        | `vim path/to/file +n` where `n` is the line number
-Go to top of file                               | `gg`
-Go to bottom of file                            | `Shift + G`
-Scroll the screen half way up                   | `CTRL + u`
-Scroll the screen half way down                 | `CTRL + d`
-Scroll line to top                              | `zt`
-Scroll line to center                           | `zz`
-Scroll line to bottom                           | `zb`
-Move to next or previous brackets, do/end, etc. | `%`
-Toggle between last 2 positions                 | `` ` ``
-Go to previous cursor position                  | `CTRL + Shift + O`
-Go to next cursor position                      | `CTRL + Shift + I`
-Go between paragraphs                           | `{` to go back, `}` to go forward
-Go between words                                | `w` to move forward a word, `b` to move back a word
-Go between words with punctuation               | `Shift + W` to move forward, `Shift + B` to move back
-Go to end of word                               | `e`
-Go to end of word with punctuation              | `Shift + E`
-Go to character on current line                 | `f<char>`. Press `;` to repeat last jump. `,` for reverse
-Go until (before) a character on current line   | `t<char>`. Press `;` to repeat last jump. `,` for reverse
-Go to line's beginning                          | `0`
-Go to line's end                                | `$`
-Go to line's first non-blank character          | `^`
-Center current line                             | `zz`
+Operation                                        | Mapping
+-------------------------------------------------|--------------------------------
+Arrow keys                                       | `h`, `j`, `k`, `l`
+Go to line                                       | `:n` where `n` is the line number
+Go to file                                       | `gf`
+Open file at line number                         | `vim path/to/file +n` where `n` is the line number
+Go to top of file                                | `gg`
+Go to bottom of file                             | `Shift + G`
+Scroll the screen half way up                    | `CTRL + u`
+Scroll the screen half way down                  | `CTRL + d`
+Scroll line to top                               | `zt`
+Scroll line to center                            | `zz`
+Scroll line to bottom                            | `zb`
+Move to next or previous brackets, do/end, etc.  | `%`
+Toggle between last 2 positions                  | `` ` ``
+Go to previous cursor position                   | `CTRL + Shift + O`
+Go to next cursor position                       | `CTRL + Shift + I`
+Go between paragraphs                            | `{` to go back, `}` to go forward
+Go between words                                 | `w` to move forward a word, `b` to move back a word
+Go between words with punctuation                | `Shift + W` to move forward, `Shift + B` to move back
+Go to end of word                                | `e`
+Go to end of word with punctuation               | `Shift + E`
+Go to character on current line                  | `f<char>`. Press `;` to repeat last jump. `,` for reverse
+Go until (before) a character on current line    | `t<char>`. Press `;` to repeat last jump. `,` for reverse
+Go to line's beginning                           | `0`
+Go to line's end                                 | `$`
+Go to line's first non-blank character           | `^`
+Center current line                              | `zz`
+Jump forward to begin of next top level          | `]]`
+Jump backwards to begin of current top level     | `[[`
+Jump forward to begin of next method/scope       | `]m`
+Jump backwards to begin of previous method/scope | `[m`
+Jump forward to end of current top level         | `][`
+Jump backward to end of previous of top level    | `[]`
+Jump forward to end of current method/scope      | `]M`
+Jump backward to end of previous method/scope    | `[M`
 
 ## Clipboard
 
