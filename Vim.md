@@ -148,6 +148,7 @@ Repeat last search in opposite direction                | `Shift + N`
 Remove highlighting of search matches                   | `:noh`
 Replace old with new throughout file                    | `:%s/old/new/g`
 Replace old with new throughout file with confirmations | `:%s/old/new/gc`
+Repeat last search and replace                          | `@:` and `@@` to repeat
 
 ## Spell check
 
