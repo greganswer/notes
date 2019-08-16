@@ -69,7 +69,7 @@ Visual block mode allows for selecting a column of text. To do this:
 | Write (save) and quit on all tabs         | `wqa`                         |
 
 ## Navigation
-
+ 
 | Operation                                        | Mapping                                                   |
 | ------------------------------------------------ | --------------------------------------------------------- |
 | Arrow keys                                       | `h`, `j`, `k`, `l`                                        |
@@ -124,18 +124,19 @@ Visual block mode allows for selecting a column of text. To do this:
 
 ## Insert mode
 
-| Operation                                       | Mapping     |
-| ----------------------------------------------- | ----------- |
-| Insert before the cursor                        | `i`         |
-| Insert at the beginning of the line             | `Shift + I` |
-| Insert (append) after the cursor                | `a`         |
-| Insert (append) at the end of the line          | `Shift + A` |
-| Insert (append) at the end of the word          | `ea`        |
-| Insert (open) a new line below the current line | `o`         |
-| Insert (open) a new line above the current line | `Shift + O` |
-| Exit insert mode                                | `Esc`       |
-| Auto complete using next word                   | `Ctrl + n`  |
-| Auto complete using previous word               | `Ctrl + n`  |
+| Operation                                       | Mapping                |
+| ----------------------------------------------- | ---------------------- |
+| Insert before the cursor                        | `i`                    |
+| Insert at the beginning of the line             | `Shift + I`            |
+| Insert (append) after the cursor                | `a`                    |
+| Insert (append) at the end of the line          | `Shift + A`            |
+| Insert (append) at the end of the word          | `ea`                   |
+| Insert (open) a new line below the current line | `o`                    |
+| Insert (open) a new line above the current line | `Shift + O`            |
+| Exit insert mode                                | `Esc`                  |
+| Auto complete using next word                   | `Ctrl + n`             |
+| Auto complete using previous word               | `Ctrl + n`             |
+| Auto complete whole line                        | `Ctrl + x`, `Ctrl + l` |
 
 ## Editing
 
