@@ -1,7 +1,12 @@
 import unittest
 
 class Node(object):
+    """ An item being added to the LinkedList. 
+    """
     def __init__(self, data):
+        """
+        :param data: The info being stored in this new node.
+        """
         self.data = data
         self.next = None
         self.prev = None
@@ -10,17 +15,21 @@ class Node(object):
         return f'Node: {self.data}'
 
 class LinkedList(object):
+    """ A list of Nodes linked to their next and/or previous Node. 
+    """
     def __init__(self):
         self.head = None
         self.tail = None
         self.size = 0
 
     def __len__(self):
-        """O(1) time complexity: size is calculated on insert/delete and is cached."""
+        """ Time - O(1): size is calculated on insert/delete.
+        """
         return self.size
 
     def __str__(self):
-        """O(n) time complexity."""
+        """ Time - O(n)
+        """
         current = self.head
         output = ""
         while current:
@@ -31,8 +40,10 @@ class LinkedList(object):
     # Create
 
     def prepend(self, data):
-        """Add a Node to the beginning of the LinkedList.
-        O(1) time complexity.
+        """ Add a Node to the beginning of the LinkedList.
+        Time - O(1)
+
+        :param data: The info being stored in this new node.
         """
         new_node = Node(data)
         current = self.head
@@ -46,8 +57,10 @@ class LinkedList(object):
         self.size += 1
 
     def append(self, data):
-        """Add a Node to the end of the LinkedList.
-        O(n) time complexity.
+        """ Add a Node to the end of the LinkedList.
+        Time - O(n)
+
+        :param data: The info being stored in this new node.
         """
         current = self.head
         new_node = Node(data)
@@ -67,8 +80,10 @@ class LinkedList(object):
     # Find
 
     def find(self, data):
-        """Find a Node in the LinkedList.
-        O(n) time complexity.
+        """ Find a Node in the LinkedList.
+        Time - O(n)
+
+        :param data: The info being retrieved.
         """
         current = self.head
         while current:
@@ -81,8 +96,10 @@ class LinkedList(object):
     # Delete
 
     def remove(self, data):
-        """Remove a Node from the LinkedList.
-        O(1) time complexity if the node is head. Otherwise O(n).
+        """ Remove a Node from the LinkedList.
+        Time - O(n)
+
+        :param data: The info being removed.
         """
         current = self.head
         previous = None
@@ -99,6 +116,8 @@ class LinkedList(object):
             current = current.next
 
 class TestLinkedList(unittest.TestCase):
+    """ Test the behavior of the LinkedList class.
+    """
     def setUp(self):
         self.list = LinkedList()
 
@@ -137,5 +156,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(None, self.list.find(2))
         self.assertEqual(0, len(self.list))
 
+# Run the tests
 if __name__ == '__main__':
     unittest.main()
