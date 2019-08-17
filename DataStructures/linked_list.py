@@ -1,8 +1,10 @@
 import unittest
 
+
 class Node(object):
-    """ An item being added to the LinkedList. 
+    """ An item being added to the LinkedList.
     """
+
     def __init__(self, data):
         """
         :param data: The info being stored in this new node.
@@ -12,11 +14,13 @@ class Node(object):
         self.prev = None
 
     def __str__(self):
-        return f'Node: {self.data}'
+        return f"Node: {self.data}"
+
 
 class LinkedList(object):
-    """ A list of Nodes linked to their next and/or previous Node. 
+    """ A list of Nodes linked to their next and/or previous Node.
     """
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -33,7 +37,7 @@ class LinkedList(object):
         current = self.head
         output = ""
         while current:
-            output += str(current) + '\n'
+            output += str(current) + "\n"
             current = current.next
         return output
 
@@ -51,7 +55,7 @@ class LinkedList(object):
             new_node.next = current
             current.prev = new_node
         if not self.tail:
-          self.tail = current if current else new_node
+            self.tail = current if current else new_node
 
         self.head = new_node
         self.size += 1
@@ -115,9 +119,11 @@ class LinkedList(object):
             previous = current
             current = current.next
 
+
 class TestLinkedList(unittest.TestCase):
     """ Test the behavior of the LinkedList class.
     """
+
     def setUp(self):
         self.list = LinkedList()
 
@@ -140,7 +146,7 @@ class TestLinkedList(unittest.TestCase):
 
     def test_find(self):
         self.list.append(2)
-        self.assertEqual('Node: 2', str(self.list.find(2)))
+        self.assertEqual("Node: 2", str(self.list.find(2)))
         self.assertEqual(None, self.list.find(22))
 
     def test_remove(self):
@@ -148,7 +154,7 @@ class TestLinkedList(unittest.TestCase):
 
         # Remove invalid node.
         self.list.remove(7)
-        self.assertEqual('Node: 2', str(self.list.find(2)))
+        self.assertEqual("Node: 2", str(self.list.find(2)))
         self.assertEqual(1, len(self.list))
 
         # Remove valid node.
@@ -156,6 +162,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(None, self.list.find(2))
         self.assertEqual(0, len(self.list))
 
+
 # Run the tests
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
