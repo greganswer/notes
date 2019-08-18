@@ -12,6 +12,7 @@
 - [Search & replace](#search--replace)
 - [Spell check](#spell-check)
 - [Tabs & splits](#tabs--splits)
+- [Plugins](#plugins)
 - [Later tutorials and implementations](#later-tutorials-and-implementations)
 - [References](#references)
 
@@ -69,7 +70,7 @@ Visual block mode allows for selecting a column of text. To do this:
 | Write (save) and quit on all tabs         | `wqa`                         |
 
 ## Navigation
- 
+
 | Operation                                        | Mapping                                                   |
 | ------------------------------------------------ | --------------------------------------------------------- |
 | Arrow keys                                       | `h`, `j`, `k`, `l`                                        |
@@ -106,6 +107,7 @@ Visual block mode allows for selecting a column of text. To do this:
 | Jump backward to end of previous of top level    | `[]`                                                      |
 | Jump forward to end of current method/scope      | `]M`                                                      |
 | Jump backward to end of previous method/scope    | `[M`                                                      |
+| Reopen previous file/buffer                      | `:b#`                                                     |
 
 ## Clipboard
 
@@ -191,6 +193,13 @@ Visual block mode allows for selecting a column of text. To do this:
 | Jump to a specific tab               | `ngt` where n is the tab index starting at 1           |
 | Close the current tab                | `:tabc[lose]`                                          |
 | Move between splits                  | `Ctrl +` one of the movement keys (`h`, `j`, `k`, `l`) |
+
+## Plugins
+
+| Operation                         | Mapping  | Plugin                                  |
+| --------------------------------- | -------- | --------------------------------------- |
+| Comment out a line ("go comment") | `gc`     | https://github.com/tpope/vim-commentary |
+| Full path fuzzy file search       | `Ctrl p` | https://github.com/ctrlpvim/ctrlp.vim   |
 
 ## Later tutorials and implementations
 
