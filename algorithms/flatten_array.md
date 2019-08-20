@@ -26,7 +26,8 @@ end
 def flatten(items):
     first = items[0]
     remaining = items[1:]
-    output = flatten(first) if type(first) is list else [first]
+    output = flatten(first) if isinstance(first, list) else [first]
+    
     if len(remaining):
         output += flatten(remaining)
     return output
