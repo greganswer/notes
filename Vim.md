@@ -4,6 +4,7 @@
 - [Definitions](#definitions)
 - [Text objects](#text-objects)
 - [Visual mode](#visual-mode)
+- [Display](#display)
 - [Save & quit](#save--quit)
 - [Navigation](#navigation)
 - [Clipboard](#clipboard)
@@ -57,6 +58,15 @@ Visual block mode allows for selecting a column of text. To do this:
 1. Press `Ctrl + V` to  start selection
 1. Press `Shift and I` then type in any text
 1. Press `Esc` twice
+
+## Display
+
+| Operation                    | Mapping                               |
+| ---------------------------- | ------------------------------------- |
+| Remove word highlights       | `:noh`                                |
+| Toggle absolute line numbers | `:set number!` or `:set nu!`          |
+| Toggle relative line numbers | `:set relativenumber!` or `:set rnu!` |
+| Toggle hybrid line numbers   | `:set nu! rnu!`                       |
 
 ## Save & quit
 
@@ -174,14 +184,13 @@ Visual block mode allows for selecting a column of text. To do this:
 
 ## Spell check
 
-| Operation                                               | Mapping        |
-| ------------------------------------------------------- | -------------- |
-| Move to next misspelled word after the cursor           | `]s`           |
-| Move to previous misspelled word before the cursor      | `[s`           |
-| z=Suggest spellings for the word under/after the cursor | `z=`           |
-| Add word to spell list                                  | `zg`           |
-| Enable spell check                                      | `:set spell`   |
-| Disable spell check                                     | `:set nospell` |
+| Operation                                             | Mapping       |
+| ----------------------------------------------------- | ------------- |
+| Move to next misspelled word after the cursor         | `]s`          |
+| Move to previous misspelled word before the cursor    | `[s`          |
+| Suggest spellings for the word under/after the cursor | `z=`          |
+| Add word to spell list                                | `zg`          |
+| Toggle spell check                                    | `:set spell!` |
 
 ## Tabs & splits
 
@@ -220,3 +229,4 @@ Visual block mode allows for selecting a column of text. To do this:
 - https://vim.rtorr.com/
 - https://vim.fandom.com/wiki/Searching
 - https://vim.fandom.com/wiki/Search_and_replace
+- https://jeffkreeftmeijer.com/vim-number/
