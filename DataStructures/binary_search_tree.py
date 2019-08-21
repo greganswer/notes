@@ -96,7 +96,8 @@ class BinarySearchTree(object):
         else:
             self.root_node.remove(data, None)
 
-    # Check if __getattr__ works then delete the following lines
+    # TODO: Check if __getattr__ works then delete the following lines
+    #
     # def get_max(self):
     #     if self.root_node:
     #         self.root_node.get_max()

@@ -12,15 +12,15 @@ Examples:
 - A one dimensional array is just a list of items
 - A two dimensional array is a list of lists of items
 
-Description | Linked List<br>time complexity | Array<br>time complexity
-------------|--------------------------------|---------------------------
-Calculating item index                                             | O(n) | O(1)
-Prepend item                                                       | O(1) | O(n)
-Delete at the beginning/middle <br>(array items must be moved)     | O(1) | O(n)
-Insert in the middle <br>(same as above)                           | O(n) | O(n)
-Append                                                             | O(n) | O(n)
-Delete at the end                                                  | O(n) | O(n)
-Space waste                                                        | O(n) | 0
+| Description                                                    | Linked List<br>time complexity | Array<br>time complexity |
+| -------------------------------------------------------------- | ------------------------------ | ------------------------ |
+| Calculating item index                                         | O(n)                           | O(1)                     |
+| Prepend item                                                   | O(1)                           | O(n)                     |
+| Delete at the beginning/middle <br>(array items must be moved) | O(1)                           | O(n)                     |
+| Insert in the middle <br>(same as above)                       | O(n)                           | O(n)                     |
+| Append                                                         | O(n)                           | O(n)                     |
+| Delete at the end                                              | O(n)                           | O(n)                     |
+| Space waste                                                    | O(n)                           | 0                        |
 
 ## Linked lists
 
@@ -136,4 +136,10 @@ for key, val in hash.items():
     print(f'Key: {key}, Value {val}')
 ```
 
-## Trees
+## Performance
+
+Lookups in `lists` are O(n), lookups in `hash tables` are amortized O(1), with regard to the number of items in the data structure. If you don't need to associate values, use `sets`.
+Prefer `sets` or `hash tables` instead of `lists` in cases where:
+- The collection will contain a large number of items
+- You will be repeatedly searching for items in the collection
+- You do not have duplicate items.

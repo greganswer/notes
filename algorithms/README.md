@@ -1,6 +1,13 @@
 # Algorithms
 
+An algorithm is a series of steps to solve a problem. A good algorithm is readable (by humans) and scalable (by machines).
+
 ### Characteristics
+
+The 3 pillars of good code:
+1. Readable
+2. Time Complexity
+3. Space Complexity
 
 Algorithm complexity
 
@@ -65,22 +72,58 @@ def gcd_recursive(a, b):
     return gcd_recursive(b, a%b)
 ```
 
-### Measuring algorithms
+### Measuring algorithms with Big O
 
 Big-O notation
 
+- A measure of the longest amount of time it could possibly take for the algorithm to complete.
 - Determine the performance of an algorithm as the input size grows
-- "O" indicates the **order of operation**: time scale to perform an operation
-- Many algorithms and data structures have more than one O
+- `O()` indicates the **order of operation**: time scale to perform an operation
+- Many algorithms and data structures have more than one `O()`
     - Create/Read/Update/Delete of data
+- This calculates the number of operations. 7 operations is `O(7)`. We always simplify to `O(1)`
 
-Notation   | Description                                     | Example
------------|-------------------------------------------------|---------
-O(1)       | Constant time. Does not depend on the data set. | Looking up a single element in an array
-O(log n)   | Logarithmic       | Finding an item in a sorted array with a binary search
-O(n)       | Linear time       | Searching an unsorted array for a specific value
-O(n log n) | Log-linear        | Complex sorting algorithms like heap sort and merge sort
-O(n^2)     | Quadratic         | Simple sorting algorithms, such as bubble sort, selection sort, and insertion sort
+#### Notations
+
+**Big-O** is a measure of the longest amount of time it could possibly take for the algorithm to complete.
+`f(n) ≤ cg(n)`, where `f(n)` and `g(n)` are non-negative functions, `g(n)` is upper bound, then `f(n)` 
+is Big O of `g(n)`. This is denoted as `f(n) = O(g(n))`.
+
+**Big Omega** describes the best that can happen for a given data size.
+`f(n) ≥ cg(n)`, this makes `g(n)` a lower bound function
+
+**Theta** is basically saying that the function, f(n) is bounded both from the top and bottom by the same function, `g(n)`.
+f(n) is theta of `g(n)` if and only if `f(n) = O(g(n))` and `f(n) = Ω(g(n))`
+This is denoted as `f(n) = Θ(g(n))`. 
+
+| Notation   | Description                                       | Example                                                                                          |
+| ---------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| O(1)       | Constant time. Independent of data set. No loops. | Looking up a single element in an array                                                          |
+| O(log n)   | Logarithmic                                       | Finding an item in a sorted array with a binary search                                           |
+| O(n)       | Linear time                                       | Loops. Searching an unsorted array for a specific value                                          |
+| O(n log n) | Log-linear                                        | Complex sorting algorithms like heap sort and merge sort                                         |
+| O(n^2)     | Quadratic                                         | Nested loops. Simple sorting algorithms, such as bubble sort, selection sort, and insertion sort |
+| O(2^n)     | Exponential                                       | Recursive algorithms that solves a problem of size N                                             |
+| O(n!)      | Factorial                                         | Adding a loop for every element                                                                  |
+
+#### Rules for calculation
+
+1. Always describe the worst case scenario
+2. Remove constants from the equation
+3. Different inputs should have different variables. `O(a+b)` for steps in order. A and B arrays nested would be `O(a*b)`.
+4. Drop Non-dominant terms
+
+#### Space complexity
+
+- Space complexity refers to how much additional space the algorithm requires to execute (independent of space required for it's inputs)
+- Programs store data in the `heap` or the `stack`
+    - The `heap` is where variables are stored
+    - The `stack` is where function calls are stored
+- What causes space complexity
+    - Variables
+    - Data Structures
+    - Function calls
+    - Allocations
 
 ## Recursion
 
@@ -90,19 +133,17 @@ When a function calls itself
 - Each time the function is called, the old arguments are saved in the **call stack**
 
 ```python
-def fibonacci(n):
-    if n < 2:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
+def fibonacci(num):
+    return num if num < 2 else fibonacci(num-1) + fibonacci(num-2)
 ```
 
 ## Sorting Data
 
-Type | Runtime
------|---------
-Bubble sort | O(n^2)
-Merge sort  | O(n log n)
-Quick sort  | O(n log n)
+| Type        | Runtime    |
+| ----------- | ---------- |
+| Bubble sort | O(n^2)     |
+| Merge sort  | O(n log n) |
+| Quick sort  | O(n log n) |
 
 **Bubble sort:**
 
@@ -286,6 +327,42 @@ def max(items):
         return max([first] + items[2:])
     else:
         return max(remaining)
+```
+
+## Misc
+
+### Fizz buzz
+
+```python
+# Write a program that prints the numbers from 1 to 100. But for multiples of 
+# 3 print "Fizz" instead of the number and for the multiples of 5 print "Buzz". 
+# For numbers which are multiples of both 3 and 5 print "FizzBuzz".
+def fizz_buzz():
+    """
+    Time - O(n)
+    """
+    for i in range(1, 101):
+        output = "fizz" if (i % 3) == 0 else ""
+        output += "buzz" if (i % 5) == 0 else ""
+        print(output if output else i)
+
+
+fizz_buzz()
+```
+
+### Log all pairs
+
+```python
+def log_all_pairs(items):
+    """ Print out all the unique pairs based on the list of items.
+    Time - O(n)
+    """
+    for i in range(len(items)):
+        for j in range(i+1, len(items)):
+            print(items[i], items[j])
+
+
+log_all_pairs([1, 2, 3, 4, 5])
 ```
 
 ## Resources

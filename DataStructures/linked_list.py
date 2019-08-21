@@ -24,6 +24,7 @@ class LinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
+        self.current = self.head
         self.size = 0
 
     def __len__(self):
@@ -40,6 +41,19 @@ class LinkedList(object):
             output += str(current) + "\n"
             current = current.next
         return output
+
+    # LinkedList iteration. Not required but definitely interesting.
+    
+    def __iter__(self):
+        self.current = self.head
+        return self
+
+    def __next__(self):
+        if not self.current:
+            raise StopIteration
+        item = self.current.data
+        self.current = self.current.next
+        return item
 
     # Create
 
@@ -88,6 +102,7 @@ class LinkedList(object):
         Time - O(n)
 
         :param data: The info being retrieved.
+        :return: Node object or None
         """
         current = self.head
         while current:

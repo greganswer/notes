@@ -227,6 +227,8 @@ li.extend(other_li)  # Now li is [1, 2, 3, 4, 5, 6]
 
 # Examine the length with "len()"
 len(li)  # => 6
+
+four_nones = [None] * 4 # => [None, None, None, None]
 ```
 
 ## Tuples
@@ -539,3 +541,4 @@ Mosts of the examples in this file come directly from one of the following links
 - https://realpython.com/python-first-steps
 - https://www.pythonforbeginners.com/basics/list-comprehensions-in-python
 - https://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
+- https://docs.python-guide.org/
