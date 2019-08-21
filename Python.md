@@ -18,6 +18,7 @@
 - [Modules](#modules)
 - [Misc](#misc)
   - [Comprehensions](#comprehensions)
+- [Additional reading](#additional-reading)
 - [References](#references)
 
 ## General
@@ -308,26 +309,41 @@ filled_set.add(5)  # it remains as before {1, 2, 3, 4, 5}
 
 # Do set intersection with &
 other_set = {3, 4, 5, 6}
-filled_set & other_set  # => {3, 4, 5}
+filled_set & other_set              # => {3, 4, 5}
+filled_set.intersection(other_set)  # => {3, 4, 5}
+
+# Check if two sets have no value in common (an intersection that is empty)
+filled_set.isdisjoint(other_set)  # => False
+filled_set.isdisjoint({7, 8})  # => True
 
 # Do set union with |
-filled_set | other_set  # => {1, 2, 3, 4, 5, 6}
+filled_set | other_set      # => {1, 2, 3, 4, 5, 6}
+filled_set.union(other_set) # => {1, 2, 3, 4, 5, 6}
 
 # Do set difference with -
-{1, 2, 3, 4} - {2, 3, 5}  # => {1, 4}
+{1, 2, 3, 4} - {2, 3, 5}            # => {1, 4}
+{1, 2, 3, 4}.difference({2, 3, 5})  # => {1, 4}
 
 # Do set symmetric difference with ^
-{1, 2, 3, 4} ^ {2, 3, 5}  # => {1, 4, 5}
+{1, 2, 3, 4} ^ {2, 3, 5}                      # => {1, 4, 5}
+{1, 2, 3, 4}.symmetric_difference({2, 3, 5})  # => {1, 4, 5}
 
 # Check if set on the left is a superset of set on the right
 {1, 2} >= {1, 2, 3} # => False
 
 # Check if set on the left is a subset of set on the right
-{1, 2} <= {1, 2, 3} # => True
+{1, 2} <= {1, 2, 3}        # => True
+{1, 2}.issubset({1, 2, 3}) # => True
 
 # Check for existence in a set with in
 2 in filled_set   # => True
 10 in filled_set  # => False
+
+# Set comprehension
+{skill for skill in ['GIT', 'PYTHON', 'SQL'] if skill not in {'GIT', 'PYTHON', 'JAVA'}} # => {'SQL'}
+
+# Create a frozen set
+immutableSet = frozenset()
 ```
 
 ## Console input and output
@@ -532,6 +548,15 @@ listOfWords = ["this","is","a","list","of","words"]
 items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
 ```
 
+## Additional reading
+
+1. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python
+1. https://docs.python-guide.org/writing/tests
+1. https://docs.python-guide.org/writing/structure
+1. https://www.oreilly.com/library/view/high-performance-python/9781449361747/ch04.html
+1. https://www.datacamp.com/community/tutorials/18-most-common-python-list-questions-learn-python
+1. https://rszalski.github.io/magicmethods
+
 ## References
 
 Mosts of the examples in this file come directly from one of the following links:
@@ -542,3 +567,4 @@ Mosts of the examples in this file come directly from one of the following links
 - https://www.pythonforbeginners.com/basics/list-comprehensions-in-python
 - https://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
 - https://docs.python-guide.org/
+- https://www.datacamp.com/community/tutorials/sets-in-python
