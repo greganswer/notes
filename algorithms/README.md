@@ -1,6 +1,7 @@
 # Algorithms
 
-An algorithm is a series of steps to solve a problem. A good algorithm is readable (by humans) and scalable (by machines).
+An algorithm is a series of steps to solve a problem. An algorithm can use 0 or more data structures. 
+A good algorithm is readable (by humans) and scalable (by machines).
 
 ### Characteristics
 

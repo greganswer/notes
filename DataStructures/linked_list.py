@@ -43,7 +43,7 @@ class LinkedList(object):
         return output
 
     # LinkedList iteration. Not required but definitely interesting.
-    
+
     def __iter__(self):
         self.current = self.head
         return self

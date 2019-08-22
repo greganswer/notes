@@ -556,6 +556,7 @@ items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
 1. https://www.oreilly.com/library/view/high-performance-python/9781449361747/ch04.html
 1. https://www.datacamp.com/community/tutorials/18-most-common-python-list-questions-learn-python
 1. https://rszalski.github.io/magicmethods
+1. https://wiki.python.org/moin/TimeComplexity
 
 ## References
 
