@@ -21,17 +21,44 @@ Examples:
 - A one dimensional array is just a list of items
 - A two dimensional array is a list of lists of items
 - With a static array you have to declare the amount of items that will be in the array
+- When you insert an item into the array anywhere other than the end, the indexes have to be recalculated causing O(n)
 - With a dynamic array, if you add a 5th item to a 4 slot array, the interpreter will copy the array into a new memory address that is 8 slots (double the original size)
 
-| Description                                                    | Linked List<br>time complexity | Array<br>time complexity |
-| -------------------------------------------------------------- | ------------------------------ | ------------------------ |
-| Calculating item index                                         | O(n)                           | O(1)                     |
-| Prepend item                                                   | O(1)                           | O(n)                     |
-| Delete at the beginning/middle <br>(array items must be moved) | O(1)                           | O(n)                     |
-| Insert in the middle <br>(same as above)                       | O(n)                           | O(n)                     |
-| Append                                                         | O(n)                           | O(1), sometimes O(n)     |
-| Delete at the end                                              | O(n)                           | O(1)                     |
-| Space waste                                                    | O(n)                           | 0                        |
+## Hash tables
+
+- A.k.a: dictionary, hash, hash maps, maps, associative arrays
+- It maps keys to their associated values
+- The `key` is used as the index of where to find the value in memory
+
+Hash functions
+
+- a function that generates a value of fixed length for each input that it gets
+- are one way and it's idempotent (same output for the same output)
+- gives really fast data access
+- in a hash table the key is passed through the hash function which generates a hash that points to the address in memory where the data will be stored
+
+Advantage
+
+- Key-value mappings are unique
+- They're typically faster than any other structure, especially with a large data set
+
+Drawbacks
+
+- For small data sets, arrays are usually faster
+- Hash tables order is not predictable
+- A collision can occur when the hashed key points to a memory location that already contains a value
+    - A Linked Lists is created and the list will be traversed until the correct value is found
+
+```python
+hash = {"a": 1, "b": 2}
+print(hash)  #=> {'a': 1, 'b': 2}
+
+hash["c"] = "three"
+print(hash)  #=> {'a': 1, 'b': 2, 'c': 'three'}
+
+for key, val in hash.items():
+    print(f'Key: {key}, Value {val}')
+```
 
 ## Linked lists
 
@@ -71,9 +98,9 @@ Disadvantages
 
 ## Stacks and queues
 
-Some languages have built in data types to represent these structures. 
+Stack
 
-**Stack:** 
+- Some languages have built in data types to represent this structure
 - Collection that supports push and pop operations
 - The last item pushed is the first one popped. Last In, First Out (LIFO)
 - Pushing/popping an item on to the stack has a run time of O(1)
@@ -94,7 +121,9 @@ item = stack.pop
 print(stack)  #=> [1, 2]
 ```
 
-**Queue:** 
+Queue
+
+- Some languages have built in data types to represent this structure
 - Collection that supports adding and removing
 - The first item pushed is the first one popped. First In, First Out (FIFO)
 - Pushing/popping an item on to the stack has a run time of O(1)
@@ -117,40 +146,24 @@ item = queue.popleft()
 print(queue)  #=> deque([2, 3])
 ```
 
-## Hash tables
-
-- Also known as a dictionary or associative array
-- Most languages have hash tables already implemented
-- The most important thing is to under it's structure, as well as pros/cons
-- It's a data structure that maps keys to their associated values
-- It does this using a **hash function**
-    - Uses the key to compute the index into the slots that are in the hash table
-    - Ideally, each key is uniquely assigned to a value
-    - Sometimes there are collisions
-
-**Advantage:**
-- Key-value mappings are unique
-- They're typically faster than any other structure, especially with a large data set
-
-**Drawbacks:**
-- For small data sets, arrays are usually faster
-- Hash tables order is not predictable
-
-```python
-hash = {"a": 1, "b": 2}
-print(hash)  #=> {'a': 1, 'b': 2}
-
-hash["c"] = "three"
-print(hash)  #=> {'a': 1, 'b': 2, 'c': 'three'}
-
-for key, val in hash.items():
-    print(f'Key: {key}, Value {val}')
-```
-
 ## Performance
 
 Lookups in `lists` are O(n), lookups in `hash` are amortized O(1), with regard to the number of items in the data structure. If you don't need to associate values, use `sets`.
 Prefer `sets` or `hash` instead of `lists` in cases where:
+
 - The collection will contain a large number of items
 - You will be repeatedly searching for items in the collection
 - You do not have duplicate items.
+
+| Operation | Array | Hash | Linked List |
+| --------- | ----- | ---- | ----------- |
+| Insert    | O(n)  | O(1) | O(n)        |
+| Prepend   | O(n)  | O(1) | O(1)        |
+| Append    | O(1)* | O(1) | O(1)**      |
+| Lookup    | O(1)  | O(1) | O(n)        |
+| Delete    | O(n)  | O(1) | O(n)        |
+| Search    | O(n)  | O(1) | O(n)        |
+| Space     | O(1)  | O(n) | O(n)        |
+
+\* Can be O(n) on expanding memory 
+\** Can be O(n) if tail is not stored in the `LinkList` object 
