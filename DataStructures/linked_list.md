@@ -31,5 +31,6 @@ Doubly linked list diagram. Each element also knows about it's previous element.
 - Wastes memory because of the references to other nodes
 - Item lookup has an O(n) linear time complexity because items must be read in order
 - Arrays use indexes which have an O(1) constant time complexity
-- Singly Linked Lists are difficult to traverse in reverse
+- Singly Linked Lists are difficult to traverse in reverse but they take up a bit less memory
+- With a Singly Linked List you inserting/delete at the head/tail is fast
 - Doubly Linked Lists waste additional memory
