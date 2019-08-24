@@ -2,10 +2,36 @@
 
 ## Study Plan
 
-- [ ] [Master the Coding Interview: Data Structures + Algorithms Udemy course](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+- [ ] [Leetcode Prep Work](https://bit.ly/2ZjAkBf)
+- [ ] [Master the Coding Interview: Data Structures + Algorithms (Udemy course)](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+- [x] [How to prepare for technical interviews (YouTube)](https://www.youtube.com/watch?v=fbRSDn5YK_k)
 - [ ] Whiteboard all algorithms and data structures in preferred language at least twice
 - [ ] [Cracking the Coding Interview book](https://www.amazon.ca/Cracking-Coding-Interview-Programming-Questions/dp/0984782850)
 - [ ] leetcode.com
+
+## Daily
+
+1. Learn a new algorithm or data structure
+1. Do at least 2 problems from Cracking the Coding Interview
+1. Do at least 2 problems from leetcode.com
+
+## Leetcode
+
+It's recommended to get premium so that you can select questions from your top 3 
+companies. Some guidelines for doing leetcode:
+
+1. Close all apps and unnecessary browser tabs
+1. Get a few pens and a stack of paper (at least 8.5 x 11 size)
+1. Set a 25 minute timer per problem
+      1. Use the first 5 minutes to understand the problem
+      1. Use the next 20 minutes to hand write a solution
+      1. If you get stuck review a hint (not the solution if possible)
+1. Spend 10 minutes reading about the solution and take notes
+1. Revisit the problem in a week
+1. Only spend 2-4 hours per day on this (otherwise you burn out)
+1. Take at least on day off per week
+1. Do at least 40 questions (a mix of easy and medium)
+1. Try a few hard questions
 
 ## Interview prep
 
@@ -16,11 +42,13 @@ Companies are looking for the following skills:
 1. Communication skills: Does your personality match the companies’ culture?
 
 Throughout the interview, do the following:
-1. Ask for clarification
+1. Ask for clarification (for first 5 minutes or less)
+1. Sketch a diagram of the problem
 1. Constantly think out loud (like pair programming)
 1. Write pseudo code before actual code
-1. Test your solution
-1. Handle invalid input
+1. Consider invalid input and edge cases
+1. Write out the code
+1. Test your solution by hand (use an input/output table)
 
 ## Questions for code challenges
 

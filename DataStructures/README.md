@@ -1,5 +1,11 @@
 # Data structures
 
+- [How computers store data](#how-computers-store-data)
+- [Arrays](#arrays)
+- [Hash tables](#hash-tables)
+- [Stacks and queues](#stacks-and-queues)
+- [Performance](#performance)
+
 A Data Structure is a collection of values used by an algorithm.
 
 Examples:
@@ -29,20 +35,18 @@ Examples:
 - A.k.a: dictionary, hash, hash maps, maps, associative arrays
 - It maps keys to their associated values
 - The `key` is used as the index of where to find the value in memory
+- Hash functions
+    - a function that generates a value of fixed length for each input that it gets
+    - are one way and it's idempotent (same output for the same output)
+    - gives really fast data access
+    - in a hash table the key is passed through the hash function which generates a hash that points to the address in memory where the data will be stored
 
-Hash functions
-
-- a function that generates a value of fixed length for each input that it gets
-- are one way and it's idempotent (same output for the same output)
-- gives really fast data access
-- in a hash table the key is passed through the hash function which generates a hash that points to the address in memory where the data will be stored
-
-Advantage
+Advantages
 
 - Key-value mappings are unique
 - They're typically faster than any other structure, especially with a large data set
 
-Drawbacks
+Disadvantages
 
 - For small data sets, arrays are usually faster
 - Hash tables order is not predictable
@@ -60,50 +64,18 @@ for key, val in hash.items():
     print(f'Key: {key}, Value {val}')
 ```
 
-## Linked lists
-
-- A linear collection of data elements, called nodes
-- Similar to an array but a bit different
-- **Each node has a field that points to the next element in the list**
-- Each element holds whatever data the application needs
-- First item in the list is known as the **head** and the last is the **tail**
-- Last item in the list points to null, which means it's the end of the list
-- They can be used to create other data structures: **stacks, queues, etc.**
-
-Add/Remove
-
-- To add an item to the beginning of the list set the new node's `next` pointer to `head`, and set `head` to the new node
-- To delete item 3 from a 4 item list, set the `previous` pointer for item 4 to item 2, set the `next` pointer for item 2 to item 4
-
-Singly linked list diagram
-![Singly linked list](/images/singly_linked_list.png)
-
-Doubly linked list diagram. Each element also knows about it's previous element.
-![Doubly linked list](/images/doubly_linked_list.png)
-
-Advantages
-
-- Linked Lists are dynamic data structures (can add/remove items faster than arrays)
-- Memory is allocated at run time (underlying memory doesn't need to be reorganized)
-- Can store items of different sizes (Arrays assume every element is the same size)
-
-Disadvantages
-
-- Can't do constant-time random item access like any item in an array
-- Wastes memory because of the references to other nodes
-- Item lookup has an O(n) linear time complexity because items must be read in order
-- Arrays use indexes which have an O(1) constant time complexity
-- Singly Linked Lists are difficult to traverse in reverse
-- Doubly Linked Lists waste additional memory
-
 ## Stacks and queues
+
+- Linear data structures that can be traversed sequentially
+- Best for when you only care about the beginning/end of the data structure
 
 Stack
 
+- Think of a stack of plates, take plates off the top
 - Some languages have built in data types to represent this structure
 - Collection that supports push and pop operations
 - The last item pushed is the first one popped. Last In, First Out (LIFO)
-- Pushing/popping an item on to the stack has a run time of O(1)
+- Main functions of a stack: `pop`, `push`, `peek` which all have a O(1)
 - Examples:
     - Processing a mathematical expression
     - Backtracking: browser back button
@@ -123,10 +95,12 @@ print(stack)  #=> [1, 2]
 
 Queue
 
+- Think of a line at the grocery store, FIFO
 - Some languages have built in data types to represent this structure
 - Collection that supports adding and removing
 - The first item pushed is the first one popped. First In, First Out (FIFO)
-- Pushing/popping an item on to the stack has a run time of O(1)
+- **Never make a queue using an array because enqueueing/dequeueing is slower**
+- Main functions of a queue: `enqueue`, `dequeue`, `peek` which all have a O(1)
 - Examples:
     - Order processing
     - Message processing
