@@ -1,13 +1,13 @@
 # Interview
 
-## Study Plan
+## My study plan
 
-- [ ] [Leetcode Prep Work](https://bit.ly/2ZjAkBf)
-- [ ] [Master the Coding Interview: Data Structures + Algorithms (Udemy course)](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
-- [x] [How to prepare for technical interviews (YouTube)](https://www.youtube.com/watch?v=fbRSDn5YK_k)
+- [x] [How to prepare for technical interviews (12 minute YouTube video)](https://www.youtube.com/watch?v=fbRSDn5YK_k)
+- [ ] [Master the Coding Interview: Data Structures + Algorithms (30 hour Udemy course)](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+- [ ] [Leetcode Prep Work (4 minute Medium article)](https://bit.ly/2ZjAkBf)
 - [ ] Whiteboard all algorithms and data structures in preferred language at least twice
 - [ ] [Cracking the Coding Interview book](https://www.amazon.ca/Cracking-Coding-Interview-Programming-Questions/dp/0984782850)
-- [ ] leetcode.com
+- [ ] At least 40 leetcode.com
 
 ## Daily
 
