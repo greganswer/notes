@@ -18,6 +18,7 @@
 - [Modules](#modules)
 - [Misc](#misc)
   - [Comprehensions](#comprehensions)
+- [Command line app boilerplate](#command-line-app-boilerplate)
 - [Additional reading](#additional-reading)
 - [References](#references)
 
@@ -546,6 +547,29 @@ numbers = [x for x in "Hello 12345 World" if x.isdigit()] # => ['1', '2', '3', '
 
 listOfWords = ["this","is","a","list","of","words"] 
 items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
+```
+
+## Command line app boilerplate
+
+```python
+import click
+import sys
+
+
+# Ref: https://youtube.com/watch?v=ubXXmQzzNGo
+@click.command()
+@click.argument('infile', type=click.File('r'), default='-')  # Optional: From example
+@click.argument('outfile', type=click.File('w'), default='-') # Optional: From example
+@click.argument('--log-file', '-l', type=click.File('w'), default=sys.stderr)
+@click.argument('--verbose', '-v', is_flag=True)
+def cli(infile, outfile, log_file, verbose):
+    if verbose:
+        click.echo(f'Infile: {infile}', file=log_file)
+    click.echo('logging some data...', file=log_file)
+    click.secho('printing with colors', file=outfile, fg='green')
+    if verbose:
+        click.echo('Done!', file=log_file)
+
 ```
 
 ## Additional reading
