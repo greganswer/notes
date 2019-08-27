@@ -129,15 +129,15 @@ Prefer `sets` or `hash` instead of `lists` in cases where:
 - You will be repeatedly searching for items in the collection
 - You do not have duplicate items.
 
-| Operation | Array | Hash | Linked List |
-| --------- | ----- | ---- | ----------- |
-| Insert    | O(n)  | O(1) | O(n)        |
-| Prepend   | O(n)  | O(1) | O(1)        |
-| Append    | O(1)* | O(1) | O(1)**      |
-| Lookup    | O(1)  | O(1) | O(n)        |
-| Delete    | O(n)  | O(1) | O(n)        |
-| Search    | O(n)  | O(1) | O(n)        |
-| Space     | O(1)  | O(n) | O(n)        |
+| Operation | Array | Hash | Linked List | Biary Search Tree |
+| --------- | ----- | ---- | ----------- | ----------------- |
+| Insert    | O(n)  | O(1) | O(n)        | O(log n)          |
+| Prepend   | O(n)  | O(1) | O(1)        |                   |
+| Append    | O(1)* | O(1) | O(1)**      |                   |
+| Lookup    | O(1)  | O(1) | O(n)        | O(log n)          |
+| Delete    | O(n)  | O(1) | O(n)        | O(log n)          |
+| Search    | O(n)  | O(1) | O(n)        | O(log n)          |
+| Space     | O(1)  | O(n) | O(n)        |                   |
 
 \* Can be O(n) on expanding memory 
 \** Can be O(n) if tail is not stored in the `LinkList` object 

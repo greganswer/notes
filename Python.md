@@ -18,6 +18,7 @@
 - [Modules](#modules)
 - [Misc](#misc)
   - [Comprehensions](#comprehensions)
+  - [Sorting](#sorting)
 - [Command line app boilerplate](#command-line-app-boilerplate)
 - [Additional reading](#additional-reading)
 - [References](#references)
@@ -549,6 +550,16 @@ listOfWords = ["this","is","a","list","of","words"]
 items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
 ```
 
+### Sorting
+
+```python
+# Sort by value in ascending order
+incomes = {'apple': 5600.00, 'orange': 3500.00, 'banana': 5000.00}
+
+for k, v in sorted(incomes.items(), key=lambda item : item[1]):
+    print(f'{k} -> {v}')
+```
+
 ## Command line app boilerplate
 
 ```python
@@ -582,6 +593,7 @@ def cli(infile, outfile, log_file, verbose):
 1. https://rszalski.github.io/magicmethods
 1. https://wiki.python.org/moin/TimeComplexity
 1. https://realpython.com/python-range/
+1. https://realpython.com/introduction-to-python-generators/
 
 ## References
 
@@ -594,3 +606,4 @@ Mosts of the examples in this file come directly from one of the following links
 - https://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
 - https://docs.python-guide.org/
 - https://www.datacamp.com/community/tutorials/sets-in-python
+- https://realpython.com/iterate-through-dictionary-python/

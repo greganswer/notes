@@ -1,5 +1,6 @@
 # Linked lists
 
+- A Linked List is a type of **tree**, which is a type of **graph**
 - A linear collection of data elements, called nodes
 - Similar to an array but a bit different
 - **Each node has a field that points to the next element in the list**

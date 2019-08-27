@@ -1,111 +1,72 @@
-import unittest
-
-
-class Node(object):
-    """ An item being added to the BinarySearchTree.
-    """
-
+class Node:
     def __init__(self, data):
-        """
-        :param data: The info being stored in this new node.
-        """
         self.data = data
-        self.left_child = None
-        self.right_child = None
-
-    def __str__(self):
-        return f"Node: {self.data}"
-
-    # Create
-
-    def insert(self, data):
-        if data < self.data:
-            if self.left_child:
-                self.left_child.insert(data)
-            else:
-                self.left_child = Node(data)
-        else:
-            if self.right_child:
-                self.right_child.insert(data)
-            else:
-                self.right_child = Node(data)
-
-    # Read
-
-    def get_min(self):
-        return self.left_child.get_min() if self.left_child else self.data
-
-    def get_max(self):
-        return self.right_child.get_max() if self.right_child else self.data
-
-    def traverse_in_order(self):
-        if self.left_child:
-            self.left_child.traverse_in_order()
-
-        print(self)
-
-        if self.right_child:
-            self.right_child.traverse_in_order()
-
-    # Delete
-
-    def remove(self, data, parent):
-        if data < self.data and self.left_child:
-            self.left_child.remove(data, self)
-            return
-
-        if data > self.data and self.right_child:
-            self.right_child.remove(data, self)
-            return
-
-        if self.left_child and self.right_child:
-            self.data = self.right_child.get_min()
-            self.right_child.remove(self.data, self)
-        elif parent.left_child == self:
-            temp = self.left_child if self.left_child else self.right_child
-            parent = self.right_child
-        elif parent.right_child == self:
-            temp = self.left_child if self.left_child else self.right_child
-            parent.right_child = temp
+        self.left = None
+        self.right = None
 
 
-class BinarySearchTree(object):
+class BinarySearchTree:
     def __init__(self, data):
-        self.root_node = None
+        self.root = None
 
-    def __getattr__(self, attr):
-        """ Delegate missing methods to the root Node if it exists
+    def insert(self,data):
         """
-        if self.root_node:
-            return getattr(self.root_node, attr)
+        Insert data into the tree.
+        """
+        new_node = Node(data)
+        current = self.root
+        while current:
+            if data < current.data:
+                if current.left is None:
+                    current.left = new_node
+                    return
+                current = current.left
+            else:
+                if current.right is None:
+                    current.right = new_node
+                    return
+                current = current.right
+        self.root = new_node
 
-    def insert(self, data):
-        if self.root_node:
-            self.root_node.insert(data)
-        else:
-            self.root_node = Node(data)
+    def lookup(self, data):
+        """
+        Find data in the tree.
+        """
+        current = self.root
+        while current:
+            if current.data == data:
+                return current
+            current = current.left if data < current.data else current.right
 
     def remove(self, data):
-        if not self.root_node:
+        """
+        Remove data from the tree.
+        """
+        unwanted = parent = self.root
+        while unwanted:
+            if unwanted.data == data:
+                break
+            parent = unwanted
+            unwanted = unwanted.left if data < unwanted.left else unwanted.right
+        if unwanted is None:
             return
+        if unwanted.right is None:
+            parent.right = unwanted.left
+            return
+        if unwanted.right.left is None:
+            unwanted.right.left = unwanted.left
+            parent.right = unwanted
+            return
+        parent_of_lowest = lowest = unwanted.right.left
+        while lowest:
+            if lowest.left is None:
+                parent.right = lowest
+                parent.right.right = parent_of_lowest
+                parent_of_lowest.left = None
+                return
+            parent_of_lowest = lowest
+            lowest = lowest.left
 
-        if self.root_node == data:
-            temp = Node(None)
-            temp.left_child = self.root_node
-            self.root_node.remove(data, temp)
-        else:
-            self.root_node.remove(data, None)
+    def remove(self, data):
+        pass
 
-    # TODO: Check if __getattr__ works then delete the following lines
-    #
-    # def get_max(self):
-    #     if self.root_node:
-    #         self.root_node.get_max()
-
-    # def get_min(self):
-    #     if self.root_node:
-    #         self.root_node.get_min()
-
-    # def traverse_in_order(self):
-    #     if self.root_node:
-    #         self.root_node.traverse_in_order()
