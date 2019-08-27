@@ -2,23 +2,50 @@
 
 ## My study plan
 
-- [x] [How to prepare for technical interviews (12 minute YouTube video)](https://www.youtube.com/watch?v=fbRSDn5YK_k)
-- [ ] [Master the Coding Interview: Data Structures + Algorithms (30 hour Udemy course)](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+I don't necessarily do these in order. I may take a break from one source and jump to another.
+Or I may use a different source to supplement my learning on a particular topic 
+(Linked Lists for example). I'll also do a couple leetcode easy problems based on material
+I've already covered.
+
+- [x] [How to prepare for technical interviews (12 minute YouTube video)](https://bit.ly/2ZmOJRd)
+- [ ] [Data Structures + Algorithms (30 hour Udemy course)](https://bit.ly/2PdJzmF)
+- [ ] [Cracking the Coding Interview, 6th Edition](https://amzn.to/2Zp4h2Q)
+    - [x] VI - Big O  
+    - [ ] Do all Big O problems 
+    - [ ] VII - Technical Questions
+    - [ ] Ch. 1 - Arrays and Strings
+    - [ ] Ch. 2 - Linked Lists
+    - [ ] Ch. 3 - Stacks and Queues
+    - [ ] Ch. 4 - Trees and Graphs
+    - [ ] Ch. 5 - Bit Manipulation
+    - [ ] Ch. 7 - Object-Oriented Design
+    - [ ] Ch. 8 - Recursion and Dynamic Programming
+    - [ ] Ch. 9 - System Design and Scalability
+    - [ ] Ch. 10 - Sorting and Searching
+    - [ ] [Optional] Ch. 6 - Math and Logic Puzzles
+    - [ ] Reread VII - Technical Questions
+    - [ ] Redo all Big O problems 
 - [ ] [Leetcode Prep Work (4 minute Medium article)](https://bit.ly/2ZjAkBf)
 - [ ] Whiteboard all algorithms and data structures in preferred language at least twice
-- [ ] [Cracking the Coding Interview book](https://www.amazon.ca/Cracking-Coding-Interview-Programming-Questions/dp/0984782850)
-- [ ] At least 40 leetcode.com
+- [ ] At least 40 leetcode.com questions
+- [ ] [System design primer (GitHub Repo)](https://bit.ly/2m4X3Om)
+
+## Things to revisit
+
+- [ ] Big O notaion chapter in Cracking the Coding Interview
+- [ ] Problems on my **Revisit** list on Leetcodex  
 
 ## Daily
 
 1. Learn a new algorithm or data structure
-1. Do at least 2 problems from Cracking the Coding Interview
-1. Do at least 2 problems from leetcode.com
+1. Do at least 2-5 problems from Cracking the Coding Interview
+1. Do at least 2-5 problems from leetcode.com
+1. Spend at least 2-4 hours per day (except Saturday)
 
 ## Leetcode
 
-It's recommended to get premium so that you can select questions from your top 3 
-companies. Some guidelines for doing leetcode:
+It's recommended to get premium so that you can select the most frequent 
+questions from your top 3 companies. Some guidelines for doing leetcode:
 
 1. Close all apps and unnecessary browser tabs
 1. Get a few pens and a stack of paper (at least 8.5 x 11 size)
@@ -55,9 +82,15 @@ Throughout the interview, do the following:
 1. **Inputs:** Will they vary (string, int, etc.)? What's considered invalid? What's the range?
 1. **Big O:** For this algorithm what's more important, time or space effeciency?
 
+## Inspiration
+
+- [From laid off to 6 offers and 2x TC (Team Blind)](https://bit.ly/2HsMQIp)
+- [Thanks Blind! From $50k TC to $200k TC! 🎉 (no degree)](https://bit.ly/30CLORy)
+- [[AMA] Interview tips after a recent round of offers (380~500k)](https://bit.ly/2Zw2Yzf)
+  
 ## References
 
 ![Cracking the coding skills chart](/images/cracking_the_coding_skills.png)
 
-- [Master the Coding Interview: Data Structures + Algorithms Udemy course](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+- [Master the Coding Interview: Data Structures + Algorithms Udemy course](https://bit.ly/2PdJzmF)
 - https://medium.com/free-code-camp/software-engineering-interviews-744380f4f2af
