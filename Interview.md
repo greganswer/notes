@@ -7,11 +7,12 @@ Or I may use a different source to supplement my learning on a particular topic
 (Linked Lists for example). I'll also do a couple leetcode easy problems based on material
 I've already covered.
 
+- [x] Create a [Coding Interview Prep Progress Sheet](https://bit.ly/2L1efmY)
 - [x] [How to prepare for technical interviews (12 minute YouTube video)](https://bit.ly/2ZmOJRd)
 - [ ] [Data Structures + Algorithms (30 hour Udemy course)](https://bit.ly/2PdJzmF)
 - [ ] [Cracking the Coding Interview, 6th Edition](https://amzn.to/2Zp4h2Q)
     - [x] VI - Big O  
-    - [ ] Do all Big O problems 
+    - [x] Do all Big O problems 
     - [ ] VII - Technical Questions
     - [ ] Ch. 1 - Arrays and Strings
     - [ ] Ch. 2 - Linked Lists
@@ -32,8 +33,8 @@ I've already covered.
 
 ## Things to revisit
 
-- [ ] Big O notaion chapter in Cracking the Coding Interview
-- [ ] Problems on my **Revisit** list on Leetcodex  
+- [ ] Big O notation chapter in Cracking the Coding Interview
+- [ ] Problems on my **Revisit** list on Leetcode
 
 ## Daily
 
@@ -41,6 +42,7 @@ I've already covered.
 1. Do at least 2-5 problems from Cracking the Coding Interview
 1. Do at least 2-5 problems from leetcode.com
 1. Spend at least 2-4 hours per day (except Saturday)
+1. Update [Coding Interview Prep Progress Sheet](https://bit.ly/2L1efmY) and review the notes
 
 ## Leetcode
 
@@ -63,10 +65,10 @@ questions from your top 3 companies. Some guidelines for doing leetcode:
 ## Interview prep
 
 Companies are looking for the following skills:
-1. Analytic Skills - How can you think through problems and analyze things?
-1. Coding Skills - Do you code well, by writing clean, simple, organized, readable code?
-1. Technical knowledge - Do you know the fundamentals of the job you're applying for?
-1. Communication skills: Does your personality match the companies’ culture?
+1. **Analytic Skills:** How can you think through problems and analyze things?
+1. **Coding Skills:** Do you code well, by writing clean, simple, organized, readable code?
+1. **Technical knowledge:** Do you know the fundamentals of the job you're applying for?
+1. **Communication skills:** Does your personality match the companies’ culture?
 
 Throughout the interview, do the following:
 1. Ask for clarification (for first 5 minutes or less)
@@ -80,7 +82,7 @@ Throughout the interview, do the following:
 ## Questions for code challenges
 
 1. **Inputs:** Will they vary (string, int, etc.)? What's considered invalid? What's the range?
-1. **Big O:** For this algorithm what's more important, time or space effeciency?
+1. **Big O:** For this algorithm what's more important, time or space efficiency?
 
 ## Inspiration
 

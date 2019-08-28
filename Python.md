@@ -571,8 +571,8 @@ import sys
 @click.command()
 @click.argument('infile', type=click.File('r'), default='-')  # Optional: From example
 @click.argument('outfile', type=click.File('w'), default='-') # Optional: From example
-@click.argument('--log-file', '-l', type=click.File('w'), default=sys.stderr)
-@click.argument('--verbose', '-v', is_flag=True)
+@click.option('--log-file', '-l', type=click.File('w'), default=sys.stderr)
+@click.option('--verbose', '-v', is_flag=True)
 def cli(infile, outfile, log_file, verbose):
     if verbose:
         click.echo(f'Infile: {infile}', file=log_file)
@@ -580,11 +580,12 @@ def cli(infile, outfile, log_file, verbose):
     click.secho('printing with colors', file=outfile, fg='green')
     if verbose:
         click.echo('Done!', file=log_file)
-
 ```
 
 ## Additional reading
 
+1. https://realpython.com/introduction-to-python-generators/
+1. https://realpython.com/python-memory-management/
 1. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python
 1. https://docs.python-guide.org/writing/tests
 1. https://docs.python-guide.org/writing/structure
