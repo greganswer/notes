@@ -1,9 +1,22 @@
-# Recursion examples
+# Recursion
 
-All examples below are written in Python. In Ruby, substitute the `if` `else` 
-statement with a ternary operator.
+When a function calls itself.
 
-## Powers
+- Make sure that your recursive function has a breaking condition, so that it terminates without an infinite loop 
+- Each time the function is called, the old arguments are saved in the **call stack**
+- The computer needs to allocate memory for each function call (this is known as the stack)
+- Stack Overflow is when there are too many functions that have not been popped off the call stack yet
+- Each recursive function has the following:
+    - The base case: The situation when the function terminates
+    - The recursive case: The situation when the function calls itself
+- Best situations to use recursion:
+    - When traversing trees
+    - When solving a problem using divide and conquer (divide a problem into smaller problems and merge the solutions back together)
+- Recursion can be easier to read and write but it comes at an increased space complexity
+
+## Examples
+
+### Powers
 
 Write a function that returns the results for `num` to the power of `pwr`.
 
@@ -19,7 +32,7 @@ def power(num, pwr):
 print(power(2, 4))  #=> 2x2x2x2 == 32
 ```
 
-## Factorial
+### Factorial
 
 Write a function that returns the factorial of `n`. The factorial of a positive 
 integer `n`, denoted by `n!`, is the product of all positive integers less than 
@@ -47,7 +60,7 @@ def factorial_iterative(num):
 print(factorial(5))  #=> 5x4x3x2x1 == 120
 ```
 
-## Fibonacci
+### Fibonacci
 
 Write a function that returns the fibonacci when given input `num`.
 

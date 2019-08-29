@@ -126,23 +126,6 @@ This is denoted as `f(n) = Θ(g(n))`.
     - Function calls
     - Allocations
 
-## Recursion
-
-When a function calls itself
-
-- Make sure that your recursive function has a breaking condition, so that it terminates without an infinite loop 
-- Each time the function is called, the old arguments are saved in the **call stack**
-- The computer needs to allocate memory for each function call (this is known as the stack)
-- Stack Overflow is when there are too many functions that have not been popped off the call stack yet
-- Each recursive function has the following:
-    - The base case: The situation when the function terminates
-    - The recursive case: The situation when the function calls itself
-
-```python
-def fibonacci(num):
-    return num if num < 2 else fibonacci(num-1) + fibonacci(num-2)
-```
-
 ## Sorting Data
 
 | Type        | Runtime    |
