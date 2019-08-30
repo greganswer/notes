@@ -13,7 +13,7 @@ I've already covered.
 - [ ] [Cracking the Coding Interview, 6th Edition](https://amzn.to/2Zp4h2Q)
     - [x] VI - Big O  
     - [x] Do all Big O problems 
-    - [ ] VII - Technical Questions
+    - [x] VII - Technical Questions
     - [ ] Ch. 1 - Arrays and Strings
     - [ ] Ch. 2 - Linked Lists
     - [ ] Ch. 3 - Stacks and Queues
@@ -24,7 +24,7 @@ I've already covered.
     - [ ] Ch. 9 - System Design and Scalability
     - [ ] Ch. 10 - Sorting and Searching
     - [ ] [Optional] Ch. 6 - Math and Logic Puzzles
-    - [ ] Reread VII - Technical Questions
+    - [ ] Review VII - Technical Questions
     - [ ] Redo all Big O problems 
 - [ ] [Leetcode Prep Work (4 minute Medium article)](https://bit.ly/2ZjAkBf)
 - [ ] Whiteboard all algorithms and data structures in preferred language at least twice
@@ -72,12 +72,17 @@ Companies are looking for the following skills:
 
 Throughout the interview, do the following:
 1. Ask for clarification (for first 5 minutes or less)
-1. Sketch a diagram of the problem
+1. Write a summary of all relevant information
+1. Sketch a detailed diagram of the problem
 1. Constantly think out loud (like pair programming)
-1. Write pseudo code before actual code
-1. Consider invalid input and edge cases
+1. Write Brute force pseudo code before actual code
+1. Write `TODOs` for invalid input and edge cases
 1. Write out the code
+      1. Extract "initialization" code to functions. Ex: `lookup = init_roman_numeral_lookup()`
+      1. Fill in the details later if time permitting
+      1. Always derive the Big O, don't guess
 1. Test your solution by hand (use an input/output table)
+      1. Start with smaller inputs
 
 ## Questions for code challenges
 
