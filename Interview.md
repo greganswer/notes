@@ -91,9 +91,12 @@ Throughout the interview, do the following:
 
 ## Inspiration
 
-- [From laid off to 6 offers and 2x TC (Team Blind)](https://bit.ly/2HsMQIp)
-- [Thanks Blind! From $50k TC to $200k TC! 🎉 (no degree)](https://bit.ly/30CLORy)
-- [[AMA] Interview tips after a recent round of offers (380~500k)](https://bit.ly/2Zw2Yzf)
+- Team blind
+    - [From laid off to 6 offers and 2x TC](https://bit.ly/2HsMQIp)
+    - [Thanks Blind! From $50k TC to $200k TC! 🎉 (no degree)](https://bit.ly/30CLORy)
+    - [[AMA] Interview tips after a recent round of offers (380~500k)](https://bit.ly/2Zw2Yzf)
+- Leetcode
+    - [Apple | SDE (ICT3) | Offer](https://bit.ly/2ztsuuj)
   
 ## References
 

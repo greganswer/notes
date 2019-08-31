@@ -126,130 +126,41 @@ This is denoted as `f(n) = Θ(g(n))`.
     - Function calls
     - Allocations
 
-## Sorting Data
-
-| Type        | Runtime    |
-| ----------- | ---------- |
-| Bubble sort | O(n^2)     |
-| Merge sort  | O(n log n) |
-| Quick sort  | O(n log n) |
-
-**Bubble sort:**
-
-The bubble sort algorithm traverses the array and compares the first 2 elements. It swaps them if the second element is larger. This continues till the end of the array. The larger values "bubble" their way to the top of the array. After the first traversal through the array, the process is repeated up to the second last element of the array.
-
-- Very simple to understand and implement
-- Has O(n^2) which is inefficient
-    - For loops inside of for loops is usually O(n^2)
-- Other sorting algorithms are much better
-
-
-```python
-# O(n^2)
-def bubble_sort(items):
-    for i in range(len(items) - 1, 0, -1):
-        for j in range(i):
-            if items[j] > items[j+1]:
-                items[j], items[j+1] = items[j+1], items[j]
-    return items
-items = [6, 20, 8, 19, 56, 23, 87, 41, 49, 53]
-print(items)
-print(bubble_sort(items))
-```
-
-**Merge sort:**
-
-- A divide-and-conquer algorithm
-- Breaks a data set into individual pieces and merges them
-- Uses **recursion** to operate on the input
-- Break the array down to single element arrays and merge them back together while sorting
-
-```python
-# O(n log n)
-def merge_sort(items):
-    if len(items) < 2:
-        return
-
-    # Split the array and call merge_sort
-    mid = len(items) // 2
-    left_side = items[:mid]
-    right_side = items[mid:] 
-
-    merge_sort(left_side)
-    merge_sort(right_side)
-
-    # Set the indexes for the 3 arrays
-    i = j = k = 0
-
-    # While both arrays have items
-    while i < len(left_side) and j < len(right_side):
-        if left_side[i] < right_side[j]:
-            items[k] = left_side[i]
-            i += 1
-        else:
-            items[k] = right_side[j]
-            j += 1
-        k += 1
-
-    # Add left side values if any are remaining
-    while i < len(left_side):
-        items[k] = left_side[i]
-        i += 1
-        k+= 1
-
-    # Add right side values if any are remaining
-    while j < len(right_side):
-        items[k] = right_side[j]
-        j += 1
-        k+= 1
-
-items = [6, 20, 8, 19, 56, 23, 87, 41, 49, 53]
-print(items)
-merge_sort(items)
-print(items)
-```
-
-**Quick sort:**
-
-- A divide-and-conquer algorithm like **merge sort**
-- Breaks a data set into individual pieces and merges them
-- Uses **recursion** to operate on the input
-- Generally performs better than merge sort, O(n log n)
-- Operates in place on data
-- Worst case is O(n2) when data is mostly sorted already
-
-```python
-# O(n log n)
-def quick_sort(items):
-    pivot = items[0]
-
-items = [6, 20, 8, 19, 56, 23, 87, 41, 49, 53]
-print(items)
-print(merge_sort(items))
-print(items)
-```
-
 ## Searching Data
 
 Searching an unordered list is O(n), linear time complexity.
 
 ```python
-# O(n)
 def search(val, items):
+    """
+    Return the index of an item in the list.
+    Time - O(n)
+
+    >>> items = [6, 20, 8, 19]
+    >>> search(8, items)
+    2
+    >>> search(8, items)
+    None
+    """
     for index, item in enumerate(items):
         if item == val:
             return index
-
-items = [6, 20, 8, 19, 56, 23, 87, 41, 49, 53]
-print(search(87, items))   #=> 6
-print(search(250, items))  #=> None
 ```
 
 With a sorted list you can do a **Binary search:**
 
 ```python
-# O(log n)
 def binary_search(val, items):
+    """
+    Return the index of an item in the list. Implemented using binary search.
+    Time - O(log n)
+
+    >>> items = [6, 20, 8, 19]
+    >>> search(8, items)
+    2
+    >>> search(8, items)
+    None
+    """
     lower = 0
     upper = len(items) - 1
 
@@ -262,60 +173,6 @@ def binary_search(val, items):
             lower = mid + 1
         else:
             upper = mid - 1
-
-items = [6, 8, 19, 20, 23, 41, 49, 53, 56, 87]
-print(binary_search(20, items))   #=> 3
-print(binary_search(87, items))   #=> 9
-print(binary_search(250, items))  #=> None
-```
-
-You can also determine if a list is sorted:
-
-```python
-# Brute force O(n)
-def is_sorted(items):
-    for i in range(len(items)-1):
-        if items[i] > items[i+1]:
-            return False
-    return True
-
-# Brute force using Python comprehension O(n)
-def is_sorted(items):
-    return all(items[i] <= items[i+1] for i in range(len(items)-1))
-
-# Binary search O(log n)
-def is_sorted(items):
-    lower = 0
-    upper = len(items) - 1
-
-    while lower <= upper:
-        if items[lower] > items[upper]:
-            return False
-        lower += 1
-        upper -= 1
-
-    return True
-
-unsorted = [6, 20, 8, 19, 56, 23, 87, 41, 49, 53]
-sorted = [6, 8, 19, 20, 23, 41, 49, 53, 56, 87]
-print(is_sorted(unsorted))  #=> True
-print(is_sorted(sorted))    #=> False
-```
-
-```python
-def max(items):
-    if not items:
-        return 0
-
-    first = items[0]
-    if len(items) < 2
-        return first
-
-    remaining = items[1:]
-    if first > items[1]:
-        return max([first] + items[2:])
-    else:
-        return max(remaining)
 ```
 
 ## Misc
@@ -323,12 +180,14 @@ def max(items):
 ### Fizz buzz
 
 ```python
-# Write a program that prints the numbers from 1 to 100. But for multiples of 
-# 3 print "Fizz" instead of the number and for the multiples of 5 print "Buzz". 
-# For numbers which are multiples of both 3 and 5 print "FizzBuzz".
 def fizz_buzz():
     """
-    Time - O(n)
+    Write a program that prints the numbers from 1 to 100. But for multiples of 
+    3 print "Fizz" instead of the number and for the multiples of 5 print "Buzz". 
+    For numbers which are multiples of both 3 and 5 print "FizzBuzz".
+
+    Time - O(1): Only done for 100 integers.
+    Space - O(1): Only 1 string variable with a max length of 8 for "fizzbuzz".
     """
     for i in range(1, 101):
         output = "fizz" if (i % 3) == 0 else ""
@@ -343,8 +202,11 @@ fizz_buzz()
 
 ```python
 def log_all_pairs(items):
-    """ Print out all the unique pairs based on the list of items.
-    Time - O(n)
+    """ 
+    Print out all the unique pairs based on the list of items.
+
+    Time - O(n^2): Nested for loop over the items.
+    Space - O(1): No new variables introduced.
     """
     for i in range(len(items)):
         for j in range(i+1, len(items)):

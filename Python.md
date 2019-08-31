@@ -34,7 +34,8 @@ Python, named after the British comedy group Monty Python, is an interpreted, in
 
 ```python
 import keyword
->>> print(keyword.kwlist)
+
+print(keyword.kwlist)
 [
     'False',
     'None',
@@ -584,6 +585,7 @@ def cli(infile, outfile, log_file, verbose):
 
 ## Additional reading
 
+1. https://www.toptal.com/python#hiring-guide
 1. https://realpython.com/introduction-to-python-generators/
 1. https://realpython.com/python-memory-management/
 1. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python

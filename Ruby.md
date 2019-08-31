@@ -2,6 +2,10 @@
 
 ## Structs
 
+## Additional reading
+
+- https://www.toptal.com/ruby#hiring-guide
+
 **References:**
 
 1. https://www.leighhalliday.com/ruby-struct
