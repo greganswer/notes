@@ -62,7 +62,9 @@ def factorial(num):
             times factorial is added to the call stack.
     """
     return 1 if num < 2 else num * factorial(num-1)
+```
 
+```python
 def factorial_iterative(num):
     """
     Time - O(n) linear, where n is the integer passed in.

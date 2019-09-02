@@ -1,6 +1,6 @@
 # Graph
 
-![Directed, undirected and weighted graphs](../images/graph-properties.png)
+![Directed, undirected and weighted graphs](/images/graph-properties.png)
 source: https://dzone.com/articles/graph-algorithms-in-neo4j-graph-algorithm-concepts
 
 - A set of values that are related in a pair wise fashion

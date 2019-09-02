@@ -1,24 +1,31 @@
 # Sorting
 
-- [Definitions](#definitions)
-- [Which algorithm to use when](#which-algorithm-to-use-when)
-- [Elementary sorting](#elementary-sorting)
-  - [Bubble sort](#bubble-sort)
-  - [Selection sort](#selection-sort)
-  - [Insertion sort](#insertion-sort)
-- [Divide and conquer sorting](#divide-and-conquer-sorting)
-  - [Merge sort](#merge-sort)
-  - [Quick sort](#quick-sort)
-- [Non-comparison sort](#non-comparison-sort)
-  - [Counting sort](#counting-sort)
-  - [Radix sort](#radix-sort)
-- [Determine if a list is sorted](#determine-if-a-list-is-sorted)
-- [Sort algorithms per language](#sort-algorithms-per-language)
-  - [Python](#python)
-  - [Ruby](#ruby)
+- [Summary](#summary)
+- [Details](#details)
+  - [Definitions](#definitions)
+  - [Which algorithm to use when](#which-algorithm-to-use-when)
+  - [Elementary sorting](#elementary-sorting)
+    - [Bubble sort](#bubble-sort)
+    - [Selection sort](#selection-sort)
+    - [Insertion sort](#insertion-sort)
+  - [Divide and conquer sorting](#divide-and-conquer-sorting)
+    - [Merge sort](#merge-sort)
+    - [Quick sort](#quick-sort)
+  - [Non-comparison sort](#non-comparison-sort)
+    - [Counting sort](#counting-sort)
+    - [Radix sort](#radix-sort)
+  - [Determine if a list is sorted](#determine-if-a-list-is-sorted)
+  - [Sort algorithms per language](#sort-algorithms-per-language)
+    - [Python](#python)
+    - [Ruby](#ruby)
+- [Examples](#examples)
 - [References](#references)
 
-## Definitions
+## Summary
+
+## Details
+
+### Definitions
 
 | Term                 | Definition                                                                                                              |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -40,7 +47,7 @@ Unstable Sorting Algorithms:
 - Shell sort
 - Quick Sort
 
-## Which algorithm to use when
+### Which algorithm to use when
 
 - Use QuickSort when the average `O(n log n)` log linear time complexity matters more than the worse case `O(n^2)` quadratic time complexity. It also has a good `O(log n)` logarithmic space complexity.
 - Use MergeSort when you need a **stable sorting algorithm** with a consistent `O(n log n)` log linear space complexity
@@ -54,9 +61,9 @@ Unstable Sorting Algorithms:
 | Merge sort     | O(n log n) | O(n log n)   | O(n log n) | O(n)     |
 | Quick sort     | O(n log n) | O(n log n)   | O(n^2)     | O(log n) |
 
-## Elementary sorting
+### Elementary sorting
 
-### Bubble sort
+#### Bubble sort
 
 **NOTE: Only used for educational purposes**
 
@@ -65,7 +72,7 @@ The bubble sort algorithm traverses the array and compares the first 2 elements.
 ```python
 def bubble_sort(items):
     """
-    Time - O(n^2): Nested for loop.
+    Time - O(n^2): Nested loop.
     Space - O(1): Only 2 integer variables are created.
     """
     max = len(items) - 1
@@ -77,14 +84,14 @@ def bubble_sort(items):
     return items
 ```
 
-### Selection sort
+#### Selection sort
 
 **NOTE: Only used for educational purposes**
 
 ```python
 def selection_sort(items):
     """
-    Time - O(n^2): Nested for loop.
+    Time - O(n^2): Nested loop.
     Space - O(1): Only 2 integer variables are created.
     """
     size = len(items)
@@ -97,14 +104,14 @@ def selection_sort(items):
     return items
 ```
 
-### Insertion sort
+#### Insertion sort
 
 - Is best used when their are few items that are mostly sorted
 
 ```python
 def insertion_sort(items):
     """
-    Time - O(n^2): Nested for loop.
+    Time - O(n^2): Nested loop.
     Space - O(1): 3 variables are created. 
          Caution: `value` could be a large data structure.
     """
@@ -120,9 +127,9 @@ def insertion_sort(items):
     return items
 ```
 
-## Divide and conquer sorting
+### Divide and conquer sorting
 
-### Merge sort
+#### Merge sort
 
 - Generally good sorting algorithm
 - Bad for **internal sorting** due to O(n) space complexity
@@ -175,7 +182,7 @@ def merge_sort(items):
     return items
 ```
 
-### Quick sort
+#### Quick sort
 
 - Generally good sorting algorithm
 - Decent for **internal sorting** due to O(log n) space complexity
@@ -221,22 +228,22 @@ def quick_sort(items):
 
 - Is best used when a really good pivot is selected
 
-## Non-comparison sort
+### Non-comparison sort
 
 - Only works with integers in a small range
 - Use the way integers are stored in memory
 
-### Counting sort
+#### Counting sort
 
 - https://brilliant.org/wiki/counting-sort
 - https://www.cs.usfca.edu/~galles/visualization/CountingSort.html
 
-### Radix sort
+#### Radix sort
 
 - https://brilliant.org/wiki/radix-sort
 - https://www.cs.usfca.edu/~galles/visualization/RadixSort.html
 
-## Determine if a list is sorted
+### Determine if a list is sorted
 
 ```python
 def is_sorted(items):
@@ -251,6 +258,9 @@ def is_sorted(items):
             return False
     return True
 
+```
+
+```python
 def is_sorted(items):
     """
     Brute force using Python comprehension.
@@ -260,6 +270,9 @@ def is_sorted(items):
     """
     return all(items[i] <= items[i+1] for i in range(len(items)-1))
 
+```
+
+```python
 def is_sorted(items):
     """
     Return True if the items are sorted. 
@@ -305,18 +318,20 @@ def max(items):
         return max(remaining)
 ```
 
-## Sort algorithms per language
+### Sort algorithms per language
 
-### Python
+#### Python
 
 > Timsort is a hybrid sorting algorithm, derived from merge sort and insertion sort, designed to perform well on many kinds of real-world data. It was invented by Tim Peters in 2002 for use in the Python programming language. The algorithm finds subsets of the data that are already ordered, and uses the subsets to sort the data more efficiently. This is done by merging an identified subset, called a run, with existing runs until certain criteria are fulfilled. Timsort has been Python's standard sorting algorithm since version 2.3. It is now also used to sort arrays in Java SE 7, and on the Android platform.
 
 source: http://en.wikipedia.org/wiki/Timsort
 
-### Ruby
+#### Ruby
 
 Ruby uses Quicksort. source:
 https://www.igvita.com/2009/03/26/ruby-algorithms-sorting-trie-heaps/
+
+## Examples
 
 ## References
 

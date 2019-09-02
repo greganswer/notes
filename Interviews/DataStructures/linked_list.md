@@ -16,9 +16,11 @@
 
 Singly linked list diagram
 ![Singly linked list](/images/singly_linked_list.png)
+source: https://www.geeksforgeeks.org/data-structures/linked-list
 
 Doubly linked list diagram. Each element also knows about it's previous element.
 ![Doubly linked list](/images/doubly_linked_list.png)
+source: https://www.geeksforgeeks.org/doubly-linked-list/
 
 ## Advantages
 

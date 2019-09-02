@@ -12,7 +12,7 @@
 
 ## Summary
 
-![Tree description](../images/tree_description.png)
+![Tree description](/images/tree_description.png)
 source: https://dev.to/fahimulhaq/top-8-data-structures-for-coding-interviews-and-practice-interview-questions-2pb
 
 - A tree is a type of graph

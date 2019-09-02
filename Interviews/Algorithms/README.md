@@ -80,6 +80,9 @@ def gcd_iterative(a, b):
         a, b = b, a%b
     return a
 
+```
+
+```python
 def gcd_recursive(a, b):
     """Calculate the Greatest Common Divisor of a and b recursive.
     """
@@ -180,7 +183,7 @@ def log_all_pairs(items):
     """ 
     Print out all the unique pairs based on the list of items.
 
-    Time - O(n^2): Nested for loop over the items.
+    Time - O(n^2): Nested loop over the items.
     Space - O(1): No new variables introduced.
     """
     for i in range(len(items)):

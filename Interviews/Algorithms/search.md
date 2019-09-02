@@ -148,6 +148,7 @@ def dfs_pre_order(node, list):
     if node.right_node is not None:
         dfs_pre_order(node.right_node, list)
 
+
 def dfs_in_order(node, list):
     if node.left_node is not None:
         dfs_in_order(node.left_node, list)
