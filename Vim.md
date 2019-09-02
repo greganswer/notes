@@ -229,4 +229,5 @@ Visual block mode allows for selecting a column of text. To do this:
 - https://vim.rtorr.com/
 - https://vim.fandom.com/wiki/Searching
 - https://vim.fandom.com/wiki/Search_and_replace
-- https://jeffkreeftmeijer.com/vim-number/
+- https://jeffkreeftmeijer.com/vim-number
+- https://vim.fandom.com/wiki/To_switch_back_to_normal_mode_automatically_after_inaction

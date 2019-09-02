@@ -1,11 +1,25 @@
 # Tree
 
+- [Summary](#summary)
+- [Details](#details)
+  - [Binary tree](#binary-tree)
+  - [A Binary Search Tree](#a-binary-search-tree)
+  - [AVL Trees](#avl-trees)
+  - [Red Black Trees](#red-black-trees)
+  - [Trie](#trie)
+- [Examples](#examples)
+- [References](#references)
+
+## Summary
+
 ![Tree description](../images/tree_description.png)
 source: https://dev.to/fahimulhaq/top-8-data-structures-for-coding-interviews-and-practice-interview-questions-2pb
 
 - A tree is a type of graph
 
-## Binary tree
+## Details
+
+### Binary tree
 
 - Each node can have 0-2 child nodes
 - Each child can only have 1 parent
@@ -23,23 +37,25 @@ source: https://dev.to/fahimulhaq/top-8-data-structures-for-coding-interviews-an
 **Full Binary tree**
 - Each child node has 0 or 2 nodes (not 1)
 
-## A Binary Search Tree
+### A Binary Search Tree
 
 A Binary Search Tree (BST) is a binary tree in which each vertex has only up to 2 children that satisfies BST property: All vertices in the left subtree of a vertex must hold a value smaller than its own and all vertices in the right subtree of a vertex must hold a value larger than its own
 
-## AVL Trees
+### AVL Trees
 
 [Animation](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
 [How it Works](https://medium.com/basecs/the-little-avl-tree-that-could-86a3cae410c7)
 
-## Red Black Trees
+### Red Black Trees
 
 [Animation](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 [How it Works](https://medium.com/basecs/painting-nodes-black-with-red-black-trees-60eacb2be9a5)
 
-## Trie
+### Trie
 
 - A trie has a O(n) time complexity, where n is the length of the word being searched.
+
+## Examples
 
 ## References
 

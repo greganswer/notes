@@ -1,9 +1,24 @@
 # Algorithms
 
+- [Summary](#summary)
+- [Details](#details)
+  - [Common algorithms](#common-algorithms)
+  - [Measuring algorithms with Big O](#measuring-algorithms-with-big-o)
+    - [Notations](#notations)
+    - [Rules for calculation](#rules-for-calculation)
+    - [Space complexity](#space-complexity)
+  - [Dynamic programming](#dynamic-programming)
+- [Examples](#examples)
+  - [Fizz buzz](#fizz-buzz)
+  - [Log all pairs](#log-all-pairs)
+- [References](#references)
+
+## Summary
+
 An algorithm is a series of steps to solve a problem. An algorithm can use 0 or more data structures. 
 A good algorithm is readable (by humans) and scalable (by machines).
 
-### Characteristics
+## Details
 
 The 3 pillars of good code:
 1. Readable
@@ -126,56 +141,16 @@ This is denoted as `f(n) = Θ(g(n))`.
     - Function calls
     - Allocations
 
-## Searching Data
+### Dynamic programming
 
-Searching an unordered list is O(n), linear time complexity.
+- Just a buzz word for caching
+- Caching is just a way to store values so you can use them later
+- **Memoization:** an optimization technique to store the results of expensive function calls and return the cached result when the same inputs occur again
+- Can be used when:
+    - The problem can be divided into subproblems
+    - The solution is recursive
 
-```python
-def search(val, items):
-    """
-    Return the index of an item in the list.
-    Time - O(n)
-
-    >>> items = [6, 20, 8, 19]
-    >>> search(8, items)
-    2
-    >>> search(8, items)
-    None
-    """
-    for index, item in enumerate(items):
-        if item == val:
-            return index
-```
-
-With a sorted list you can do a **Binary search:**
-
-```python
-def binary_search(val, items):
-    """
-    Return the index of an item in the list. Implemented using binary search.
-    Time - O(log n)
-
-    >>> items = [6, 20, 8, 19]
-    >>> search(8, items)
-    2
-    >>> search(8, items)
-    None
-    """
-    lower = 0
-    upper = len(items) - 1
-
-    while lower <= upper:
-        mid = (lower + upper) // 2
-        if items[mid] == val:
-            return mid
-
-        if val > items[mid]:
-            lower = mid + 1
-        else:
-            upper = mid - 1
-```
-
-## Misc
+## Examples
 
 ### Fizz buzz
 
@@ -216,6 +191,6 @@ def log_all_pairs(items):
 log_all_pairs([1, 2, 3, 4, 5])
 ```
 
-## Resources
+## References
 
 - https://www.linkedin.com/learning/programming-foundations-algorithms/algorithms-power-the-world

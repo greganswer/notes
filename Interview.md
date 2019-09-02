@@ -7,9 +7,12 @@ Or I may use a different source to supplement my learning on a particular topic
 (Linked Lists for example). I'll also do a couple leetcode easy problems based on material
 I've already covered.
 
+This [Technical Interview mind map](https://bit.ly/2lgDBmp) looks intimidating at first but
+[the Udemy course](https://bit.ly/2PdJzmF) gets you through it.
+
 - [x] Create a [Coding Interview Prep Progress Sheet](https://bit.ly/2L1efmY)
 - [x] [How to prepare for technical interviews (12 minute YouTube video)](https://bit.ly/2ZmOJRd)
-- [ ] [Data Structures + Algorithms (30 hour Udemy course)](https://bit.ly/2PdJzmF)
+- [x] [Data Structures + Algorithms (30 hour Udemy course)](https://bit.ly/2PdJzmF)
 - [ ] [Cracking the Coding Interview, 6th Edition](https://amzn.to/2Zp4h2Q)
     - [x] VI - Big O  
     - [x] Do all Big O problems 

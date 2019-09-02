@@ -609,4 +609,6 @@ Mosts of the examples in this file come directly from one of the following links
 - https://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
 - https://docs.python-guide.org/
 - https://www.datacamp.com/community/tutorials/sets-in-python
-- https://realpython.com/iterate-through-dictionary-python/
+- https://realpython.com/iterate-through-dictionary-python
+- https://www.toptal.com/python/an-introduction-to-mocking-in-python
+- https://www.toptal.com/python/why-are-there-so-many-pythons

@@ -1,5 +1,21 @@
 # Recursion
 
+- [Summary](#summary)
+- [Details](#details)
+- [Examples](#examples)
+  - [Powers](#powers)
+  - [Factorial](#factorial)
+  - [Fibonacci](#fibonacci)
+- [References](#references)
+
+## Summary
+
+| Advantages           | Disadvantages             |
+| -------------------- | ------------------------- |
+| Easier to read/write | More memory on call stack |
+
+## Details
+
 When a function calls itself.
 
 - Make sure that your recursive function has a breaking condition, so that it terminates without an infinite loop 
@@ -73,9 +89,9 @@ def fibonacci(num):
     Space - O(n) linear, where n is the integer passed in, which is also the number of 
             times fibonacci is added to the call stack.
     """
-    if x < 1:
+    if num < 1:
         return 0
-    if x < 2:
+    if num < 2:
         return 1
     return fibonacci(num-1) + fibonacci(num-2)
 ```
@@ -106,9 +122,9 @@ def fibonacci(num, memo={}):
     Space - O(n) linear, where n is the integer passed in, which is also the number of 
             times num is added to the memo dictionary.
     """
-    if x < 1:
+    if num < 1:
         return 0
-    if x < 2:
+    if num < 2:
         return 1
     if memo.get(num) is not None:
         return memo[num]
@@ -126,16 +142,17 @@ def fibonacci(num):
     Time - O(n) linear, where n is the integer passed in.
     Space - O(1) constant, because only 3 integers are created inside the function.
     """
-    if x < 1:
+    if num < 1:
         return 0
-    if x < 2:
+    if num < 2:
         return 1
     previous = output = 0
     current = 1
-    for i in range(2, x + 1):
+    for i in range(2, num + 1):
         output = previous + current
         previous = current
         current = output
     return output
-
 ```
+
+## References
