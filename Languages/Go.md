@@ -1,32 +1,32 @@
 Go Language
 =====
 
-- [Go Language](#go-language)
-  - [References](#references)
-  - [Installation](#installation)
-  - [Folder Structure](#folder-structure)
-  - [Hello world](#hello-world)
-  - [Terminal commands](#terminal-commands)
-    - [Testing](#testing)
-  - [General](#general)
-  - [Variables](#variables)
-    - [Scalar](#scalar)
-    - [Reference](#reference)
-    - [Slice](#slice)
-    - [Map](#map)
-  - [Constants](#constants)
-  - [Functions](#functions)
-  - [Scopes](#scopes)
-  - [Conditional logic](#conditional-logic)
-  - [Structs](#structs)
-  - [JSON](#json)
-    - [Marshalling](#marshalling)
-    - [Encoding](#encoding)
-  - [Interfaces](#interfaces)
-  - [Concurrency and parallelism](#concurrency-and-parallelism)
-    - [Race conditions](#race-conditions)
-  - [Channels](#channels)
-  - [Additional resources](#additional-resources)
+- [References](#references)
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Hello world](#hello-world)
+- [Terminal commands](#terminal-commands)
+  - [Testing](#testing)
+- [General](#general)
+- [Variables](#variables)
+  - [Scalar](#scalar)
+  - [Reference](#reference)
+  - [Slice](#slice)
+  - [Map](#map)
+- [Constants](#constants)
+- [Functions](#functions)
+- [Scopes](#scopes)
+- [Conditional logic](#conditional-logic)
+- [Structs](#structs)
+- [JSON](#json)
+  - [Marshalling](#marshalling)
+  - [Encoding](#encoding)
+- [Interfaces](#interfaces)
+- [Concurrency and parallelism](#concurrency-and-parallelism)
+  - [Race conditions](#race-conditions)
+- [Channels](#channels)
+- [Examples](#examples)
+- [Additional resources](#additional-resources)
 
 ## References
 
@@ -613,6 +613,17 @@ go run -race main.go
 ```
 
 ## Channels
+
+## Examples
+
+```go
+// Get IP address
+  ip, _, err := net.SplitHostPort(c.Request.RemoteAddr)
+	if err != nil {
+		response.SendJSONMessage(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+```
 
 ## Additional resources
 
