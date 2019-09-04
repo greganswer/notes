@@ -12,8 +12,13 @@
 
 ## Summary
 
+**Components of a tree**
 ![Tree description](/images/tree_description.png)
 source: https://dev.to/fahimulhaq/top-8-data-structures-for-coding-interviews-and-practice-interview-questions-2pb
+
+**Types of trees**
+![Full, complete and perfect binary trees](/images/full_complete_and_perfect_binary_trees.png)
+source: https://study.com/academy/lesson/binary-trees-applications-implementation.html
 
 - A tree is a type of graph
 
@@ -29,6 +34,7 @@ source: https://dev.to/fahimulhaq/top-8-data-structures-for-coding-interviews-an
 - Each child node has 0 or 2 nodes (not 1)
 - The bottom layer of the tree has all nodes
 - Each level has double the number of nodes in the previous level
+- Half of all nodes are on the bottom level
 - The sum of the nodes on the last level is equal to the sum of the nodes on all the other levels + 1
 
 **Unbalanced Binary search trees**

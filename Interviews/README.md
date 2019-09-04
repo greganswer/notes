@@ -1,5 +1,15 @@
 # Interview
 
+- [My study plan](#my-study-plan)
+- [Things to revisit](#things-to-revisit)
+- [Daily](#daily)
+- [Leetcode](#leetcode)
+- [Interview prep](#interview-prep)
+  - [Additional requirements](#additional-requirements)
+- [Questions for code challenges](#questions-for-code-challenges)
+- [Inspiration](#inspiration)
+- [References](#references)
+
 ## My study plan
 
 I don't necessarily do these in order. I may take a break from one source and jump to another.
@@ -17,7 +27,7 @@ This [Technical Interview mind map](https://bit.ly/2lgDBmp) looks intimidating a
     - [x] VI - Big O  
     - [x] Do all Big O problems 
     - [x] VII - Technical Questions
-    - [ ] Ch. 1 - Arrays and Strings
+    - [x] Ch. 1 - Arrays and Strings
     - [ ] Ch. 2 - Linked Lists
     - [ ] Ch. 3 - Stacks and Queues
     - [ ] Ch. 4 - Trees and Graphs
@@ -30,6 +40,7 @@ This [Technical Interview mind map](https://bit.ly/2lgDBmp) looks intimidating a
     - [ ] Review VII - Technical Questions
     - [ ] Redo all Big O problems 
 - [ ] [Leetcode Prep Work (4 minute Medium article)](https://bit.ly/2ZjAkBf)
+- [ ] [Tech Interview Handbook](https://bit.ly/2jRp402)
 - [ ] Whiteboard all algorithms and data structures in preferred language at least twice
 - [ ] At least 40 leetcode.com questions
 - [ ] [System design primer (GitHub Repo)](https://bit.ly/2m4X3Om)
@@ -37,6 +48,7 @@ This [Technical Interview mind map](https://bit.ly/2lgDBmp) looks intimidating a
 ## Things to revisit
 
 - [ ] Big O notation chapter in Cracking the Coding Interview
+- [ ] [Binary Heap video on Udemy](https://bit.ly/2ly9reI)
 - [ ] Problems on my **Revisit** list on Leetcode
 
 ## Daily
@@ -87,6 +99,11 @@ Throughout the interview, do the following:
 1. Test your solution by hand (use an input/output table)
       1. Start with smaller inputs
 
+### Additional requirements
+
+1. 1+ recent project(s) to show and tell
+1. 1+ algorithm(s) to show and tell
+
 ## Questions for code challenges
 
 1. **Inputs:** Will they vary (string, int, etc.)? What's considered invalid? What's the range?
@@ -105,5 +122,6 @@ Throughout the interview, do the following:
 
 ![Cracking the coding skills chart](/images/cracking_the_coding_skills.png)
 
-- [Master the Coding Interview: Data Structures + Algorithms Udemy course](https://bit.ly/2PdJzmF)
-- https://medium.com/free-code-camp/software-engineering-interviews-744380f4f2af
+1. [Master the Coding Interview: Data Structures + Algorithms Udemy course](https://bit.ly/2PdJzmF)
+1. https://medium.com/free-code-camp/software-engineering-interviews-744380f4f2af
+1. https://github.com/MaximAbramchuck/awesome-interview-questions
