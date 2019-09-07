@@ -2,8 +2,7 @@ import unittest
 
 
 class Node(object):
-    """ An item being added to the LinkedList.
-    """
+    """ An item being added to the LinkedList. """
 
     def __init__(self, data, next=None, prev=None):
         """
@@ -48,11 +47,10 @@ class LinkedList(object):
         self.size = 0
 
     def __len__(self):
-        """ Time - O(1): size is calculated on insert/delete. """
         return self.size
 
     def __str__(self):
-        """ 
+        """
         Time - O(n): LinkedList traversal
         """
         current = self.head
@@ -67,7 +65,7 @@ class LinkedList(object):
         return self
 
     def __next__(self):
-        """ 
+        """
         Retrieve the next data from the LinkedList.
 
         :return: any or None
@@ -81,7 +79,7 @@ class LinkedList(object):
     # Create
 
     def prepend(self, data):
-        """ 
+        """
         Add a Node to the beginning of the LinkedList.
 
         Time - O(1): Because the head is at a known location in memory.
@@ -100,8 +98,8 @@ class LinkedList(object):
         self.size += 1
         return True
 
-    def append(self, data):
-        """ 
+    def append(self, *values):
+        """
         Add a Node to the end of the LinkedList.
 
         Time - O(1): Because the tail is at a known location in memory.
@@ -110,21 +108,22 @@ class LinkedList(object):
         :param data: The info being stored in this new node.
         :return: bool True if successful.
         """
-        current = self.head
-        new_node = Node(data)
-        if not current:
-            self.prepend(data)
-            return
-        while current.next:
-            current = current.next
-        new_node.prev = current
-        current.next = new_node
-        self.tail = new_node
-        self.size += 1
-        return True
+        for data in values:
+            current = self.head
+            new_node = Node(data)
+            if not current:
+                self.prepend(data)
+                break
+            while current.next:
+                current = current.next
+            new_node.prev = current
+            current.next = new_node
+            self.tail = new_node
+            self.size += 1
+            return True
 
     def insert(self, position, data):
-        """ 
+        """
         Insert data at a specific position in the LinkedList.
 
         Time - O(n): LinkedList traversal.
@@ -152,7 +151,7 @@ class LinkedList(object):
     # TODO: `find_at` should return the data and `_find_node_at` should return a Node or None
 
     def find(self, data):
-        """ 
+        """
         Find a Node in the LinkedList.
 
         Time - O(n): LinkedList traversal.
@@ -168,7 +167,7 @@ class LinkedList(object):
         return None
 
     def find_at(self, position):
-        """ 
+        """
         Find a Node in the LinkedList.
 
         Time - O(n): LinkedList traversal.
@@ -190,7 +189,8 @@ class LinkedList(object):
     # Remove
 
     def remove(self, data):
-        """ Remove a Node from the LinkedList.
+        """
+        Remove a Node from the LinkedList.
         Time - O(n)
 
         :param data: The info being removed.
@@ -208,7 +208,7 @@ class LinkedList(object):
             current = current.next
 
     def remove_at(self, position):
-        """ 
+        """
         Remove a Node from the LinkedList.
 
         Time - O(n)
@@ -238,6 +238,41 @@ class LinkedList(object):
             current.swap(current.prev)
             current = current.prev
 
+    def interleave(self):
+        """
+        Interleave the second half of the nodes with the first half.
+
+        This returns a new LinkedList.
+
+        Example:
+            1, 3, 5, 2, 4, 6 becomes 1, 2, 3, 4, 5, 6
+        """
+        mid = self.size // 2
+        node1 = self.head
+        node2 = node1
+        count = 0
+        while count < mid:
+            node2 = node2.next
+            count += 1
+        new_list = LinkedList()
+        while node2 is not None:
+            new_list.append(node1.data, node2.data)
+            node1 = node1.next
+            node2 = node2.next
+        return new_list
+
+    def remove_duplicates(self):
+        """
+        Remove duplicate nodes from this Linked list.
+        """
+        lookup = set()
+        current = self.head
+        while current is not None and current.next is not None:
+            lookup.add(current.data)
+            if current.next is not None and current.next.data in lookup:
+                current.next = current.next.next
+            current = current.next
+
 
 class TestNode(unittest.TestCase):
     """ Test the behavior of the Node class. """
@@ -255,6 +290,38 @@ class TestNode(unittest.TestCase):
 
         node.swap(node.prev)
         self.assertEqual("Node: 3, Prev: 1, Next: 2", str(node))
+
+
+def linked_list_sum(*l_lists):
+    """
+    Add the values in the LinkedLists and return the sum.
+
+    Example:
+        l_list1 = LinkedList()
+        l_list1.append(7, 1, 6)
+
+        l_list2 = LinkedList()
+        l_list2.append(5, 9, 2)
+
+        new_list = linked_list_sum(l_list1, l_list2)
+        print(new_list)  # => 2, 1, 9
+
+    Reference:
+        Cracking the Coding Interview, 6th Edition, Chapter 2, question 2.5
+    """
+    total = 0
+    for l_list in l_lists:
+        index = 0
+        current = l_list.head
+        while current is not None:
+            total += current.data * (10 ** index)
+            index += 1
+            current = current.next
+    new_list = LinkedList()
+    while total > 0:
+        new_list.append(total % 10)
+        total //= 10
+    return new_list
 
 
 class TestLinkedList(unittest.TestCase):
