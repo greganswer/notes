@@ -10,36 +10,36 @@ The header is called an interpreter directive (it is also called a hashbang or s
 
 ## Definitions
 
-| Term | Definition |
-|:-----|:-----------|
-| **Shell** | A (possibly interactive) command interpreter, acting as a layer between the user and the system  |
-| **Bash** | The Bourne Again Shell, a Bourne compatible shell |
-| **Script** | A sequence of commands in a file |
-| **Alias** | A word that is mapped to a string. Whenever that word is used as a command, it is replaced by the string it has mapped.
-| **Function** | A name that is mapped to a set of commands. Whenever the function is used as a command, it is called with the arguments following it. Functions are the basic method of making new commands.
-| **Builtin** | Certain commands have been built into Bash. These are handled directly by the Bash executable and do not create a new process.
-| **Executable** | A program that can be executed by referring to its file path (e.g. /bin/ls), or simply by its name if its location is in the PATH variable. |
+| Term           | Definition                                                                                                                                                                                   |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Shell**      | A (possibly interactive) command interpreter, acting as a layer between the user and the system                                                                                              |
+| **Bash**       | The Bourne Again Shell, a Bourne compatible shell                                                                                                                                            |
+| **Script**     | A sequence of commands in a file                                                                                                                                                             |
+| **Alias**      | A word that is mapped to a string. Whenever that word is used as a command, it is replaced by the string it has mapped.                                                                      |
+| **Function**   | A name that is mapped to a set of commands. Whenever the function is used as a command, it is called with the arguments following it. Functions are the basic method of making new commands. |
+| **Builtin**    | Certain commands have been built into Bash. These are handled directly by the Bash executable and do not create a new process.                                                               |
+| **Executable** | A program that can be executed by referring to its file path (e.g. /bin/ls), or simply by its name if its location is in the PATH variable.                                                  |
 
 ## Special characters
 
-| Character | Description |
-|--------:|:------------|
-| **#**  | A comment. |
-| **\*** | Wildcard or Glob. |
-| **\\** | Escape character. |
-| **.**  | The current directory. |
-| **?**  | Test operator (ternary operator). |
-| **[**  | A Bash builtin that tests a condition. |
-| **[[**  | A Bash keyword that tests a condition. |
-| **..** | The parent directory. |
-| **:**  | The null command [colon]. This is the shell equivalent of a "NOP" *(no op, a do-nothing operation)*. It may be considered a synonym for the shell builtin true. The ":" command is itself a Bash builtin, and its exit status is true (0). |
-| **$?** | The exit status of a command, a function, or of the script itself |
-| **$$** | The process ID of the script in which it appears. |
+| Character | Description                                                                                                                                                                                                                                |
+| --------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     **#** | A comment.                                                                                                                                                                                                                                 |
+|    **\*** | Wildcard or Glob.                                                                                                                                                                                                                          |
+|    **\\** | Escape character.                                                                                                                                                                                                                          |
+|     **.** | The current directory.                                                                                                                                                                                                                     |
+|     **?** | Test operator (ternary operator).                                                                                                                                                                                                          |
+|     **[** | A Bash builtin that tests a condition.                                                                                                                                                                                                     |
+|    **[[** | A Bash keyword that tests a condition.                                                                                                                                                                                                     |
+|    **..** | The parent directory.                                                                                                                                                                                                                      |
+|     **:** | The null command [colon]. This is the shell equivalent of a "NOP" *(no op, a do-nothing operation)*. It may be considered a synonym for the shell builtin true. The ":" command is itself a Bash builtin, and its exit status is true (0). |
+|    **$?** | The exit status of a command, a function, or of the script itself                                                                                                                                                                          |
+|    **$$** | The process ID of the script in which it appears.                                                                                                                                                                                          |
 
 ## Commands
 
-| Command | Description |
-|:--------|:------------|
+| Command                                | Description                    |
+| :------------------------------------- | :----------------------------- |
 | **cp [OPTION]... SOURCE... DIRECTORY** | Copy source(s) to destination. |
 
 ## Basics
@@ -135,11 +135,11 @@ sudo service mongdb stop
 
 ## Redirection
 
-| Command | Description 
-|:--------|:------------
-| `scriptname > filename`  | Redirects the output of `scriptname` to file `filename`. Overwrite `filename` if it already exists.
-| `command &> filename`    | Redirects both the stdout and the stderr of command to filename.
-| `scriptname >> filename` | Appends the output of `scriptname` to file `filename`. If `filename` does not already exist, it is created.
+| Command                  | Description                                                                                                 |
+| :----------------------- | :---------------------------------------------------------------------------------------------------------- |
+| `scriptname > filename`  | Redirects the output of `scriptname` to file `filename`. Overwrite `filename` if it already exists.         |
+| `command &> filename`    | Redirects both the stdout and the stderr of command to filename.                                            |
+| `scriptname >> filename` | Appends the output of `scriptname` to file `filename`. If `filename` does not already exist, it is created. |
 
 ## Linting
 
@@ -163,3 +163,4 @@ Use `shellcheck` utility. Intallation: `brew install shellcheck`. Given a script
 - [alexanderepstein/Bash-Snippets](https://github.com/alexanderepstein/Bash-Snippets)
 - [BashGuide](https://mywiki.wooledge.org/BashGuide)
 - [Good Coding Practices for Bash](https://bit.ly/2DKOUc9)
+- [Output redirection](https://skorks.com/2009/09/output-redirection-with-bash)

@@ -4,22 +4,23 @@
 - [Comparison](#comparison)
   - [Is vs. equality operator](#is-vs-equality-operator)
   - [Type function vs. isinstance function](#type-function-vs-isinstance-function)
-- [Truthy and falsey values](#truthy-and-falsey-values)
-- [Strings](#strings)
-- [Lists](#lists)
-- [Tuples](#tuples)
-- [Dictionaries](#dictionaries)
-- [Sets](#sets)
-- [Console input and output](#console-input-and-output)
-- [Control flow](#control-flow)
-- [Functions](#functions)
-- [Exceptions](#exceptions)
-- [Classes](#classes)
-- [Modules](#modules)
-- [Misc](#misc)
+- [Data structures](#data-structures)
+  - [Truthy and falsey values](#truthy-and-falsey-values)
+  - [Strings](#strings)
+  - [Lists](#lists)
+  - [Tuples](#tuples)
+  - [Dictionaries](#dictionaries)
+  - [Sets](#sets)
+  - [Classes](#classes)
+  - [Modules](#modules)
   - [Comprehensions](#comprehensions)
+- [Control flow](#control-flow)
+  - [Exceptions](#exceptions)
+- [Functions](#functions)
   - [Sorting](#sorting)
-- [Command line app boilerplate](#command-line-app-boilerplate)
+- [Command line](#command-line)
+  - [Console input and output](#console-input-and-output)
+  - [App boilerplate](#app-boilerplate)
 - [Additional reading](#additional-reading)
 - [References](#references)
 
@@ -88,7 +89,7 @@ Seeing whether a value is in a range
 2 < 3 < 2  # => False
 ```
 
-Don't use the equality `==` symbol to compare objects to `None` use `is` instead. 
+Don't use the equality `==` symbol to compare objects to `None` use `is` instead.
 This checks for equality of object identity.
 
 ```python
@@ -98,7 +99,7 @@ None is None   # => True
 
 ### Is vs. equality operator
 
-`is` checks if two variables refer to the same object, but `==` checks if the 
+`is` checks if two variables refer to the same object, but `==` checks if the
 objects pointed to have the same values.
 
 ```python
@@ -127,8 +128,9 @@ type(Vehicle()) == Vehicle      # returns True
 isinstance(Truck(), Vehicle)    # returns True
 type(Truck()) == Vehicle        # returns False, and this probably won't be what you want.
 ```
+## Data structures
 
-## Truthy and falsey values
+### Truthy and falsey values
 
 The following values evaluate to false:
 
@@ -144,7 +146,7 @@ set() # Empty set
 range(0) # Empty range
 ```
 
-## Strings
+### Strings
 
 You can repeat the formatting arguments to save some typing.
 ```python
@@ -159,7 +161,7 @@ You can also format using f-strings or formatted string literals (in Python 3.6+
 f"{name} is {len(name)} characters long." # => "Reiko is 5 characters long."
 ```
 
-## Lists
+### Lists
 
 List are Python's implementation of arrays.
 
@@ -235,7 +237,7 @@ len(li)  # => 6
 four_nones = [None] * 4 # => [None, None, None, None]
 ```
 
-## Tuples
+### Tuples
 
 ```python
 Tuples are like lists but are immutable.
@@ -256,7 +258,7 @@ tup[:2]          # => (1, 2)
 2 in tup         # => True
 ```
 
-## Dictionaries
+### Dictionaries
 
 ```python
 # Get all keys as an iterable with "keys()". We need to wrap the call in list()
@@ -293,7 +295,7 @@ filled_dict.setdefault("five", 5)  # filled_dict["five"] is set to 5
 filled_dict.setdefault("five", 6)  # filled_dict["five"] is still 5
 ```
 
-## Sets
+### Sets
 
 ```python
 empty_set = set()
@@ -349,22 +351,104 @@ filled_set.union(other_set) # => {1, 2, 3, 4, 5, 6}
 immutableSet = frozenset()
 ```
 
-## Console input and output
-
-By default the print function also prints out a newline at the end. Use the 
-optional argument end to change the end string.
+### Classes
 
 ```python
-print("Hello, World", end="!")  # => Hello, World!
+class Creature(object):
+    def __init__(self, name):
+        # Assign the argument to the instance's name attribute
+        self.name = name
+
+        self.age = 0
+
+
+class Human(Creature):
+    # A class attribute. It is shared by all instances of this class
+    species = "H. sapiens"
+
+    def __init__(self, name):
+        # The "super" function lets you access the parent class's methods
+        # that are overridden by the child, in this case, the __init__ method.
+        # This calls the parent class constructor:
+        super().__init__(name)
+
+    # A class method is shared among all instances. They are called with the
+    # calling class as the first argument. We generally use class method to
+    # create factory methods. Factory methods return class object
+    # (similar to a constructor) for different use cases.
+    @classmethod
+    def get_species(cls):
+        return cls.species
+
+    # A static method is called without a class or instance reference. It's a
+    # way of putting a function into a class (because it logically belongs there),
+    # while indicating that it does not require access to the class.
+    # We generally use static methods to create utility functions.
+    @staticmethod
+    def grunt():
+        return "*grunt*"
+
+
+h = Human()
+print(h.get_species()) # => H. sapiens
+
+Human.species = "H. neanderthalensis"
+print(h.get_species()) # => H. neanderthalensis
+print(Human.grunt())   # => *grunt*
 ```
 
-Simple way to get input data from console
+For more info about the difference between `@staticmethod` and `@classmethod`
+reference https://stackoverflow.com/a/1669524.
+
+### Modules
 
 ```python
-input_string_var = input("Enter some data: ") # Returns the data as a string
+import math
 ```
 
-Note: In earlier versions of Python, input() method was named as raw_input()
+```python
+def main():
+    print("Doing some work...")
+
+# When a Python interpreter reads a source file it executes all its code.
+# This __name__ check makes sure this code block is only executed when this
+# module is the main program.
+if __name__ == '__main__':
+    main()
+```
+
+If you have a Python script named `math.py` in the same folder as your current
+script, the file math.py will be loaded instead of the built-in Python module.
+This happens because the local folder has priority over Python's built-in libraries.
+
+### Comprehensions
+
+Comprehensions provide a concise way to create lists or dictionaries. It consists of
+brackets containing an expression followed by a for clause, then zero or more for or
+if clauses. The expressions can be anything, meaning you can put in all kinds of
+objects in lists.
+
+```python
+[ expression for item in list if conditional ]
+
+# This is equivalent to:
+for item in list:
+    if conditional:
+        expression
+```
+
+Examples
+
+```python
+[i for i in range(3)]          # => [0, 1, 2, 3]
+[i*3 for item in range(3)]     # => [0, 3, 6, 9]
+{x: f'A{x}' for x in range(3)} # => {0: 'A0', 1: 'A1', 2: 'A2'}
+
+numbers = [x for x in "Hello 12345 World" if x.isdigit()] # => ['1', '2', '3', '4', '5']
+
+listOfWords = ["this","is","a","list","of","words"]
+items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
+```
 
 ## Control flow
 
@@ -394,6 +478,28 @@ for i in range(4):
 # => 4, 6
 for i in range(4, 8, 2):
     print(i)
+```
+
+### Exceptions
+
+```python
+Handle exceptions with a try/except block
+try:
+    # Use "raise" to raise an error
+    raise IndexError("This is an index error")
+except IndexError as e:
+    pass                 # Pass is just a no-op. Usually you would do recovery here.
+except (TypeError, NameError):
+    pass                 # Multiple exceptions can be handled together, if required.
+else:                    # Optional clause to the try/except block. Must follow all except blocks
+    print("All good!")   # Runs only if the code in try raises no exceptions
+finally:                 #  Execute under all circumstances
+    print("We can clean up resources here")
+
+# Instead of try/finally to cleanup resources you can use a with statement
+with open("myfile.txt") as f:
+    for line in f:
+        print(line)
 ```
 
 ## Functions
@@ -428,129 +534,6 @@ list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
 {x: x**2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 ```
 
-## Exceptions
-
-```python
-Handle exceptions with a try/except block
-try:
-    # Use "raise" to raise an error
-    raise IndexError("This is an index error")
-except IndexError as e:
-    pass                 # Pass is just a no-op. Usually you would do recovery here.
-except (TypeError, NameError):
-    pass                 # Multiple exceptions can be handled together, if required.
-else:                    # Optional clause to the try/except block. Must follow all except blocks
-    print("All good!")   # Runs only if the code in try raises no exceptions
-finally:                 #  Execute under all circumstances
-    print("We can clean up resources here")
-
-# Instead of try/finally to cleanup resources you can use a with statement
-with open("myfile.txt") as f:
-    for line in f:
-        print(line)
-```
-
-## Classes
-
-```python
-class Creature(object):
-    def __init__(self, name):
-        # Assign the argument to the instance's name attribute
-        self.name = name
-
-        self.age = 0
-
-
-class Human(Creature):
-    # A class attribute. It is shared by all instances of this class
-    species = "H. sapiens"
-
-    def __init__(self, name):
-        # The "super" function lets you access the parent class's methods
-        # that are overridden by the child, in this case, the __init__ method.
-        # This calls the parent class constructor:
-        super().__init__(name)
-
-    # A class method is shared among all instances. They are called with the 
-    # calling class as the first argument. We generally use class method to 
-    # create factory methods. Factory methods return class object 
-    # (similar to a constructor) for different use cases.
-    @classmethod
-    def get_species(cls):
-        return cls.species
-
-    # A static method is called without a class or instance reference. It's a 
-    # way of putting a function into a class (because it logically belongs there), 
-    # while indicating that it does not require access to the class.
-    # We generally use static methods to create utility functions.
-    @staticmethod
-    def grunt():
-        return "*grunt*"
-
-
-h = Human()
-print(h.get_species()) # => H. sapiens  
-
-Human.species = "H. neanderthalensis"
-print(h.get_species()) # => H. neanderthalensis
-print(Human.grunt())   # => *grunt*
-```
-
-For more info about the difference between `@staticmethod` and `@classmethod` 
-reference https://stackoverflow.com/a/1669524.
-
-## Modules
-
-```python
-import math
-```
-
-```python
-def main():
-    print("Doing some work...")
-
-# When a Python interpreter reads a source file it executes all its code.
-# This __name__ check makes sure this code block is only executed when this
-# module is the main program.
-if __name__ == '__main__':
-    main()
-```
-
-If you have a Python script named `math.py` in the same folder as your current 
-script, the file math.py will be loaded instead of the built-in Python module. 
-This happens because the local folder has priority over Python's built-in libraries.
-
-## Misc
-
-### Comprehensions
-
-Comprehensions provide a concise way to create lists or dictionaries. It consists of 
-brackets containing an expression followed by a for clause, then zero or more for or 
-if clauses. The expressions can be anything, meaning you can put in all kinds of 
-objects in lists.
-
-```python
-[ expression for item in list if conditional ]
-
-# This is equivalent to:
-for item in list:
-    if conditional:
-        expression
-```
-
-Examples
-
-```python
-[i for i in range(3)]          # => [0, 1, 2, 3]
-[i*3 for item in range(3)]     # => [0, 3, 6, 9]
-{x: f'A{x}' for x in range(3)} # => {0: 'A0', 1: 'A1', 2: 'A2'}
-
-numbers = [x for x in "Hello 12345 World" if x.isdigit()] # => ['1', '2', '3', '4', '5']
-
-listOfWords = ["this","is","a","list","of","words"] 
-items = [word[0] for word in listOfWords] # => ['t', 'i', 'a', 'l', 'o', 'w']
-```
-
 ### Sorting
 
 ```python
@@ -561,7 +544,26 @@ for k, v in sorted(incomes.items(), key=lambda item : item[1]):
     print(f'{k} -> {v}')
 ```
 
-## Command line app boilerplate
+## Command line 
+
+### Console input and output
+
+By default the print function also prints out a newline at the end. Use the
+optional argument end to change the end string.
+
+```python
+print("Hello, World", end="!")  # => Hello, World!
+```
+
+Simple way to get input data from console
+
+```python
+input_string_var = input("Enter some data: ") # Returns the data as a string
+```
+
+Note: In earlier versions of Python, input() method was named as raw_input()
+
+### App boilerplate
 
 ```python
 import click
@@ -612,3 +614,5 @@ Mosts of the examples in this file come directly from one of the following links
 - https://realpython.com/iterate-through-dictionary-python
 - https://www.toptal.com/python/an-introduction-to-mocking-in-python
 - https://www.toptal.com/python/why-are-there-so-many-pythons
+- https://realpython.com/python-virtual-environments-a-primer
+- https://realpython.com/python-application-layouts/

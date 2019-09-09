@@ -120,7 +120,7 @@ class LinkedList(object):
             current.next = new_node
             self.tail = new_node
             self.size += 1
-            return True
+        return True
 
     def insert(self, position, data):
         """
