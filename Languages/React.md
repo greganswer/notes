@@ -31,5 +31,14 @@
 ### State management
 
 - When state changes, the child components get re-rendered
+- State management is asynchronous
+    - If you need to use the state value after the update, use the callback parameter in the `setState` method
+    - If you need to use the state value as part of setting state, pass a function as the first parameter
+    - Otherwise use the simple object notation (most common)
+
+### Lifecycle methods
+
+- It's important to understand the lifecyle methods
+    - http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram
 
 ## References

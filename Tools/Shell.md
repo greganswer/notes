@@ -164,3 +164,4 @@ Use `shellcheck` utility. Intallation: `brew install shellcheck`. Given a script
 - [BashGuide](https://mywiki.wooledge.org/BashGuide)
 - [Good Coding Practices for Bash](https://bit.ly/2DKOUc9)
 - [Output redirection](https://skorks.com/2009/09/output-redirection-with-bash)
+- [When to use STDERR instead of STDOUT](https://bit.ly/2kCABkm)
