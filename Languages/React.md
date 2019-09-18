@@ -36,9 +36,28 @@
     - If you need to use the state value as part of setting state, pass a function as the first parameter
     - Otherwise use the simple object notation (most common)
 
+### State management with Redux
+
+3 Principles:
+1. Single source of truth
+1. State is read only
+1. Changes using pure functions
+
+Redux flow
+
+| Term                | Definition                                               |
+| ------------------- | -------------------------------------------------------- |
+| **1. Action**       | When a user takes action in the application              |
+| **2. Root Reducer** | A function that receives an action and outputs the state |
+| **3. Store**        | The entire state of the application                      |
+| **4. DOM changes**  | This happens as a result of the state change             |
+
 ### Lifecycle methods
 
-- It's important to understand the lifecyle methods
+- It's important to understand the lifecyle methods in order enhance performance
     - http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram
 
 ## References
+
+- https://blog.logrocket.com/understanding-redux-saga-from-action-creators-to-sagas-2587298b5e71
+- https://devhints.io/react

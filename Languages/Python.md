@@ -544,7 +544,7 @@ for k, v in sorted(incomes.items(), key=lambda item : item[1]):
     print(f'{k} -> {v}')
 ```
 
-## Command line 
+## Command line
 
 ### Console input and output
 
@@ -599,6 +599,7 @@ def cli(infile, outfile, log_file, verbose):
 1. https://wiki.python.org/moin/TimeComplexity
 1. https://realpython.com/python-range/
 1. https://realpython.com/introduction-to-python-generators/
+1. https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/
 
 ## References
 
