@@ -11,6 +11,8 @@ https://devhints.io
 ## Browser tools
 
 1. [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+1. Google's automated tool for improving the performance, quality, and correctness of your web apps 
+https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en
    
 ## Fake Data tools
 
@@ -25,5 +27,6 @@ https://www.mocky.io
 
 ## Design tools
 
+1. https://realfavicongenerator.net
 1. Trendy, ready to use images for your 404 page
 https://www.kapwing.com/404-illustrations
