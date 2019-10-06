@@ -30,3 +30,15 @@ describe('My First Test', function() {
   })
 })
 ```
+
+## Best practices
+
+- When to use `cy.contains()`?
+    - If you want the test to fail when the content changes then use `cy.contains()`. Otherwise use a data attribute
+
+See more [ Cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
+
+## References
+
+- [Cypress cheat sheet](https://github.com/janmanfai/cypress-cheat-sheet)
+- [CSS Tricks article](https://css-tricks.com/an-intro-to-web-app-testing-with-cypress-io)

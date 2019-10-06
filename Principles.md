@@ -3,6 +3,7 @@
 - [Programming Principles](#programming-principles)
   - [Programmer's oath](#programmers-oath)
   - [Personal workflow](#personal-workflow)
+  - [Definitions](#definitions)
   - [References](#references)
 
 ## Programmer's oath
@@ -50,6 +51,14 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
    1. CHANGELOG.md 
    1. README.md files, Confluence docs, etc.
 
+## Definitions
+
+| Term       | Defintion                                                           |
+| ---------- | ------------------------------------------------------------------- |
+| Expression | A piece of code that produces a value                               |
+| Statement  | An entire line of code. Can be comprised of one or more expressions |
+
+
 ## References
 
-1. [Google's documentation style guide](https://github.com/google/styleguide/tree/gh-pages/docguide)
+1. [Google's documentation style guide](https://github.com/google/styleguide/tree/gh-pages/docguide

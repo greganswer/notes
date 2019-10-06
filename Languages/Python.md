@@ -1,28 +1,28 @@
 # Python
 
-- [General](#general)
-- [Comparison](#comparison)
-  - [Is vs. equality operator](#is-vs-equality-operator)
-  - [Type function vs. isinstance function](#type-function-vs-isinstance-function)
-- [Data structures](#data-structures)
-  - [Truthy and falsey values](#truthy-and-falsey-values)
-  - [Strings](#strings)
-  - [Lists](#lists)
-  - [Tuples](#tuples)
-  - [Dictionaries](#dictionaries)
-  - [Sets](#sets)
-  - [Classes](#classes)
-  - [Modules](#modules)
-  - [Comprehensions](#comprehensions)
-- [Control flow](#control-flow)
-  - [Exceptions](#exceptions)
-- [Functions](#functions)
-  - [Sorting](#sorting)
-- [Command line](#command-line)
-  - [Console input and output](#console-input-and-output)
-  - [App boilerplate](#app-boilerplate)
-- [Additional reading](#additional-reading)
-- [References](#references)
+  - [General](#general)
+  - [Comparison](#comparison)
+    - [Is vs. equality operator](#is-vs-equality-operator)
+    - [Type function vs. isinstance function](#type-function-vs-isinstance-function)
+  - [Data structures](#data-structures)
+    - [Truthy and falsey values](#truthy-and-falsey-values)
+    - [Strings](#strings)
+    - [Lists](#lists)
+    - [Tuples](#tuples)
+    - [Dictionaries](#dictionaries)
+    - [Sets](#sets)
+    - [Classes](#classes)
+    - [Modules](#modules)
+    - [Comprehensions](#comprehensions)
+  - [Control flow](#control-flow)
+    - [Exceptions](#exceptions)
+  - [Functions](#functions)
+    - [Sorting](#sorting)
+  - [Command line](#command-line)
+    - [Console input and output](#console-input-and-output)
+    - [App boilerplate](#app-boilerplate)
+  - [Additional reading](#additional-reading)
+  - [References](#references)
 
 ## General
 
@@ -540,6 +540,7 @@ list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
 # Sort by value in ascending order
 incomes = {'apple': 5600.00, 'orange': 3500.00, 'banana': 5000.00}
 
+# The `items` method returns each key/value pair as a tuple.
 for k, v in sorted(incomes.items(), key=lambda item : item[1]):
     print(f'{k} -> {v}')
 ```
