@@ -7,3 +7,26 @@
 - View videos of your entire tests execution when run from the Cypress Dashboard.
 - Cypress engine directly operates inside the browser
 - listen and modify the browser behavior at run time by manipulating DOM and altering Network requests and responses on the fly
+
+## Execution
+
+```bash
+# Opens the Cypress Test Runner in interactive mode.
+# https://docs.cypress.io/guides/guides/command-line.html#cypress-opennpx cypress open
+
+# Run tests in headless mode in the Electron browser.
+# https://docs.cypress.io/guides/guides/command-line.html#cypress-run
+npx cypress run 
+```
+
+- You can use any [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) to target elements on the page
+- You can also use the [Cypress Selector Playground](https://docs.cypress.io/guides/core-concepts/test-runner.html#Selector-Playground) to help find the most unique selector
+
+```javascript
+describe('My First Test', function() {
+  it('Does not do much!', function() {
+    expect(true).to.equal(true)
+    cy.visit("https://google.com")
+  })
+})
+```

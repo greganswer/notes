@@ -1,12 +1,26 @@
 # Table of Contents
 
+- [Glossary](#glossary)
 - [Priorities](#priorities)
 - [Test pyramid](#test-pyramid)
-  - [UI](#ui)
-  - [API](#api)
+  - [End to End](#end-to-end)
+  - [Web API](#web-api)
   - [Models](#models)
 - [Bugs](#bugs)
 - [References](#references)
+
+## Glossary
+
+Unfortunately in software development the same word can be used to mean many things. 
+This glossary is an attempt to create an explicit definition of the terms used in this document. 
+**NOTE: These terms/definitions are subject to change.**
+
+| Term                                   | Definition                                                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Web API**                            | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
+| **Behaviour Driven Development (BDD)** |
+| **End to End (E2E)**                   |
+| **Models**                             |
   
 ## Priorities
 
@@ -32,7 +46,7 @@ According to Martin Fowler, *"The "Test Pyramid" is a metaphor that tells us to 
 
 This is meant to create a wholistic view 
 
-### UI
+### End to End
 
 **Examples:**
 
@@ -51,7 +65,7 @@ How to write scenario steps
 
 > If your feature files are full of “I click this” and “I see this” you are in a wrong place - you should probably use cypress directly. Gherkin should NOT talk about UI layer. This is a common misconception. Your feature in 95% of cases has nothing to do with the UI. UI is an implementation detail. Feature description should be high level and make sense no matter if you are creating a feature to work with a web app, Alexa, or even a phone call. To be honest - this is not always easy or doable, but this should be your direction. - [The Brain Software House](https://thebrain.pro/blog/Cypress-Cucumber-Preprocessor-Update)
 
-### API
+### Web API
 
 ### Models
 
@@ -65,6 +79,7 @@ How to write scenario steps
 
 - [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 - [Cucumber syntax](https://cucumber.io/docs/gherkin/reference)
+- [API Wikipedia definition](https://en.wikipedia.org/wiki/Application_programming_interface)
 
 **Frontend**
 
