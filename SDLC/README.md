@@ -1,20 +1,27 @@
 # SDLC
 
 - [Summary](#summary)
+- [Glossary](#glossary)
 - [Details](#details)
-  - [Glossary](#glossary)
-  - [Testing](#testing)
+  - [Acceptance criteria](#acceptance-criteria)
+  - [Mockups](#mockups)
+  - [User stories](#user-stories)
+  - [Behavior driven development](#behavior-driven-development)
     - [End to End](#end-to-end)
     - [Web API](#web-api)
     - [Units](#units)
+  - [Bugs](#bugs)
 - [Examples](#examples)
 - [References](#references)
 
 ## Summary
 
-## Details
+- Each scenario in a Feature should be small enough that it can be **"done"** in one sprint
+    - If not, try to decrease the scope of work
+- Each stage does not need to be thoroughly completed before moving to the next
+    - This is a case where the more details, the better
 
-### Glossary
+## Glossary
 
 Unfortunately in software development the same word can be used to mean many things. 
 This glossary is an attempt to create an explicit definition of the terms used in this document. 
@@ -28,7 +35,23 @@ This glossary is an attempt to create an explicit definition of the terms used i
 | **End to End (E2E)**                  |
 | **Units**                             |
 
-### Testing
+## Details
+
+### Acceptance criteria
+
+![Acceptance criteria ball of yarn](/images/acceptance-criteria-ball-of-yarn.jpg)
+
+*source: https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important*
+
+### Mockups
+
+### User stories
+
+> The common template for describing acceptance criteria using a scenario-oriented approach is the Given/When/Then format that is derived from behaviour-driven development (BDD). The Given/When/Then format is used for writing acceptance tests that ensure that all the specification requirements are met. - [Writing Clear Acceptance Criteria for User Stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
+
+- When writing user stories, define the minimum piece of functionality you’re able to deliver and stick to it. 
+
+### Behavior driven development
 
 **Test pyramid**
 
