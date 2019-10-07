@@ -42,3 +42,5 @@ See more [ Cypress Best Practices](https://docs.cypress.io/guides/references/bes
 
 - [Cypress cheat sheet](https://github.com/janmanfai/cypress-cheat-sheet)
 - [CSS Tricks article](https://css-tricks.com/an-intro-to-web-app-testing-with-cypress-io)
+- [Cypress FAQ](https://docs.cypress.io/faq/questions/using-cypress-faq.html)
+- [Cypress Commands](https://docs.cypress.io/api/api/table-of-contents.html)

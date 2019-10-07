@@ -15,12 +15,12 @@ Unfortunately in software development the same word can be used to mean many thi
 This glossary is an attempt to create an explicit definition of the terms used in this document. 
 **NOTE: These terms/definitions are subject to change.**
 
-| Term                                   | Definition                                                                                              |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Web API**                            | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
-| **Behaviour Driven Development (BDD)** |
-| **End to End (E2E)**                   |
-| **Models**                             |
+| Term                                  | Definition                                                                                              |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Web API**                           | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
+| **Behavior Driven Development (BDD)** |
+| **End to End (E2E)**                  |
+| **Models**                            |
   
 ## Priorities
 
@@ -83,12 +83,12 @@ How to write scenario steps
 
 **Frontend**
 
-- https://www.monterail.com/blog/end-to-end-testing-with-cypress
-- https://automationrhapsody.com/cypress-vs-selenium-end-era
-- [Cypress roadmap](https://docs.cypress.io/guides/references/roadmap.html#Test-Runner)
+- [End-to-end testing with Cypress](https://www.monterail.com/blog/end-to-end-testing-with-cypress)
+- [Cypress vs Selenium](https://automationrhapsody.com/cypress-vs-selenium-end-era)
+- [Cypress road map](https://docs.cypress.io/guides/references/roadmap.html#Test-Runner)
 - [Cypress Cucumber preprocessor](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor)
 
 **Backend**
 
-- https://dev.to/truggeri/rspec-or-minitest-for-testing-rails-apps-42fi
-- https://tenderlovemaking.com/2015/01/23/my-experience-with-minitest-and-rspec.html
+- [rSpec vs Minitest](https://dev.to/truggeri/rspec-or-minitest-for-testing-rails-apps-42fi)
+- [Experience of rSpec and Minitest](https://tenderlovemaking.com/2015/01/23/my-experience-with-minitest-and-rspec.html)
