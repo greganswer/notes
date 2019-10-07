@@ -1,5 +1,10 @@
 # Bugs
 
+- [Summary](#summary)
+- [Details](#details)
+- [Examples](#examples)
+- [References](#references)
+
 ## Summary
 
 - Start with desired output and work backwards

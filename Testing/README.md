@@ -21,7 +21,7 @@ This glossary is an attempt to create an explicit definition of the terms used i
 | **Web API**                           | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
 | **Behavior Driven Development (BDD)** |
 | **End to End (E2E)**                  |
-| **Models**                            |
+| **Units**                             |
   
 ## Priorities
 
@@ -50,9 +50,6 @@ This is meant to create a wholistic view
 ### End to End
 
 **Examples:**
-
-1. [Cypress cucumber example repo](https://github.com/jmarti-theinit/cypress-cucumber-example)
-      1. [Google search feature](https://github.com/jmarti-theinit/cypress-cucumber-example/blob/master/cypress/integration/google/search.feature)
 
 When should I write a unit test and when should I write an end-to-end test?
 

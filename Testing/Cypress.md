@@ -40,6 +40,9 @@ See more [ Cypress Best Practices](https://docs.cypress.io/guides/references/bes
 
 ## Examples
 
+1. [Cypress cucumber example repo](https://github.com/jmarti-theinit/cypress-cucumber-example)
+      1. [Google search feature](https://github.com/jmarti-theinit/cypress-cucumber-example/blob/master/cypress/integration/google/search.feature)
+
 ```bash
 # Opens the Cypress Test Runner in interactive mode.
 # https://docs.cypress.io/guides/guides/command-line.html#cypress-opennpx cypress open

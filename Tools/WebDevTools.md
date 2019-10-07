@@ -13,6 +13,7 @@ https://devhints.io
 1. [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 1. Google's automated tool for improving the performance, quality, and correctness of your web apps 
 https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en
+1. [Generate and validate unique CSS selectors](https://bit.ly/2I7rr8i)
    
 ## Fake Data tools
 
