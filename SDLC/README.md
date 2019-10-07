@@ -4,12 +4,12 @@
 - [Glossary](#glossary)
 - [Details](#details)
   - [Acceptance criteria](#acceptance-criteria)
-  - [Mockups](#mockups)
   - [User stories](#user-stories)
-  - [Behavior driven development](#behavior-driven-development)
+  - [Design](#design)
+  - [Behavior driven development (BDD)](#behavior-driven-development-bdd)
     - [End to End](#end-to-end)
     - [Web API](#web-api)
-    - [Units](#units)
+    - [Unit](#unit)
   - [Bugs](#bugs)
 - [Examples](#examples)
 - [References](#references)
@@ -28,13 +28,23 @@ This glossary is an attempt to create an explicit definition of the terms used i
 
 **NOTE: These terms/definitions are subject to change.**
 
+**General**
+
 | Term                                  | Definition                                                                                              |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Web API**                           | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
 | **Behavior Driven Development (BDD)** |
 | **End to End (E2E)**                  |
 | **Units**                             |
+| **Web API**                           | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
 
+**Acceptance Criteria**
+
+| Term                                   | Definition                                                                                                                                                           |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Functional Acceptance Criteria**     | The user tasks, functions, and businesses process that should be in place.<br>*Example: When a I receive a new message then I should see an on-screen notification.* |
+| **Non-functional Acceptance Criteria** | List of business rules that must be met.<br>*Example: when the user gets their password wrong 3 times then they are locked out of the system for 30 minutes.*        |
+| **Performance Acceptance Criteria**    | List of performance rules that must be met.<br>*Example: the page must load in less than 3 seconds with 1000 concurrent users.*                                      |
+ 
 ## Details
 
 ### Acceptance criteria
@@ -43,15 +53,25 @@ This glossary is an attempt to create an explicit definition of the terms used i
 
 *source: https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important*
 
-### Mockups
+- Document the functional, non-functional, and performance acceptance criteria
 
 ### User stories
 
-> The common template for describing acceptance criteria using a scenario-oriented approach is the Given/When/Then format that is derived from behaviour-driven development (BDD). The Given/When/Then format is used for writing acceptance tests that ensure that all the specification requirements are met. - [Writing Clear Acceptance Criteria for User Stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
-
 - When writing user stories, define the minimum piece of functionality you’re able to deliver and stick to it. 
 
-### Behavior driven development
+> The common template for describing acceptance criteria using a scenario-oriented approach is the Given/When/Then format that is derived from behaviour-driven development (BDD). The Given/When/Then format is used for writing acceptance tests that ensure that all the specification requirements are met. - [Writing Clear Acceptance Criteria for User Stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
+
+| Term      | Definition                                 |
+| --------- | ------------------------------------------ |
+| **Given** | Defines some precondition or situation     |
+| **When**  | The action performed by the user or system |
+| **Then**  | The expected result                        |
+
+**Examples**
+
+### Design
+
+### Behavior driven development (BDD)
 
 **Test pyramid**
 
@@ -64,18 +84,13 @@ This is meant to create a wholistic view of stabilizing the app in a scalable wa
 The tests should:
 
 1. Cover all critical user flows
-1. Focus on developer experience
 1. Be easy to read/write
 1. Be fast to run (consider parallel testing)
-
-When writing tests focus on:
-
-1. Focus on and test just one thing
-1. Are flake-free and do not fail randomly
+1. Be flake-free and do not fail randomly
 1. Give you confidence to refactor code and add new features
-1. Are easy to run both locally and on a continuous integration server
+1. Be easy to run both locally and on a continuous integration server
 
-Ref: [Cypress FAQ](https://docs.cypress.io/faq/questions/general-questions-faq.html#When-should-I-write-a-unit-test-and-when-should-I-write-an-end-to-end-test)
+Reference: [Cypress FAQ](https://docs.cypress.io/faq/questions/general-questions-faq.html#When-should-I-write-a-unit-test-and-when-should-I-write-an-end-to-end-test)
 
 #### End to End
 
@@ -95,7 +110,7 @@ How to write scenario steps
 
 #### Web API
 
-#### Units
+#### Unit
 
 ### Bugs
 
@@ -111,6 +126,8 @@ How to write scenario steps
 - [Cucumber syntax](https://cucumber.io/docs/gherkin/reference)
 - [API Wikipedia definition](https://en.wikipedia.org/wiki/Application_programming_interface)
 - [Writing clear user stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
+- [Acceptance Criteria](http://www.professionalqa.com/acceptance-criteria)
+- [Acceptance Criteria examples](https://simplicable.com/new/acceptance-criteria-examples)
 
 **Frontend**
 
