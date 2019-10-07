@@ -23,3 +23,6 @@
 ## Examples
 
 ## References 
+
+- [rSpec vs Minitest](https://dev.to/truggeri/rspec-or-minitest-for-testing-rails-apps-42fi)
+- [Experience of rSpec and Minitest](https://tenderlovemaking.com/2015/01/23/my-experience-with-minitest-and-rspec.html)

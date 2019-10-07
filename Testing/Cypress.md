@@ -66,6 +66,10 @@ describe('My First Test', function() {
 
 ## References
 
+- [End-to-end testing with Cypress](https://www.monterail.com/blog/end-to-end-testing-with-cypress)
+- [Cypress vs Selenium](https://automationrhapsody.com/cypress-vs-selenium-end-era)
+- [Cypress road map](https://docs.cypress.io/guides/references/roadmap.html#Test-Runner)
+- [Cypress Cucumber preprocessor](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor)
 - [Cypress cheat sheet](https://github.com/janmanfai/cypress-cheat-sheet)
 - [CSS Tricks article](https://css-tricks.com/an-intro-to-web-app-testing-with-cypress-io)
 - [Cypress FAQ](https://docs.cypress.io/faq/questions/using-cypress-faq.html)

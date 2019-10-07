@@ -120,23 +120,9 @@ How to write scenario steps
 
 ## References 
 
-**General**
-
 - [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 - [Cucumber syntax](https://cucumber.io/docs/gherkin/reference)
 - [API Wikipedia definition](https://en.wikipedia.org/wiki/Application_programming_interface)
 - [Writing clear user stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
 - [Acceptance Criteria](http://www.professionalqa.com/acceptance-criteria)
 - [Acceptance Criteria examples](https://simplicable.com/new/acceptance-criteria-examples)
-
-**Frontend**
-
-- [End-to-end testing with Cypress](https://www.monterail.com/blog/end-to-end-testing-with-cypress)
-- [Cypress vs Selenium](https://automationrhapsody.com/cypress-vs-selenium-end-era)
-- [Cypress road map](https://docs.cypress.io/guides/references/roadmap.html#Test-Runner)
-- [Cypress Cucumber preprocessor](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor)
-
-**Backend**
-
-- [rSpec vs Minitest](https://dev.to/truggeri/rspec-or-minitest-for-testing-rails-apps-42fi)
-- [Experience of rSpec and Minitest](https://tenderlovemaking.com/2015/01/23/my-experience-with-minitest-and-rspec.html)
