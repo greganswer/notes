@@ -8,7 +8,7 @@ BASH is not your operating system. It is not your window manager. It is not your
 
 The header is called an interpreter directive (it is also called a hashbang or shebang). It specifies that /bin/bash is to be used as the interpreter when the file is used as the executable in a command. When the kernel executes a non-binary file, it reads the first line of the file. If the line begins with #!, the kernel uses the line to determine the interpreter to relay the file to. (There are other valid ways to do this as well, see below.) The #! must be at the very start of the file, with no spaces or blank lines before it. Our script's commands will appear on separate lines below this.
 
-## Definitions
+## Glossary
 
 | Term           | Definition                                                                                                                                                                                   |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ sudo service mongdb stop
 Use `shellcheck` utility. Intallation: `brew install shellcheck`. Given a script named *my_script* run 
 `shellcheck my_script`.
 
-**Reference:** 
+## References
 
 - [Run a script n times](https://bit.ly/2HU6dgd)
 - [Bash scripting best practices](https://bit.ly/2DcGHNI)
@@ -165,3 +165,5 @@ Use `shellcheck` utility. Intallation: `brew install shellcheck`. Given a script
 - [Good Coding Practices for Bash](https://bit.ly/2DKOUc9)
 - [Output redirection](https://skorks.com/2009/09/output-redirection-with-bash)
 - [When to use STDERR instead of STDOUT](https://bit.ly/2kCABkm)
+- [Shell Script Template](https://natelandau.com/boilerplate-shell-script-template)
+- [Shell FAQs](https://mywiki.wooledge.org/BashFAQ/035)

@@ -13,8 +13,6 @@ open /Applications/Docker.app
 
 ## Config
 
-
-
 ## Complete Uninstall 
 
 ```bash

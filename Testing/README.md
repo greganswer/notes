@@ -13,6 +13,7 @@
 
 Unfortunately in software development the same word can be used to mean many things. 
 This glossary is an attempt to create an explicit definition of the terms used in this document. 
+
 **NOTE: These terms/definitions are subject to change.**
 
 | Term                                  | Definition                                                                                              |

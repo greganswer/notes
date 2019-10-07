@@ -1,4 +1,4 @@
-# TITLE_TO_BE_CHANGED_PLEASE_AND_THANK_YOU_AND_I_MADE_THIS_LONGER_SO_IT_STANDS_OUT_BECAUSE_MARKDOWN_SHOULD_BE_80_COLUMNS
+# SDLC
 
 - [Summary](#summary)
 - [Details](#details)
@@ -24,3 +24,5 @@ This glossary is an attempt to create an explicit definition of the terms used i
 ## Examples
 
 ## References 
+
+- [Writing clear user stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
