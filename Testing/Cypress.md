@@ -45,7 +45,8 @@ See more [ Cypress Best Practices](https://docs.cypress.io/guides/references/bes
 
 ```bash
 # Opens the Cypress Test Runner in interactive mode.
-# https://docs.cypress.io/guides/guides/command-line.html#cypress-opennpx cypress open
+# https://docs.cypress.io/guides/guides/command-line.html#cypress-open
+npx cypress open
 
 # Run tests in headless mode in the Electron browser.
 # https://docs.cypress.io/guides/guides/command-line.html#cypress-run
