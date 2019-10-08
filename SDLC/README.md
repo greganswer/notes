@@ -30,20 +30,20 @@ This glossary is an attempt to create an explicit definition of the terms used i
 
 **General**
 
-| Term                                  | Definition                                                                                              |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Behavior Driven Development (BDD)** |
-| **End to End (E2E)**                  |
-| **Units**                             |
-| **Web API**                           | The backend (server-side) software layer that controls how user data is stored, accessed, and modified. |
+| Term                                  | Definition                                                                                                                                                                                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Behavior Driven Development (BDD)** | A software development methodology based on the use of conversation and concrete examples to formalize a shared understanding of the business behaviors your code is implementing.<br>*Example documents: Use stories, Acceptance Criteria, End to End tests* |
+| **End to End (E2E) tests**            | Tests that exercise end user interactions with the application using production-like circumstances and data.                                                                                                                                                  |
+| **Unit tests**                        | Tests that validate the functionality of the smallest component of a system that can be tested in isolation.<br>*Example: Functions, Classes, Models, etc.*                                                                                                   |
+| **Web API**                           | A backend (server-side) software layer that returns JSON/XML responses from requests to store, access, and modify data.<br>*Example: https://api.github.com*                                                                                                  |
 
 **Acceptance Criteria**
 
 | Term                                   | Definition                                                                                                                                                           |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Functional Acceptance Criteria**     | The user tasks, functions, and businesses process that should be in place.<br>*Example: When a I receive a new message then I should see an on-screen notification.* |
-| **Non-functional Acceptance Criteria** | List of business rules that must be met.<br>*Example: when the user gets their password wrong 3 times then they are locked out of the system for 30 minutes.*        |
-| **Performance Acceptance Criteria**    | List of performance rules that must be met.<br>*Example: the page must load in less than 3 seconds with 1000 concurrent users.*                                      |
+| **Non-functional Acceptance Criteria** | List of business rules that must be met.<br>*Example: When the user gets their password wrong 3 times then they are locked out of the system for 30 minutes.*        |
+| **Performance Acceptance Criteria**    | List of performance rules that must be met.<br>*Example: The page must load in less than 3 seconds with 1000 concurrent users.*                                      |
  
 ## Details
 
@@ -90,9 +90,28 @@ The tests should:
 1. Give you confidence to refactor code and add new features
 1. Be easy to run both locally and on a continuous integration server
 
-Reference: [Cypress FAQ](https://docs.cypress.io/faq/questions/general-questions-faq.html#When-should-I-write-a-unit-test-and-when-should-I-write-an-end-to-end-test)
+Reference: [Cypress FAQ](https://bit.ly/2AU1sNs)
 
 #### End to End
+
+Modern software systems are complex and are interconnected with multiple sub-systems. 
+A sub-system may be different from the current system or may be owned by another 
+organization. If anyone of the sub-systems fails, the whole software system could 
+collapse. This is a major risk and can be avoided by End-to-End testing.
+
+It's best to select a few of the most critical user flows to test within that 
+application to maximize this Return on Investment.
+
+**Advantages**
+
+- Confirms your application’s health
+- Expands test coverage
+- Catches more bugs 
+
+**Disadvantages**
+
+- Typically slower to run
+- Can be more complicated to setup
 
 **Examples:**
 
@@ -126,3 +145,4 @@ How to write scenario steps
 - [Writing clear user stories](https://rubygarage.org/blog/clear-acceptance-criteria-and-why-its-important)
 - [Acceptance Criteria](http://www.professionalqa.com/acceptance-criteria)
 - [Acceptance Criteria examples](https://simplicable.com/new/acceptance-criteria-examples)
+- [End to End testing](https://dzone.com/articles/what-is-end-to-end-testing-1)
