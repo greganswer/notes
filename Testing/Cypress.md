@@ -6,6 +6,7 @@
   - [Disadvantages](#disadvantages)
   - [Best Practices](#best-practices)
   - [Folder structure](#folder-structure)
+  - [Files](#files)
   - [FAQs](#faqs)
 - [Examples](#examples)
 - [References](#references)
@@ -69,6 +70,157 @@ cypress
 └── support
     ├── commands.js
     └── index.js
+```
+
+### Files
+
+`fixtures/users.json`
+
+```javascript
+{
+  "admin": {
+    "email": "me@example.com",
+    "password": "super_secret"
+  },
+}
+```
+
+`integration/Login/AdminLogin.feature`
+```gherkin
+Feature: Admin Login
+  As an Admin
+  I can log in
+  So that I can access and modify system info
+
+  Background:
+    Given I have an Admin account
+    And I'm on the Admin Login page
+
+  @e2e-test
+  Scenario: Valid credentials
+    When I enter my email and password
+    And I press the "Login" button
+    Then I see the Admin Dashboard page
+    When I log out
+    Then I see the Admin Login page
+```
+
+`integration/common/index.js`
+```javascript
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+
+// NOTE: this account should be seeded in the backend database.
+Given(/^I have a Admin account$/, () => {});
+
+// Additional step definitions below...
+```
+
+`integration/Login/AdminLogin/AdminLogin.js`
+```javascript
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+import AdminLoginPage from '../../../pages/Login/AdminLoginPage';
+
+When(/^I enter my email and password$/, () => {
+  AdminLoginPage.enterValidCredentials();
+});
+
+// Additional step definitions below...
+```
+
+`pages/Page.js`
+```javascript
+class Page {
+  static visit() {
+    cy.visit(this.path());
+  }
+
+  /**
+   * The URL path for the page.
+   * NOTE: This should be overridden in each subclass.
+   *
+   * @returns {string}
+   */
+  static path() {
+    return '';
+  }
+}
+
+export default Page;
+```
+
+`pages/Login/AdminPage.js`
+```javascript
+import * as users from '../../fixtures/users';
+import Page from '../Page';
+
+class AdminLoginPage extends Page {
+  static path() {
+    return '/admin/login';
+  }
+
+  static user() {
+    return users.admin;
+  }
+
+  static enterValidCredentials() {
+    cy.get('[data-testid=login-email-input]').type(this.user().email);
+    cy.get('[data-testid=login-password-input]').type(this.user().password);
+  }
+}
+
+export default AdminLoginPage;
+```
+
+`plugins/index.js`
+```javascript
+const cucumber = require('cypress-cucumber-preprocessor').default;
+
+module.exports = (on, config) => {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+  on('file:preprocessor', cucumber());
+};
+```
+
+`support/commands.js`
+```javascript
+/**
+ * Programmatically login a user.
+ *
+ * @link https://docs.cypress.io/guides/getting-started/testing-your-app.html#Logging-in
+ *
+ * @param {string} userType is the type of user being logged out.
+ * @param {object} options  additional options to modify login behavior.
+ * @example
+ * cy.login('admin')
+ */
+Cypress.Commands.add('login', (userType, options = {}) => {
+  cy.fixture('users').then(users => {
+    const { email, password } = users[userType];
+
+    cy
+      .request({
+        method: 'POST',
+        url: 'http://localhost:3000/admin/login',
+        body: { email, password },
+      })
+      .then(resp => {
+        // Add additional login logic...
+        cy.wrap(resp.body.data).as('currentUser');
+      });
+  });
+});
+
+/**
+ * Programmatically logout the current user.
+ */
+Cypress.Commands.add('logout', () => {
+  cy.request({
+    method: 'DELETE',
+    url: 'http://localhost:3000/admin/logout',
+  });
+  // Add additional logout logic...
+});
 ```
 
 ### FAQs
