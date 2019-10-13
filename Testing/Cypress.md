@@ -5,6 +5,7 @@
   - [Advantages](#advantages)
   - [Disadvantages](#disadvantages)
   - [Best Practices](#best-practices)
+  - [Folder structure](#folder-structure)
   - [FAQs](#faqs)
 - [Examples](#examples)
 - [References](#references)
@@ -44,6 +45,31 @@
 For more information, visit the 
 [Cypres Best Practices page](https://docs.cypress.io/guides/references/best-practices.html)
 
+### Folder structure
+
+```
+cypress
+├── README.md
+├── fixtures
+│   ├── DummyPic.png
+│   └── users.json
+├── integration
+│   ├── Login
+│   │   ├── AdminLogin
+│   │   │   └── AdminLogin.js
+│   │   └── AdminLogin.feature
+│   └── common
+│       └── index.js
+├── pages
+│   │   ├── AdminLoginPage.js
+│   │   └── LoginPage.js
+│   └── Page.js
+├── plugins
+│   └── index.js
+└── support
+    ├── commands.js
+    └── index.js
+```
 
 ### FAQs
 
@@ -54,8 +80,9 @@ See more [Cypress Best Practices](https://docs.cypress.io/guides/references/best
 
 ## Examples
 
-1. [Cypress cucumber example repo](https://github.com/jmarti-theinit/cypress-cucumber-example)
-      1. [Google search feature](https://github.com/jmarti-theinit/cypress-cucumber-example/blob/master/cypress/integration/google/search.feature)
+1. [Integrate Cypress and Cucumber in your development flow](https://bit.ly/323KLLj)
+   1. [Cypress cucumber example repo](https://github.com/jmarti-theinit/cypress-cucumber-example)
+   1. [Google search feature](https://github.com/jmarti-theinit/cypress-cucumber-example/blob/master/cypress/integration/google/search.feature)
 
 ```bash
 # Opens the Cypress Test Runner in interactive mode.
