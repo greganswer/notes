@@ -7,6 +7,7 @@
   - [Best Practices](#best-practices)
   - [Folder structure](#folder-structure)
   - [Files](#files)
+  - [Additional info](#additional-info)
   - [FAQs](#faqs)
 - [Examples](#examples)
 - [References](#references)
@@ -242,7 +243,45 @@ Cypress.Commands.add('logout', () => {
   });
   // Add additional logout logic...
 });
+
+/**
+ * Assert the current URL.
+ *
+ * @param {string} path The path portion of the URL.
+ * @example
+ * cy.currentUrlShouldBe('/companies')
+ */
+Cypress.Commands.add('currentUrlShouldBe', path => {
+  cy.url().should('eq', Cypress.config().baseUrl + path);
+});
+
+/**
+ * Access contents of an iframe.
+ *
+ * @link https://bit.ly/2OHw2lq
+ *
+ * @param {string} iframeSelector The CSS selector for the iframe.
+ * @param {string} elSelector The element to be selected in iframe.
+ * @example
+ * cy.iframe('[title="Calendar"]').as('calenderIframe')
+ * cy.get('@calenderIframe').find('.Calendar__day').eq(0).click()
+ */
+Cypress.Commands.add('iframe', (iframeSelector, elSelector = 'body') => {
+  return cy
+    .get(`iframe${iframeSelector || ''}`, { timeout: 10000 })
+    .should($iframe => {
+      expect($iframe.contents().find(elSelector)).to.exist
+    })
+    .then($iframe => {
+      return cy.wrap($iframe.contents().find('body'))
+    })
+});
 ```
+
+### Additional info
+
+1. [Additional Cypress recipes](https://docs.cypress.io/examples/examples/recipes.html)
+1. [File uploading](https://github.com/abramenal/cypress-file-upload)
 
 ### FAQs
 
