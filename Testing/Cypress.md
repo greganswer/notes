@@ -49,6 +49,8 @@ For more information, visit the
 ### Folder structure
 
 ```
+cypress.json
+package.json
 cypress
 ├── README.md
 ├── fixtures
@@ -73,6 +75,25 @@ cypress
 ```
 
 ### Files
+
+`cypress.json`
+```javascript
+{
+    "baseUrl": "http://localhost:3000",
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout" : 10000,
+    "numTestsKeptInMemory": 5,
+    "testFiles": "**/*.feature"
+}
+
+```
+
+`package.json`
+```javascript
+ "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+```
 
 `fixtures/users.json`
 
