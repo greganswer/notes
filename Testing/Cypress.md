@@ -91,7 +91,12 @@ cypress
 
 `package.json`
 ```javascript
- "cypress-cucumber-preprocessor": {
+  "scripts": {
+    // Additional commands
+    "test:e2e:open": "cypress open",
+    "test:e2e": "cypress run --env TAGS='@e2e-test' --spec 'cypress/integration/**/*.feature'"
+  }
+  "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   }
 ```
@@ -132,7 +137,7 @@ Feature: Admin Login
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 // NOTE: this account should be seeded in the backend database.
-Given(/^I have a Admin account$/, () => {});
+Given(`I have a Admin account`, () => {});
 
 // Additional step definitions below...
 ```
@@ -142,7 +147,7 @@ Given(/^I have a Admin account$/, () => {});
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 import AdminLoginPage from '../../../pages/Login/AdminLoginPage';
 
-When(/^I enter my email and password$/, () => {
+When(`I enter my email and password`, () => {
   AdminLoginPage.enterValidCredentials();
 });
 
