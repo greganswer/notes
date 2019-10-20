@@ -3,7 +3,6 @@
 - [Programming Principles](#programming-principles)
   - [Programmer's oath](#programmers-oath)
   - [Personal workflow](#personal-workflow)
-  - [Definitions](#definitions)
   - [References](#references)
 
 ## Programmer's oath
@@ -20,6 +19,17 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 1. **Always give a ranged estimate** (Ex: This will take 2-4 days)
 1. **Continuously learn and improve**
 
+**Avoid bugs**
+- Write tests
+- Write simple, readable code
+- Use clear names
+- Follow best practices (convention over configuration)
+
+**Continuously transfer knowledge**
+- Pair programming
+- Written documentation
+- Weekly demos
+
 ## Personal workflow
 
 1. **QA the current application (end-to-end)**
@@ -29,7 +39,7 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 1. **Changelog Driven Development** - update the Changelog before coding
 1. **Document Driven Development** - create/update documentation before coding
 1. **Write integration tests as pseudo-code comments**
-   1. Write Given When Then scenarios
+   1. Write `Given/When/Then` scenarios
    1. Write acceptance tests as pending tests
    1. TDD the functions you plan to create/update 
 1. **Write the code**
@@ -41,7 +51,7 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
    1. Consider edge cases
 1. **Refactor code**
    1. DRY it up
-   1. Remove comments
+   1. Remove unnecessary comments
 1. **QA the application (end-to-end)**
    1. Ensure that the fix/feature works 
    1. Check if anything related broke (regressions)
@@ -50,14 +60,6 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
    1. Commit message
    1. CHANGELOG.md 
    1. README.md files, Confluence docs, etc.
-
-## Definitions
-
-| Term       | Defintion                                                           |
-| ---------- | ------------------------------------------------------------------- |
-| Expression | A piece of code that produces a value                               |
-| Statement  | An entire line of code. Can be comprised of one or more expressions |
-
 
 ## References
 
