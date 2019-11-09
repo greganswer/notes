@@ -1,50 +1,81 @@
+import unittest
+
+
 class Node:
-    def __init__(self, data):
+    def __init__(self, data, next=None):
         self.data = data
-        self.next = None
+        self.next = next
 
 
-class MyQueue:
-
+class Queue:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.first = None
         self.last = None
         self.size = 0
 
-    def push(self, x: int) -> None:
-        """
-        Push element x to the back of queue.
-        """
-        new_node = Node(x)
-        if self.last is not None:
+    def __len__(self):
+        return self.size
+
+    def add(self, data):
+        new_node = Node(data)
+        if self.last:
             self.last.next = new_node
         self.last = new_node
+        if not self.first:
+            self.first = self.last
         self.size += 1
-        if self.first is None:
-            self.first = new_node
 
-    def pop(self) -> int:
-        """
-        Removes the element from in front of queue and returns that element.
-        """
-        if self.first is None or self.last is None:
-            return 0
-        unwanted_node = self.first
-        self.first = unwanted_node.next
+    def peek(self):
+        if self.first:
+            return self.first.data
+
+    def is_empty(self):
+        return not self.first
+
+    def remove(self):
+        if not self.first:
+            return
+        data = self.first.data
+        self.first = self.first.next
+        if not self.first.next:
+            self.last = self.first
         self.size -= 1
-        return unwanted_node.data
+        return data
 
-    def peek(self) -> int:
-        """
-        Get the front element.
-        """
-        return self.first.data if self.first is not None else 0
 
-    def empty(self) -> bool:
-        """
-        Returns whether the queue is empty.
-        """
-        return self.size == 0
+class TestQueue(unittest.TestCase):
+    """ Test the behavior of the Queue class. """
+
+    def setUp(self):
+        self.queue = Queue()
+
+    def test_init(self):
+        self.assertIsNone(self.queue.peek())
+        self.assertTrue(self.queue.is_empty())
+        self.assertEqual(len(self.queue), 0)
+
+    def test_add(self):
+        self.queue.add(1)
+        self.queue.add(2)
+        self.assertEqual(self.queue.peek(), 1)
+        self.assertFalse(self.queue.is_empty())
+        self.assertEqual(len(self.queue), 2)
+
+    def test_remove(self):
+        self.queue.add(1)
+        self.queue.add(2)
+        self.queue.remove()
+        self.assertEqual(self.queue.peek(), 2)
+        self.assertFalse(self.queue.is_empty())
+        self.assertEqual(len(self.queue), 1)
+
+    def test_remove_when_queue_empty(self):
+        self.queue.remove()
+        self.assertIsNone(self.queue.peek())
+        self.assertTrue(self.queue.is_empty())
+        self.assertEqual(len(self.queue), 0)
+
+
+# Run the tests
+if __name__ == "__main__":
+    unittest.main()

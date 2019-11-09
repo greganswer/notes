@@ -73,17 +73,19 @@ class TestStack(unittest.TestCase):
     def test_push(self):
         for stack in self.stacks:
             stack.push(1)
-            self.assertEqual(stack.peek(), 1)
+            stack.push(2)
+            self.assertEqual(stack.peek(), 2)
             self.assertFalse(stack.is_empty())
-            self.assertEqual(len(stack), 1)
+            self.assertEqual(len(stack), 2)
 
     def test_pop(self):
         for stack in self.stacks:
             stack.push(1)
+            stack.push(2)
             stack.pop()
-            self.assertIsNone(stack.peek())
-            self.assertTrue(stack.is_empty())
-            self.assertEqual(len(stack), 0)
+            self.assertEqual(stack.peek(), 1)
+            self.assertFalse(stack.is_empty())
+            self.assertEqual(len(stack), 1)
 
     def test_pop_when_stack_empty(self):
         for stack in self.stacks:

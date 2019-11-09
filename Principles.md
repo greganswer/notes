@@ -3,6 +3,7 @@
 - [Programming Principles](#programming-principles)
   - [Programmer's oath](#programmers-oath)
   - [Personal workflow](#personal-workflow)
+  - [Programming Principles](#programming-principles-1)
   - [References](#references)
 
 ## Programmer's oath
@@ -60,6 +61,23 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
    1. Commit message
    1. CHANGELOG.md 
    1. README.md files, Confluence docs, etc.
+
+## Programming Principles
+
+1. Always test the empty state of objects
+    ```python
+    stack = Stack()
+    self.assertIsNone(stack.peek())
+    self.assertTrue(stack.is_empty())
+    self.assertEqual(len(stack), 0)
+    ```
+1. Always check that the object is present before accessing its values
+    ```python
+    if self.list:
+        return self.list[-1]
+    if self.top:
+        return self.top.data
+    ```
 
 ## References
 

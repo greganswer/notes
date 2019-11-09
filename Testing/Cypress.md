@@ -1,16 +1,16 @@
 # Cypress
 
-- [Summary](#summary)
-- [Details](#details)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
-  - [Best Practices](#best-practices)
-  - [Folder structure](#folder-structure)
-  - [Files](#files)
-  - [Additional info](#additional-info)
-  - [FAQs](#faqs)
-- [Examples](#examples)
-- [References](#references)
+  - [Summary](#summary)
+  - [Details](#details)
+    - [Advantages](#advantages)
+    - [Disadvantages](#disadvantages)
+    - [Best Practices](#best-practices)
+    - [Folder structure](#folder-structure)
+    - [Files](#files)
+    - [Additional info](#additional-info)
+    - [FAQs](#faqs)
+  - [Examples](#examples)
+  - [References](#references)
 
 ## Summary
 
@@ -41,7 +41,7 @@
 - Only test what you control. When necessary, always use `cy.request()` to talk to 3rd party servers via their APIs.
 - Clean up state before tests run because there is no guarantee that `after` hooks will run, especially if their is an error in the test
 - Use the `data-testid` HTML attribute to select elements on the page
-- Avoid unecessary use of `cy.wait`. Most Cypress functions automatically wait for a period of time that should be enough. Use may vary
+- Avoid unnecessary use of `cy.wait`. Most Cypress functions automatically wait for a period of time that should be enough. Use may vary
 - Set a `baseUrl` in your `cypress.json` file
 
 For more information, visit the 
