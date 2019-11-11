@@ -1,12 +1,6 @@
 import unittest
 
 
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
-
-
 class Queue:
     def __init__(self):
         self.first = None
@@ -17,17 +11,16 @@ class Queue:
         return self.size
 
     def add(self, data):
-        new_node = Node(data)
+        new_node = self.Node(data)
         if self.last:
             self.last.next = new_node
-        self.last = new_node
         if not self.first:
-            self.first = self.last
+            self.first = new_node
+        self.last = new_node
         self.size += 1
 
     def peek(self):
-        if self.first:
-            return self.first.data
+        return self.first.data if self.first else None
 
     def is_empty(self):
         return not self.first
@@ -41,6 +34,11 @@ class Queue:
             self.last = self.first
         self.size -= 1
         return data
+
+    class Node:
+        def __init__(self, data, next=None):
+            self.data = data
+            self.next = next
 
 
 class TestQueue(unittest.TestCase):

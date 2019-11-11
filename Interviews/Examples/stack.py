@@ -1,12 +1,6 @@
 import unittest
 
 
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
-
-
 class Stack:
     def __init__(self):
         self.top = None
@@ -16,23 +10,27 @@ class Stack:
         return self.size
 
     def push(self, data):
-        self.top = Node(data, self.top)
+        self.top = self.Node(data, self.top)
         self.size += 1
-
-    def peek(self):
-        if self.top:
-            return self.top.data
-
-    def is_empty(self):
-        return not self.top
 
     def pop(self):
         if not self.top:
             return
-        removed = self.top
-        self.top = removed.next
+        data = self.top.data
+        self.top = self.top.next
         self.size -= 1
-        return removed.data
+        return data
+
+    def peek(self):
+        return self.top.data if self.top else None
+
+    def is_empty(self):
+        return not self.top
+
+    class Node:
+        def __init__(self, data, next=None):
+            self.data = data
+            self.next = next
 
 
 class ListStack(object):
@@ -42,17 +40,14 @@ class ListStack(object):
     def __len__(self):
         return len(self.list)
 
-    def peek(self):
-        if self.list:
-            return self.list[-1]
-
     def push(self, data):
         self.list.append(data)
 
     def pop(self):
-        if not self.list:
-            return
-        return self.list.pop()
+        return self.list.pop() if self.list else None
+
+    def peek(self):
+        return self.list[-1] if self.list else None
 
     def is_empty(self):
         return len(self.list) == 0
