@@ -588,6 +588,7 @@ def cli(infile, outfile, log_file, verbose):
 
 ## Additional reading
 
+1. https://nicedoc.io/aneagoie/ztm-python-cheat-sheet?theme=light
 1. https://www.toptal.com/python#hiring-guide
 1. https://realpython.com/introduction-to-python-generators/
 1. https://realpython.com/python-memory-management/
