@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+# When the `--debug` flag is passed to this script, display the file and line
+# number for each command that executed.
+[[ "${*}" =~ --debug ]] && set -o xtrace
+PS4='+ ${BASH_SOURCE}:${LINENO} '
+
+set -o pipefail # `error here | true` will fail if this is enabled.
+set -o errexit # Exit the script when an error occurs.
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -L)"
+
+is_watch_mode=0
+is_cover_mode=0
+
+main() {
+  handle_options "$@"
+  # TODO: Find a way to avoid changing directories
+  cd "${__dir}/../"
+  if (($is_watch_mode)) && command -v nodemon > /dev/null; then
+    printf "Watching python files...\n"
+    # Ref: https://github.com/remy/nodemon
+    nodemon --delay 2 --ext py --exec python3 -m unittest tests/**.py
+  else
+    python3 -m unittest tests/**.py
+  fi
+  # TODO: Find a way to avoid changing directories
+  cd -
+
+  # (($is_cover_mode)) && go tool cover -html=coverage.out
+}
+
+# TODO: Fill this in
+# Show the usage for this script
+usage() {
+  :
+}
+
+# Process the options that are passed to this script
+#
+# Arguments:
+#     $@ - Options passed into this script
+#
+# Examples:
+#     $ handle_options $@
+
+# References:
+#     - https://natelandau.com/boilerplate-shell-script-template/
+#     - https://mywiki.wooledge.org/BashFAQ/035
+handle_options() {
+  while [[ -n "$1" ]]; do
+    case $1 in
+      --debug       ) ;; # Prevent `Unknown option` failure.
+      -h | --help   ) usage && exit;;
+      watch         ) is_watch_mode=1;;
+      cover         ) is_cover_mode=1;;
+      *             ) fatal "Unknown option: ${1}";;
+    esac
+    shift
+  done
+}
+
+main "$@"
