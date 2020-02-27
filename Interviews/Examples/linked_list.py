@@ -166,24 +166,14 @@ class LinkedList(object):
             current = current.next
         return None
 
-    def find_at(self, position):
-        """
-        Find a Node in the LinkedList.
-
-        Time - O(n): LinkedList traversal.
-
-        :param position: The position the data will be stored in.
-        :return: Node object or None
-        """
-        if 1 > position > len(self):
-            return None
-        i = 1
+    # Time - O(n): LinkedList traversal.
+    def find_at(self, index: int) -> Node:
+        """ Find a Node in the LinkedList. """
         current = self.head
-        while current:
-            if i == position:
+        for i in range(1, self.size + 1):
+            if i == index:
                 return current
             current = current.next
-            i += 1
         return None
 
     # Remove
