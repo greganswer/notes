@@ -32,18 +32,18 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 
 ## Personal workflow
 
-| Step | Title                             | Details                                                                            |
-| ---- | --------------------------------- | ---------------------------------------------------------------------------------- |
-| 1.   | **QA the application**            | Does the fix/feature already exist? Is there a workaround?                         |
-| 2.   | **Write the Commit**              | Write the Git commit message before coding                                         |
-| 3.   | **Update the Changelog**          | Update the Changelog before coding                                                 |
-| 4.   | **Write Documentation**           | Create/update documentation before, during, and after coding                       |
-| 5.   | **Pseudo-code acceptances tests** | Write pending tests in pseudo-code `Given/When/Then` comments                      |
-| 6.   | **Write the tests and code**      | Write console log statements for behavior instead of comments                      |
-| 7.   | **Consider edge cases**           | Document and discuss edge cases                                                    |
-| 8.   | **QA the application**            | Ensure the fix/feature works, check regressions (functionality, performance, etc.) |
-| 9.   | **Refactor**                      | DRY it up, Remove unnecessary comments                                             |
-| 10.  | **Update documentation**          | CHANGELOG.md, README.md files, Confluence docs, etc.                               |
+| Step | Title                            | Details                                                                            |
+| ---- | -------------------------------- | ---------------------------------------------------------------------------------- |
+| 1.   | **QA the application**           | Does the fix/feature already exist? Is there a workaround?                         |
+| 2.   | **Write the Commit**             | Write the Git commit message before coding                                         |
+| 3.   | **Update the Changelog**         | Update the Changelog before coding                                                 |
+| 4.   | **Write Documentation**          | Create/update documentation before, during, and after coding                       |
+| 5.   | **Pseudo-code acceptance tests** | Write pending tests in pseudo-code `Given/When/Then` comments                      |
+| 6.   | **Write real tests and code**    | Write console log statements for behavior instead of comments                      |
+| 7.   | **Consider edge cases**          | Document and discuss edge cases                                                    |
+| 8.   | **QA the application**           | Ensure the fix/feature works, check regressions (functionality, performance, etc.) |
+| 9.   | **Refactor**                     | DRY it up, Remove unnecessary comments                                             |
+| 10.  | **Update documentation**         | CHANGELOG.md, README.md files, Confluence docs, etc.                               |
 
 ## Programming Principles
 
@@ -64,4 +64,4 @@ Reference: [Uncle Bob's Programmer's Oath](https://blog.cleancoder.com/uncle-bob
 
 ## References
 
-1. [Google's documentation style guide](https://github.com/google/styleguide/tree/gh-pages/docguide
+1. [Google's documentation style guide](https://github.com/google/styleguide/tree/gh-pages/docguide)
