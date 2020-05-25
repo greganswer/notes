@@ -21,3 +21,29 @@ UPDATE blog_posts
 SET published = FALSE
 WHERE published IS NULL
 ```
+
+## 2020/05/21
+
+Given the following error message:
+
+```bash
+DETAIL:  view orders_with_no_email depends on column unused_column of table orders
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+```
+
+Update your migration as such:
+
+```ruby
+class RemoveUnusedColumnFromOrders < ActiveRecord::Migration[5.1]
+  def change
+    execute 'ALTER TABLE "orders" DROP "unused_column" CASCADE'
+  end
+end
+```
+
+## 2020/05/25
+
+- As your working, extract functionality to separate tickets
+  - Reduce scope
+- Focus on Domain Driven Design
+  - Build factories and data structures
