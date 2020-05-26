@@ -47,3 +47,11 @@ end
   - Reduce scope
 - Focus on Domain Driven Design
   - Build factories and data structures
+
+## 2020/05/25
+
+- There are thinkers and monkeys
+  - Thinkers take it slow and plan long term
+  - Monkeys just do as they're told without contemplation
+  - Know when to be in thinker mode (20% of the day) vs monkey mode (80% of the day)
+- Rewrite a bullet point version of the Jira ticket in a markdown scratch file
